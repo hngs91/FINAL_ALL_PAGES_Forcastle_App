@@ -12,8 +12,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.DataBaseHelper;
-import com.example.forcastle_app.DatabaseTeam.TimeFormatters;
+import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InboundPage extends AppCompatActivity {
@@ -69,12 +70,22 @@ public class InboundPage extends AppCompatActivity {
         travelTimeIn4 = findViewById(R.id.travelTimeIn4);
         travelTimeIn5 = findViewById(R.id.travelTimeIn5);
 
-        List<Integer> inboundTimeInt;
+        // HARRY inbound change table broken, potential null rows in returned list? not enough late enough bus times?
+
+        List<Integer> inboundTimeInt = new ArrayList<>();
         // pulling relevant times using database queries and storing results in Lists
         if (BusJourney.getDirectChange().equals("Direct")) {
-            inboundTimeInt = DataBaseHelper.getInstance(getApplicationContext()).outboundTimeListInt(BusJourney.getArrivalTime() + 120, BusJourney.getReturn1());
+            try {
+                inboundTimeInt = DataBaseHelper.getInstance(getApplicationContext()).outboundTimeListInt(BusJourney.getArrivalTime() + 120, BusJourney.getReturn1());
+            } catch (Exception e) {
+                Toast.makeText(this, "direct table broken", Toast.LENGTH_SHORT).show();
+            }
         } else {
-            inboundTimeInt = DataBaseHelper.getInstance(getApplicationContext()).outboundTimeListInt(BusJourney.getArrivalTime() + 120, BusJourney.getReturn2());
+            try {
+                inboundTimeInt = DataBaseHelper.getInstance(getApplicationContext()).outboundTimeListInt(BusJourney.getArrivalTime() + 120, BusJourney.getReturn2());
+            }catch (Exception e) {
+                Toast.makeText(this, "change table broken", Toast.LENGTH_SHORT).show();
+            }
         }
         //populating the 5 time cards with relevant journeys
         setTextViews(inbound1, arrivalIn1, travelTimeIn1, directChangeIn1, inboundTimeInt, i);
@@ -96,7 +107,7 @@ public class InboundPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BusJourney.setOutboundTime2(inbound1.getText().toString());
-                BusJourney.setReturnTime(TimeFormatters.reverseTimeFormat(arrivalIn1.getText().toString()));
+                BusJourney.setReturnTime(TimeDateFormatters.reverseTimeFormat(arrivalIn1.getText().toString()));
                 BusJourney.setTravelTime2(travelTimeIn1.getText().toString());
 
                 Intent intent = new Intent(InboundPage.this, PaymentPage.class);
@@ -110,21 +121,21 @@ public class InboundPage extends AppCompatActivity {
     //shows the relevant journeys available based on time & destination the user has chosen
     public void setTextViews(TextView outbound, TextView arrival, TextView travelTime, TextView directChange, List<Integer> inboundTimeInt, int i) {
         if (BusJourney.getDirectChange().equals("Direct")) {
-            outbound.setText(TimeFormatters.timeFormat(inboundTimeInt.get(i)));
+            outbound.setText(TimeDateFormatters.timeFormat(inboundTimeInt.get(i)));
             int arrivalTime = BusJourney.getJourneyTime1() + inboundTimeInt.get(i);
             BusJourney.setReturnTime(arrivalTime);
-            arrival.setText(TimeFormatters.timeFormat(arrivalTime));
+            arrival.setText(TimeDateFormatters.timeFormat(arrivalTime));
 
-            travelTime.setText(TimeFormatters.durationFormat((BusJourney.getJourneyTime1())));
+            travelTime.setText(TimeDateFormatters.durationFormat((BusJourney.getJourneyTime1())));
             directChange.setText(BusJourney.getDirectChange());
         } else {
             try {
-                outbound.setText(TimeFormatters.timeFormat(inboundTimeInt.get(i)));
+                outbound.setText(TimeDateFormatters.timeFormat(inboundTimeInt.get(i)));
                 int bus2Leave = DataBaseHelper.getInstance(getApplicationContext()).outboundTimeListInt2(inboundTimeInt.get(i), BusJourney.getReturn1(), BusJourney.getJourneyTime2()).get(0);
                 int arrivalTime = bus2Leave + BusJourney.getJourneyTime1();
                 BusJourney.setReturnTime(arrivalTime);
-                arrival.setText(TimeFormatters.timeFormat(arrivalTime));
-                travelTime.setText(TimeFormatters.durationFormat(arrivalTime - inboundTimeInt.get(i)));
+                arrival.setText(TimeDateFormatters.timeFormat(arrivalTime));
+                travelTime.setText(TimeDateFormatters.durationFormat(arrivalTime - inboundTimeInt.get(i)));
                 directChange.setText(BusJourney.getDirectChange());
             } catch (Exception e) {
                 Toast.makeText(this, "1 change return broken", Toast.LENGTH_SHORT).show();

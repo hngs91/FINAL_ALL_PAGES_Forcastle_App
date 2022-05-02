@@ -9,9 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
-import com.example.forcastle_app.DatabaseTeam.TimeFormatters;
-
-import org.w3c.dom.Text;
+import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 
 public class OutboundDetails extends AppCompatActivity {
 
@@ -30,7 +28,8 @@ public class OutboundDetails extends AppCompatActivity {
         ((TextView) findViewById(R.id.outJourneyTo1Pop)).setText(BusJourney.getArrivalStationOut());
         ((TextView) findViewById(R.id.journeyType1Pop)).setText(BusJourney.getDirectChange());
         ((TextView) findViewById(R.id.outFirstJourneyTime1)).setText(BusJourney.getOutboundTime1());
-        ((TextView) findViewById(R.id.outFirstJourneyTime2)).setText(TimeFormatters.timeFormat(BusJourney.getArrivalTime()));
+        ((TextView) findViewById(R.id.outFirstJourneyTime2)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTime()));
+
         /*((TextView) findViewById(R.id.outTime1Pop)).setText(TimeFormatters.durationFormat((BusJourney.getJourneyTime1())));
 */
 

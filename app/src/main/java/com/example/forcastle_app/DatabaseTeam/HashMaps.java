@@ -7,6 +7,7 @@ public class HashMaps {
     private HashMap<String, String> busNo, operators, returnJourney, station, directChange;
     private HashMap<String, Integer> journeyTimes;
 
+    // constructor builds all required hashmaps when called
     public HashMaps() {
         buildBusNo();
         buildOperators();
@@ -15,7 +16,8 @@ public class HashMaps {
         buildJourneyTimes();
         buildDirectChange();
     }
-    
+
+    //maps journey to direct or one change needed
     public void buildDirectChange() {
         directChange = new HashMap<>();
 
@@ -32,7 +34,8 @@ public class HashMaps {
         directChange.put("BARNC1", "1 change");
         directChange.put("BARNC2", "1 change");
     }
-    
+
+    //maps journey to how long it takes
     public void buildJourneyTimes() {
         journeyTimes = new HashMap<>();
 
@@ -51,6 +54,7 @@ public class HashMaps {
 
     }
 
+    //maps journey to bus station name
     public void buildStation() {
         station = new HashMap<>();
 
@@ -68,6 +72,7 @@ public class HashMaps {
         station.put("BARNC2", "Tindale Cresent Club");
     }
 
+    //maps journey to return journey
     public void buildReturnJourney() {
         returnJourney = new HashMap<>();
 
@@ -79,6 +84,7 @@ public class HashMaps {
         returnJourney.put("NCBAR2", "BARNC1");
     }
 
+    //maps journey to bus operator
     public void buildOperators() {
         operators = new HashMap<>();
 
@@ -96,6 +102,7 @@ public class HashMaps {
         operators.put("BARNC2", "Go North East");
     }
 
+    //maps journey to Bus Number
     public void buildBusNo() {
         busNo = new HashMap<>();
 
@@ -113,6 +120,7 @@ public class HashMaps {
         busNo.put("BARNC2", "X21");
     }
 
+    /************** Getter methods ************************/
     public HashMap<String, Integer> getJourneyTimes() {
         return journeyTimes;
     }

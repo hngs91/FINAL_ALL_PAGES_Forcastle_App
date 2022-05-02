@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
-import com.example.forcastle_app.DatabaseTeam.TimeFormatters;
+import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,13 +46,13 @@ public class PaymentPage extends AppCompatActivity {
         ((TextView) findViewById(R.id.confirmDate2)).setText(BusJourney.getTravelDate());
 
         if (BusJourney.getDirectChange().equals("Direct")) {
-            ((TextView) findViewById(R.id.time1)).setText(TimeFormatters.durationFormat((BusJourney.getJourneyTime1())));
+            ((TextView) findViewById(R.id.time1)).setText(TimeDateFormatters.durationFormat((BusJourney.getJourneyTime1())));
         } else {
             ((TextView) findViewById(R.id.time1)).setText((BusJourney.getTravelTime1()));
         }
 
         if (BusJourney.getDirectChange().equals("Direct")) {
-            ((TextView) findViewById(R.id.time2)).setText(TimeFormatters.durationFormat((BusJourney.getJourneyTime1())));
+            ((TextView) findViewById(R.id.time2)).setText(TimeDateFormatters.durationFormat((BusJourney.getJourneyTime1())));
         } else {
             ((TextView) findViewById(R.id.time2)).setText((BusJourney.getTravelTime2()));
         }

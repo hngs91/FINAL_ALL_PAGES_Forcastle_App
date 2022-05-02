@@ -1,7 +1,5 @@
 package com.example.forcastle_app.DatabaseTeam;
 
-import androidx.annotation.NonNull;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,6 +8,8 @@ import java.util.Locale;
 
 public class BusJourney {
 
+    //variables are static so that only one BusJourney object needs to be made with all variables of the one object being accessible from all other classes
+    //removes the need to create a BusJourney object on every page of the app
     private static String journey1, journey2,
             return1, return2,
             partOfWeek,
@@ -21,11 +21,12 @@ public class BusJourney {
             arrivalStationOut, arrivalStationIn,
             travelDate,
             travelTime1, travelTime2,
-            directChange;
-    private static String dateTest;
+            directChange,
+            changeWait;
     private static int hour = 0, minute = 0, totalTime, arrivalTime, returnTime;
     private static Integer journeyTime1, journeyTime2;
 
+    //constructor sets data dictated by the journey chosen by the user via HashMaps
     public BusJourney(String journey1, String journey2) {
         BusJourney.journey1 = journey1;
         BusJourney.journey2 = journey2;
@@ -40,7 +41,7 @@ public class BusJourney {
         busNo2 = hashMaps.getBusNo().get(journey2);
         journeyTime1 = hashMaps.getJourneyTimes().get(journey1);
         journeyTime2 = hashMaps.getJourneyTimes().get(journey2);
-        setTravelTime(journeyTime1);
+        TimeDateFormatters.durationFormat(journeyTime1);
         directChange = hashMaps.getDirectChange().get(journey1);
         departureStationOut = hashMaps.getStation().get(journey1);
         arrivalStationOut = hashMaps.getStation().get(return1);
@@ -48,226 +49,37 @@ public class BusJourney {
         arrivalStationIn = hashMaps.getStation().get(journey1);
     }
 
-    public BusJourney() {
-    }
-
-    public static int getReturnTime() {
-        return returnTime;
-    }
-
-    public static void setReturnTime(int returnTime) {
-        BusJourney.returnTime = returnTime;
-    }
-
-    public static String getTravelTime2() {
-        return travelTime2;
-    }
-
-    public static void setTravelTime2(String travelTime2) {
-        BusJourney.travelTime2 = travelTime2;
-    }
-
-    public static String getDepartureStationIn() {
-        return departureStationIn;
-    }
-
-    public static void setDepartureStationIn(String departureStationIn) {
-        BusJourney.departureStationIn = departureStationIn;
-    }
-
-    public static String getArrivalStationIn() {
-        return arrivalStationIn;
-    }
-
-    public static void setArrivalStationIn(String arrivalStationIn) {
-        BusJourney.arrivalStationIn = arrivalStationIn;
-    }
-
-    public static String getDepartureStationOut() {
-        return departureStationOut;
-    }
-
-    public static void setDepartureStationOut(String departureStationOut) {
-        BusJourney.departureStationOut = departureStationOut;
-    }
-
-    public static String getArrivalStationOut() {
-        return arrivalStationOut;
-    }
-
-    public static void setArrivalStationOut(String arrivalStationOut) {
-        BusJourney.arrivalStationOut = arrivalStationOut;
-    }
-
-    public static int getArrivalTime() {
-        return arrivalTime;
-    }
-
-    public static void setArrivalTime(int arrivalTime) {
-        BusJourney.arrivalTime = arrivalTime;
-    }
-
-    public static void setTravelTime1(String travelTime1) {
-        BusJourney.travelTime1 = travelTime1;
-    }
-
-    public static String getDirectChange() {
-        return directChange;
-    }
-
-    public static void setDirectChange(String directChange) {
-        BusJourney.directChange = directChange;
-    }
-
-    public static String getTravelTime1() {
-        return travelTime1;
-    }
-
-    public static void setTravelTime(int journeyTime) {
-
-        int minute = journeyTime % 60;
-
-        String minuteString = String.valueOf(minute);
-        if (journeyTime < 10) minuteString = "0" + minute;
-
-        int arrivalHour = (journeyTime - minute) / 60;
-
-        BusJourney.travelTime1 = arrivalHour + "h " + minuteString + "m";
-    }
-
-    public static void setTravelTime2(int journeyTime1, int journeyTime2) {
-
-        int journeyTime = journeyTime1 + journeyTime2;
-
-        int minute = journeyTime % 60;
-
-        String minuteString = String.valueOf(minute);
-        if (journeyTime < 10) minuteString = "0" + minute;
-
-        int arrivalHour = (journeyTime - minute) / 60;
-
-        BusJourney.travelTime1 = arrivalHour + "h " + minuteString + "m";
-    }
-
-
-    public static void setJourneyTime1(Integer journeyTime1) {
-        BusJourney.journeyTime1 = journeyTime1;
-    }
-
-    public static void setJourneyTime2(Integer journeyTime2) {
-        BusJourney.journeyTime2 = journeyTime2;
-    }
-
-    public static String getTravelDate() {
-        return travelDate;
-    }
-
-    public static void setTravelDate(int day, int month, int year) {
-
-        String date = day + "/" + month + "/" + year;
-
-        String monthName = getMonthFormat(month);
-
-        SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy", Locale.UK);
-        Date dt1 = null;
-        try {
-            dt1 = format1.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        DateFormat format2 = new SimpleDateFormat("EEEE", Locale.UK);
-        String dayOfWeek = format2.format(dt1);
-
-        travelDate = dayOfWeek + " " + day + " " + monthName;
-
-    }
-
-    public static String getMonthFormat(int month) {
-        if (month == 1)
-            return "JAN";
-        if (month == 2)
-            return "FEB";
-        if (month == 3)
-            return "MAR";
-        if (month == 4)
-            return "APR";
-        if (month == 5)
-            return "MAY";
-        if (month == 6)
-            return "JUN";
-        if (month == 7)
-            return "JUL";
-        if (month == 8)
-            return "AUG";
-        if (month == 9)
-            return "SEP";
-        if (month == 10)
-            return "OCT";
-        if (month == 11)
-            return "NOV";
-        if (month == 12)
-            return "DEC";
-
-        //DEFAULT
-        return "JAN";
-    }
-
-    public static String getDateTest() {
-        return dateTest;
-    }
-
-    public static void setDateTest(String dateTest) {
-        BusJourney.dateTest = dateTest;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        return "BusJourney{" +
-                "journey1='" + journey1 + '\'' +
-                ", journey2='" + journey2 + '\'' +
-                ", return1='" + return1 + '\'' +
-                ", return2='" + return2 + '\'' +
-                ", dayOfWeek='" + partOfWeek + '\'' +
-                ", operator1='" + operator1 + '\'' +
-                ", operator2='" + operator2 + '\'' +
-                ", busNo1='" + busNo1 + '\'' +
-                ", busNo2='" + busNo2 + '\'' +
-                ", hour=" + hour +
-                ", minute=" + minute +
-                '}';
-    }
-
+    /****************** GETTERS & SETTERS **************************/
     public static String getJourney1() {
         return journey1;
-    }
-
-    public static void setJourney1(String journey1) {
-        BusJourney.journey1 = journey1;
     }
 
     public static String getJourney2() {
         return journey2;
     }
 
-    public static void setJourney2(String journey2) {
-        BusJourney.journey2 = journey2;
-    }
-
     public static String getReturn1() {
         return return1;
-    }
-
-    public static void setReturn1(String return1) {
-        BusJourney.return1 = return1;
     }
 
     public static String getReturn2() {
         return return2;
     }
 
-    public static void setReturn2(String return2) {
-        BusJourney.return2 = return2;
+    public static String getOperator1() {
+        return operator1;
+    }
+
+    public static String getOperator2() {
+        return operator2;
+    }
+
+    public static String getBusNo1() {
+        return busNo1;
+    }
+
+    public static String getBusNo2() {
+        return busNo2;
     }
 
     public static String getPartOfWeek() {
@@ -286,11 +98,67 @@ public class BusJourney {
         DateFormat format2 = new SimpleDateFormat("EEEE", Locale.UK);
         String dayOfWeek = format2.format(dt1);
 
-        if (dayOfWeek.equals("Saturday") || dayOfWeek.equals("Sunday")) {
-            partOfWeek = "weekEnd";
-        } else {
-            partOfWeek = "weekDay";
-        }
+        if (dayOfWeek.equals("Saturday")) partOfWeek = "Saturday";
+
+        else if (dayOfWeek.equals("Sunday")) partOfWeek = "Sunday";
+
+        else partOfWeek = "weekDay";
+    }
+
+    public static String getDepartureStationOut() {
+        return departureStationOut;
+    }
+
+    public static String getArrivalStationOut() {
+        return arrivalStationOut;
+    }
+
+    public static String getDepartureStationIn() {
+        return departureStationIn;
+    }
+
+    public static String getArrivalStationIn() {
+        return arrivalStationIn;
+    }
+
+    public static void setReturnTime(int returnTime) {
+        BusJourney.returnTime = returnTime;
+    }
+
+    public static String getTravelTime2() {
+        return travelTime2;
+    }
+
+    public static void setTravelTime2(String travelTime2) {
+        BusJourney.travelTime2 = travelTime2;
+    }
+
+    public static int getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public static void setArrivalTime(int arrivalTime) {
+        BusJourney.arrivalTime = arrivalTime;
+    }
+
+    public static void setTravelTime1(String travelTime1) {
+        BusJourney.travelTime1 = travelTime1;
+    }
+
+    public static String getDirectChange() {
+        return directChange;
+    }
+
+    public static String getTravelTime1() {
+        return travelTime1;
+    }
+
+    public static int getJourneyTime1() {
+        return journeyTime1;
+    }
+
+    public static int getJourneyTime2() {
+        return journeyTime2;
     }
 
     public static int getHour() {
@@ -310,36 +178,36 @@ public class BusJourney {
         totalTime = minute + hour * 60;
     }
 
-    public static String getOperator1() {
-        return operator1;
+    public static String getTravelDate() {
+        return travelDate;
     }
 
-    public static void setOperator1(String operator1) {
-        BusJourney.operator1 = operator1;
+    public static void setTravelDate(int day, int month, int year) {
+
+        String date = day + "/" + month + "/" + year;
+
+        String monthName = TimeDateFormatters.getMonthFormat(month);
+
+        SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy", Locale.UK);
+        Date dt1 = null;
+        try {
+            dt1 = format1.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        DateFormat format2 = new SimpleDateFormat("EEEE", Locale.UK);
+        String dayOfWeek = format2.format(dt1);
+
+        travelDate = dayOfWeek + " " + day + " " + monthName;
+
     }
 
-    public static String getOperator2() {
-        return operator2;
+    public static String getChangeWait() {
+        return changeWait;
     }
 
-    public static void setOperator2(String operator2) {
-        BusJourney.operator2 = operator2;
-    }
-
-    public static String getBusNo1() {
-        return busNo1;
-    }
-
-    public static void setBusNo1(String busNo1) {
-        BusJourney.busNo1 = busNo1;
-    }
-
-    public static String getBusNo2() {
-        return busNo2;
-    }
-
-    public static void setBusNo2(String busNo2) {
-        BusJourney.busNo2 = busNo2;
+    public static void setChangeWait(String changeWait) {
+        BusJourney.changeWait = changeWait;
     }
 
     public static int getTotalTime() {
@@ -386,19 +254,4 @@ public class BusJourney {
         BusJourney.travelDate = travelDate;
     }
 
-    public static int getJourneyTime1() {
-        return journeyTime1;
-    }
-
-    public static void setJourneyTime1(int journeyTime1) {
-        BusJourney.journeyTime1 = journeyTime1;
-    }
-
-    public static int getJourneyTime2() {
-        return journeyTime2;
-    }
-
-    public static void setJourneyTime2(int journeyTime2) {
-        BusJourney.journeyTime2 = journeyTime2;
-    }
 }
