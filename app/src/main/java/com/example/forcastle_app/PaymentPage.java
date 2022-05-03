@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,10 +37,10 @@ public class PaymentPage extends AppCompatActivity {
         backPayment = findViewById(R.id.back_payment);
 
         //setting TextViews to user chosen journey data
-        ((TextView) findViewById(R.id.JourneyFrom1)).setText(BusJourney.getDepartureStationOut());
-        ((TextView) findViewById(R.id.JourneyTo1)).setText(BusJourney.getArrivalStationOut());
-        ((TextView) findViewById(R.id.JourneyFrom2)).setText(BusJourney.getDepartureStationIn());
-        ((TextView) findViewById(R.id.JourneyTo2)).setText(BusJourney.getArrivalStationIn());
+        ((TextView) findViewById(R.id.JourneyFrom1)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView) findViewById(R.id.JourneyTo1)).setText(BusJourney.getArrivalStationOut1());
+        ((TextView) findViewById(R.id.JourneyFrom2)).setText(BusJourney.getDepartureStationIn1());
+        ((TextView) findViewById(R.id.JourneyTo2)).setText(BusJourney.getArrivalStationIn1());
         ((TextView) findViewById(R.id.journeyType1)).setText(BusJourney.getDirectChange());
         ((TextView) findViewById(R.id.journeyType2)).setText(BusJourney.getDirectChange());
         ((TextView) findViewById(R.id.confirmedDate)).setText(BusJourney.getTravelDate());

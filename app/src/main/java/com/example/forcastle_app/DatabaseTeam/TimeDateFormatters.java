@@ -34,7 +34,15 @@ public class TimeDateFormatters {
 
         if (minute < 10 && minute > 0) minuteString = "0" + minute;
 
-        return hour + "h " + minuteString + "m";
+        String finalString = "";
+
+        if (hour <= 0) {
+            finalString = minuteString + "m";
+        } else {
+            finalString = hour + "h " + minuteString + "m";
+        }
+
+        return finalString;
     }
 
     public static String getMonthFormat(int month) {

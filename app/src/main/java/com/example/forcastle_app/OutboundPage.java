@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -14,6 +13,7 @@ import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.DataBaseHelper;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OutboundPage extends AppCompatActivity {
@@ -26,6 +26,11 @@ public class OutboundPage extends AppCompatActivity {
             travelTime1, travelTime2, travelTime3, travelTime4, travelTime5;
     int i = 0; //counter for setTextViews method
 
+    int outboundTime2Store1, outboundTime2Store2, outboundTime2Store3, outboundTime2Store4, outboundTime2Store5;
+
+    List<Integer> changesInfoList = new ArrayList<>();
+    List<Integer> secondBusLeaveTime = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +38,8 @@ public class OutboundPage extends AppCompatActivity {
 
 
         //sets departure, destination, & date based on data chosen by user
-        ((TextView) findViewById(R.id.departure)).setText(BusJourney.getDepartureStationOut());
-        ((TextView) findViewById(R.id.destination)).setText(BusJourney.getArrivalStationOut());
+        ((TextView) findViewById(R.id.departure)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView) findViewById(R.id.destination)).setText(BusJourney.getArrivalStationOut1());
         ((TextView) findViewById(R.id.travelDate)).setText(BusJourney.getTravelDate());
 
         // setting variables to the correct buttons & TextViews on the app page
@@ -75,7 +80,7 @@ public class OutboundPage extends AppCompatActivity {
 
         List<Integer> secondBusTimesTest = DataBaseHelper.getInstance(getApplicationContext()).outboundTimeListInt2(outboundTimeInt.get(0), BusJourney.getJourney2(), BusJourney.getJourneyTime1());
 
-        Toast.makeText(this, String.valueOf(outboundTimeInt.get(0)) + "    " + BusJourney.getJourney2() + "    " + String.valueOf(BusJourney.getJourneyTime1()), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, String.valueOf(outboundTimeInt.get(0)) + "    " + BusJourney.getJourney2() + "    " + String.valueOf(BusJourney.getJourneyTime1()), Toast.LENGTH_SHORT).show();
 
         //populating the 5 time cards with relevant journeys
         setTextViews(outbound1, arrival1, travelTime1, directChange1, outboundTimeInt, i);
@@ -101,6 +106,11 @@ public class OutboundPage extends AppCompatActivity {
                 BusJourney.setArrivalTime(TimeDateFormatters.reverseTimeFormat(arrival1.getText().toString()));
                 BusJourney.setTravelTime1(travelTime1.getText().toString());
 
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setOutboundTime2(TimeDateFormatters.timeFormat(changesInfoList.get(1)));
+                    int changeWaitTime = changesInfoList.get(1) - changesInfoList.get(0);
+                    BusJourney.setChangeWait(TimeDateFormatters.timeFormat(changeWaitTime));
+                }
                 Intent intent = new Intent(OutboundPage.this, InboundPage.class);
                 startActivity(intent);
             }
@@ -163,6 +173,7 @@ public class OutboundPage extends AppCompatActivity {
 
     //shows the relevant journeys available based on time & destination the user has chosen
     public void setTextViews(TextView outbound, TextView arrival, TextView travelTime, TextView directChange, List<Integer> outboundTimeInt, int i) {
+
         if (BusJourney.getDirectChange().equals("Direct")) {
             // sets outbound button text to the relevant entry on the List<Integer>
             outbound.setText(TimeDateFormatters.timeFormat(outboundTimeInt.get(i)));
@@ -181,18 +192,23 @@ public class OutboundPage extends AppCompatActivity {
 
             int firstBusArrival = outboundTimeInt.get(i);
 
+            changesInfoList.add((firstBusArrival + BusJourney.getJourneyTime1()));
+
             // sets outbound button text to the relevant entry on the List<Integer>
             outbound.setText(TimeDateFormatters.timeFormat(firstBusArrival));
 
             int bus2Leave = secondBusTimes.get(0);
 
+            changesInfoList.add(bus2Leave);
+
             int arrivalTime = bus2Leave + BusJourney.getJourneyTime2();
 
             arrival.setText(TimeDateFormatters.timeFormat(arrivalTime));
 
-            travelTime.setText(TimeDateFormatters.durationFormat(arrivalTime - firstBusArrival));
+            travelTime.setText(TimeDateFormatters.durationFormat((arrivalTime - firstBusArrival)));
 
             directChange.setText(BusJourney.getDirectChange());
+
         }
         this.i++;
     }

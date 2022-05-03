@@ -11,7 +11,7 @@ public class HashMaps {
     public HashMaps() {
         buildBusNo();
         buildOperators();
-        buildStation();
+        buildDepartureStation();
         buildReturnJourney();
         buildJourneyTimes();
         buildDirectChange();
@@ -55,7 +55,7 @@ public class HashMaps {
     }
 
     //maps journey to bus station name
-    public void buildStation() {
+    public void buildDepartureStation() {
         station = new HashMap<>();
 
         station.put("NCALN", "Haymarket");

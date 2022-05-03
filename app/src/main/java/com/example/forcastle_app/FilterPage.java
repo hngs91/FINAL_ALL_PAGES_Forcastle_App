@@ -45,7 +45,6 @@ public class FilterPage extends AppCompatActivity {
         setContentView(R.layout.activity_filter_page);
         initDatePicker();
 
-        Toast.makeText(this, String.valueOf(BusJourney.getJourneyTime1()), Toast.LENGTH_SHORT).show();
 
         back = findViewById(R.id.back_button);
         dateButton = findViewById(R.id.datePickerButton);
@@ -59,8 +58,8 @@ public class FilterPage extends AppCompatActivity {
         timer = findViewById(R.id.timer);
 
         //displays the departure station and destination castle in the "From" & "To" on the filter page
-        ((TextView) findViewById(R.id.insertBusStop)).setText(BusJourney.getDepartureStationOut());
-        ((TextView) findViewById(R.id.insertCastle)).setText(BusJourney.getArrivalStationOut());
+        ((TextView) findViewById(R.id.insertBusStop)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView) findViewById(R.id.insertCastle)).setText(BusJourney.getArrivalStationOut1());
 
         timer.setOnClickListener(new View.OnClickListener() {
             @Override

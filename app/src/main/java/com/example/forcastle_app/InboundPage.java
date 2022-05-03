@@ -33,8 +33,8 @@ public class InboundPage extends AppCompatActivity {
         setContentView(R.layout.activity_inbound_page);
 
         //sets departure, destination, & date based on data chosen by user
-        ((TextView) findViewById(R.id.departureIn)).setText(BusJourney.getDepartureStationIn());
-        ((TextView) findViewById(R.id.destinationIn)).setText(BusJourney.getArrivalStationIn());
+        ((TextView) findViewById(R.id.departureIn)).setText(BusJourney.getDepartureStationIn1());
+        ((TextView) findViewById(R.id.destinationIn)).setText(BusJourney.getArrivalStationIn1());
         ((TextView) findViewById(R.id.travelDateIn)).setText(BusJourney.getTravelDate());
 
         // setting variables to the correct buttons & TextViews on the apps page
@@ -70,8 +70,9 @@ public class InboundPage extends AppCompatActivity {
         travelTimeIn4 = findViewById(R.id.travelTimeIn4);
         travelTimeIn5 = findViewById(R.id.travelTimeIn5);
 
-        // HARRY inbound change table broken, potential null rows in returned list? not enough late enough bus times?
-
+        /**
+         *  HARRY inbound change table broken, potential null rows in returned list? not enough late enough bus times?
+         */
         List<Integer> inboundTimeInt = new ArrayList<>();
         // pulling relevant times using database queries and storing results in Lists
         if (BusJourney.getDirectChange().equals("Direct")) {
@@ -83,7 +84,7 @@ public class InboundPage extends AppCompatActivity {
         } else {
             try {
                 inboundTimeInt = DataBaseHelper.getInstance(getApplicationContext()).outboundTimeListInt(BusJourney.getArrivalTime() + 120, BusJourney.getReturn2());
-            }catch (Exception e) {
+            } catch (Exception e) {
                 Toast.makeText(this, "change table broken", Toast.LENGTH_SHORT).show();
             }
         }
@@ -106,7 +107,7 @@ public class InboundPage extends AppCompatActivity {
         inbound_button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BusJourney.setOutboundTime2(inbound1.getText().toString());
+                BusJourney.setInboundTime1(inbound1.getText().toString());
                 BusJourney.setReturnTime(TimeDateFormatters.reverseTimeFormat(arrivalIn1.getText().toString()));
                 BusJourney.setTravelTime2(travelTimeIn1.getText().toString());
 

@@ -24,14 +24,56 @@ public class OutboundDetails extends AppCompatActivity {
 
         cross = findViewById(R.id.outCross);
 
-        ((TextView) findViewById(R.id.outJourneyFromPop)).setText(BusJourney.getDepartureStationOut());
-        ((TextView) findViewById(R.id.outJourneyTo1Pop)).setText(BusJourney.getArrivalStationOut());
-        ((TextView) findViewById(R.id.journeyType1Pop)).setText(BusJourney.getDirectChange());
-        ((TextView) findViewById(R.id.outFirstJourneyTime1)).setText(BusJourney.getOutboundTime1());
-        ((TextView) findViewById(R.id.outFirstJourneyTime2)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTime()));
+        /**
+         * HARRY - expand if...else statement to cover both sections for 1 change journeys
+          */
 
-        /*((TextView) findViewById(R.id.outTime1Pop)).setText(TimeFormatters.durationFormat((BusJourney.getJourneyTime1())));
-*/
+
+        if (BusJourney.getDirectChange().equals("Direct")) {
+            // makes second journey layout not visible for direct journeys
+            ((TextView) findViewById(R.id.outJourneyFromPop)).setText(BusJourney.getDepartureStationOut1());
+            ((TextView) findViewById(R.id.outJourneyTo1Pop)).setText(BusJourney.getArrivalStationOut1());
+            ((TextView) findViewById(R.id.journeyType1Pop)).setText(BusJourney.getDirectChange());
+            ((TextView) findViewById(R.id.outFirstJourneyTime1)).setText(BusJourney.getOutboundTime1());
+            ((TextView) findViewById(R.id.outFirstJourneyTime2)).setText(TimeDateFormatters.durationFormat(BusJourney.getArrivalTime()));
+            ((TextView) findViewById(R.id.outFirstJourneyDur)).setText(TimeDateFormatters.timeFormat(BusJourney.getJourneyTime1()));
+            ((TextView) findViewById(R.id.outFirstJourneyFromPop)).setText(BusJourney.getDepartureStationOut1());
+            ((TextView) findViewById(R.id.outFirstJourneyTo)).setText(BusJourney.getArrivalStationOut1());
+            ((TextView) findViewById(R.id.outTime1Pop)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyTime1()));
+
+            ((TextView) findViewById(R.id.outChangeDur)).setText(null);
+            ((TextView) findViewById(R.id.outChange)).setText(null);
+            ((TextView) findViewById(R.id.outSecondJourneyTime1)).setText(null);
+            ((TextView) findViewById(R.id.outSecondJourneyTime2)).setText(null);
+            ((TextView) findViewById(R.id.outSecondJourneyFrom)).setText(null);
+            ((TextView) findViewById(R.id.outSecondJourneyDur)).setText(null);
+            ((TextView) findViewById(R.id.outSecondJourneyTo)).setText(null);
+            ((TextView) findViewById(R.id.outBusIcon2)).setBackground(null);
+            ((TextView) findViewById(R.id.outRoute2)).setBackground(null);
+            ((TextView) findViewById(R.id.outSecondJourneyBus)).setText(null);
+            ((TextView) findViewById(R.id.outDot1)).setBackground(null);
+            ((TextView) findViewById(R.id.outDot2)).setBackground(null);
+            ((TextView) findViewById(R.id.outDot3)).setBackground(null);
+        } else {
+            ((TextView) findViewById(R.id.outJourneyFromPop)).setText(BusJourney.getDepartureStationOut1());
+            ((TextView) findViewById(R.id.outJourneyTo1Pop)).setText(BusJourney.getArrivalStationOut1());
+            ((TextView) findViewById(R.id.journeyType1Pop)).setText(BusJourney.getDirectChange());
+            ((TextView) findViewById(R.id.outFirstJourneyTime1)).setText(BusJourney.getOutboundTime1());
+            String firstJourneyArrivalTime = TimeDateFormatters.timeFormat((TimeDateFormatters.reverseTimeFormat(BusJourney.getOutboundTime1())) + BusJourney.getJourneyTime1());
+            ((TextView) findViewById(R.id.outFirstJourneyTime2)).setText(firstJourneyArrivalTime);
+            ((TextView) findViewById(R.id.outFirstJourneyDur)).setText(TimeDateFormatters.timeFormat(BusJourney.getJourneyTime1()));
+            ((TextView) findViewById(R.id.outFirstJourneyFromPop)).setText(BusJourney.getDepartureStationOut1());
+            ((TextView) findViewById(R.id.outFirstJourneyTo)).setText(BusJourney.getArrivalStationOut2());
+            ((TextView) findViewById(R.id.outTime1Pop)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyTime1()));
+
+            ((TextView) findViewById(R.id.outChangeDur)).setText(BusJourney.getChangeWait());
+            ((TextView) findViewById(R.id.outSecondJourneyTime1)).setText(BusJourney.getOutboundTime2());
+            ((TextView) findViewById(R.id.outSecondJourneyTime2)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTime()));
+            ((TextView) findViewById(R.id.outSecondJourneyFrom)).setText(BusJourney.getDepartureStationIn2());
+            ((TextView) findViewById(R.id.outSecondJourneyDur)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyTime2()));
+            ((TextView) findViewById(R.id.outSecondJourneyTo)).setText(BusJourney.getArrivalStationOut1());
+        }
+
 
         cross.setOnClickListener(new View.OnClickListener() {
             @Override

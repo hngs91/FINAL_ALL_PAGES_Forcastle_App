@@ -17,8 +17,8 @@ public class BusJourney {
             busNo1, busNo2,
             outboundTime1, outboundTime2,
             inboundTime1, inboundTime2,
-            departureStationOut, departureStationIn,
-            arrivalStationOut, arrivalStationIn,
+            departureStationOut1, departureStationOut2, departureStationIn1, departureStationIn2,
+            arrivalStationOut1, arrivalStationOut2, arrivalStationIn1, arrivalStationIn2,
             travelDate,
             travelTime1, travelTime2,
             directChange,
@@ -43,10 +43,14 @@ public class BusJourney {
         journeyTime2 = hashMaps.getJourneyTimes().get(journey2);
         TimeDateFormatters.durationFormat(journeyTime1);
         directChange = hashMaps.getDirectChange().get(journey1);
-        departureStationOut = hashMaps.getStation().get(journey1);
-        arrivalStationOut = hashMaps.getStation().get(return1);
-        departureStationIn = hashMaps.getStation().get(return1);
-        arrivalStationIn = hashMaps.getStation().get(journey1);
+        departureStationOut1 = hashMaps.getStation().get(journey1);
+        arrivalStationOut1 = hashMaps.getStation().get(return1);
+        departureStationOut2 = hashMaps.getStation().get(journey2);
+        arrivalStationOut2 = hashMaps.getStation().get(return2);
+        departureStationIn1 = hashMaps.getStation().get(return1);
+        departureStationIn2 = hashMaps.getStation().get(return2);
+        arrivalStationIn1 = hashMaps.getStation().get(journey1);
+        arrivalStationIn2 = hashMaps.getStation().get(journey2);
     }
 
     /****************** GETTERS & SETTERS **************************/
@@ -105,20 +109,36 @@ public class BusJourney {
         else partOfWeek = "weekDay";
     }
 
-    public static String getDepartureStationOut() {
-        return departureStationOut;
+    public static String getDepartureStationOut1() {
+        return departureStationOut1;
     }
 
-    public static String getArrivalStationOut() {
-        return arrivalStationOut;
+    public static String getDepartureStationOut2() {
+        return departureStationOut2;
     }
 
-    public static String getDepartureStationIn() {
-        return departureStationIn;
+    public static String getDepartureStationIn2() {
+        return departureStationIn2;
     }
 
-    public static String getArrivalStationIn() {
-        return arrivalStationIn;
+    public static String getArrivalStationOut2() {
+        return arrivalStationOut2;
+    }
+
+    public static String getArrivalStationIn2() {
+        return arrivalStationIn2;
+    }
+
+    public static String getArrivalStationOut1() {
+        return arrivalStationOut1;
+    }
+
+    public static String getDepartureStationIn1() {
+        return departureStationIn1;
+    }
+
+    public static String getArrivalStationIn1() {
+        return arrivalStationIn1;
     }
 
     public static void setReturnTime(int returnTime) {
