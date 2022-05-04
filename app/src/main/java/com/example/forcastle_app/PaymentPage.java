@@ -5,27 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-//import okhttp3.MediaType;
-//import okhttp3.OkHttpClient;
-//import okhttp3.Request;
-//import okhttp3.RequestBody;
 
 public class PaymentPage extends AppCompatActivity {
 
     TextView details1, details2;
-    Button backPayment;
+    Button backPayment, payButton;
     static String anchor;
 
     @Override
@@ -36,6 +26,7 @@ public class PaymentPage extends AppCompatActivity {
         details1 = findViewById(R.id.details1);
         details2 = findViewById(R.id.details2);
         backPayment = findViewById(R.id.back_payment);
+        payButton = (Button) findViewById(R.id.payButton);
 
         //setting TextViews to user chosen journey data
         ((TextView) findViewById(R.id.JourneyFrom1)).setText(BusJourney.getDepartureStationOut1());
@@ -86,64 +77,18 @@ public class PaymentPage extends AppCompatActivity {
         backPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                backToTimeSelection();
+                Intent intent = new Intent(PaymentPage.this, BoundPage.class);
+                startActivity(intent);
+            }
+        });
+
+        payButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PaymentPage.this, ConfirmationPage.class);
+                startActivity(intent);
             }
         });
 
     }
-
-    /*
-    The backToTimeSelection() method should be uncommented and the InboundTimeSelection(page) should be renamed
-    to the class of name of the outbound time selection page.
-     */
-    public void backToTimeSelection() {
-        Intent intent = new Intent(PaymentPage.this, BoundPage.class);
-        startActivity(intent);
-    }
-
-
-    //this is the method to complete a horsepay transaction. The method gets the data and sends a JSONObject over request
-    private void sendJSONObject(View view) throws IOException {
-        TextView confirmedDate = (TextView) findViewById(R.id.confirmedDate);
-        // TextView confirmedTime = (TextView) findViewById(R.id.timeID);
-
-        String storeID = "team16";
-        String customerID = "3784763";
-        String date = confirmedDate.getText().toString();
-        //String time = confirmedTime.getText().toString();
-        String time = "14:00";
-        String timeZone = "GMT";
-        float transactionAmount = (float) 15.679;
-        String currencyCode = "GBP";
-
-        //create JSON object
-        JSONObject requestObject = new JSONObject();
-        try {
-            requestObject.put("storeID", storeID);
-            requestObject.put("customerID", customerID);
-            requestObject.put("date", date);
-            requestObject.put("time", time);
-            requestObject.put("timeZone", timeZone);
-            requestObject.put("transactionAmount", transactionAmount);
-            requestObject.put("currencyCode", currencyCode);
-            requestObject.put("forcePaymentSatusReturnType", true);
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        String json = "{\"storeID\":1,\"name\":\"John\"}";
-//        OkHttpClient client = new OkHttpClient();
-//        RequestBody body = RequestBody.create( MediaType.parse("application/json"), json);
-//        Request request = new Request.Builder()
-//                .addHeader("Content-Type","application/json")
-//                .url("http://homepages.cs.ncl.ac.uk/daniel.nesbitt/CSC8019/HorsePay/HorsePay.php")
-//                .post(body)
-//                .build();
-//
-//        okhttp3.Response response = client.newCall(request).execute();
-    }
-
-
 }

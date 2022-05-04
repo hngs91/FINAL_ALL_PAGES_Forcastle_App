@@ -7,9 +7,9 @@
     android:background="@drawable/background3"
     tools:context=".PaymentPage">
 
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
+        <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="match_parent">-->
 
         <TextView
             android:id="@+id/OrderDetails"
@@ -253,7 +253,6 @@
             android:id="@+id/journeyType1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="11dp"
             android:text=", direct"
@@ -406,9 +405,9 @@
             android:id="@+id/journeyType2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="220dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="11dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="10dp"
             android:text=", direct"
             app:layout_constraintBottom_toBottomOf="@+id/greyBox2"
             app:layout_constraintStart_toStartOf="@+id/greyBox2"
@@ -617,47 +616,33 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="123dp"
             android:layout_marginTop="33dp"
-            android:layout_marginEnd="94dp"
             android:layout_marginBottom="31dp"
             android:text="£4.10"
             android:textColor="#c61e23"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/paymentView"
-            app:layout_constraintEnd_toStartOf="@+id/payButton"
             app:layout_constraintStart_toStartOf="@+id/paymentView"
             app:layout_constraintTop_toTopOf="@+id/paymentView" />
 
         <Button
             android:id="@+id/payButton"
-            android:layout_width="113dp"
-            android:layout_height="40dp"
+            android:layout_width="169dp"
+            android:layout_height="48dp"
             android:layout_marginStart="261dp"
             android:layout_marginTop="14dp"
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="14dp"
             android:backgroundTint="#24cd85"
-            android:onClick="sendJSONObject"
-            android:text="Pay"
+            android:text="Confirm Journey"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/paymentView"
             app:layout_constraintEnd_toEndOf="@+id/paymentView"
+            app:layout_constraintHorizontal_bias="0.785"
             app:layout_constraintStart_toStartOf="@+id/paymentView"
-            app:layout_constraintTop_toTopOf="@+id/paymentView" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="122dp"
-            android:layout_height="23dp"
-            android:layout_marginStart="39dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="102dp"
-            android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toBottomOf="@+id/paymentView"
-            app:layout_constraintEnd_toEndOf="@+id/payButton"
-            app:layout_constraintStart_toStartOf="@+id/priceFinal"
             app:layout_constraintTop_toTopOf="@+id/paymentView"
-            app:srcCompat="@drawable/horsepay" />
+            app:layout_constraintVertical_bias="0.55" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-<!--</ScrollView>-->
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</ScrollView>-->
