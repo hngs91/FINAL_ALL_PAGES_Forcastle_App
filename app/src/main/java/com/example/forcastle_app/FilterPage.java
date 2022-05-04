@@ -14,7 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 
@@ -117,12 +119,13 @@ public class FilterPage extends AppCompatActivity {
                 if (timerClicked) {
                     //check all fields are complete
                     Intent intent1 = new Intent(FilterPage.this, OutboundPage.class);
-                    confirmedDate = timer.getText().toString();
+                    /*confirmedDate = timer.getText().toString();
                     intent1.putExtra("confirmedDate", confirmedDate);
                     confirmedAdultTickets = value1.getText().toString();
                     intent1.putExtra("confirmedAdultTickets", confirmedAdultTickets);
                     confirmedChildTickets = value2.getText().toString();
                     intent1.putExtra("confirmedChildTickets", confirmedChildTickets);
+                    */
                     startActivity(intent1);
                 } else {
                     Toast.makeText(FilterPage.this, "Please pick a time", Toast.LENGTH_SHORT).show();
