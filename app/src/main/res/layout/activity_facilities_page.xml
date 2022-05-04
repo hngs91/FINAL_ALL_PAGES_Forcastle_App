@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_2"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--    Toolbar-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:navigationIcon="@drawable/ic_back_arrow">
+
+        <!--        The headline of this page, and set it up in center-->
+        <TextView
+            android:id="@+id/headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="#ffffff"
+            android:layout_gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--    Allow the screen to roll down, and set the scrollbars as invisible-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--            The pic of castle-->
+            <ImageView
+                android:id="@+id/castle_pic"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"/>
+
+            <!--            The background of the rest part below the castle pic-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/view_rounded_corner_box"
+                android:layout_marginTop="-15dp"
+                android:paddingTop="15dp">
+
+                <!--                'Introduction' headline-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Introduction"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="10dp" />
+
+                <!--                'Introduction' text-->
+                <TextView
+                    android:id="@+id/intro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="10dp"
+                    android:layout_marginBottom="10dp" />
+
+                <!--                Create a relative layout for ticket price part-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--                    The divide line on the right of ticket headline-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_centerInParent="true"
+                        android:background="#dcdcdc" />
+
+                    <!--                    ticket icon and headline of ticket-->
+                    <!--                    the sequence of this and last textview couldn't change-->
+                    <!--                    otherwise the divide line will cover on this text view-->
+                    <TextView
+                        android:id="@+id/ticket_headline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:background="#f5f5f5"
+                        app:drawableStartCompat="@drawable/ic_ticket"
+                        android:drawablePadding="10dp"
+                        android:gravity="bottom"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="General Admission" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="end">
+
+                    <!--                    because the text style of price texts are vary-->
+                    <!--                    so they should be put into different textview-->
+                    <!--                    'Adults: '-->
+                    <TextView
+                        android:id="@+id/price_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Adults: "
+                        android:textStyle="bold" />
+
+                    <!--                    '£19.50'-->
+                    <TextView
+                        android:id="@+id/price_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/price_text_1"/>
+
+                    <!--                    ' | Children: '-->
+                    <TextView
+                        android:id="@+id/price_text_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" | Children: "
+                        android:textStyle="bold"
+                        android:layout_toEndOf="@id/price_text_2"/>
+
+                    <!--                    '£10.25'-->
+                    <TextView
+                        android:id="@+id/price_text_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/price_text_3"
+                        android:paddingEnd="10dp" />
+
+                </RelativeLayout>
+
+                <!--                Divide line between General Admission and Telephone number-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#dcdcdc"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <!--                Telephone number parts-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        app:drawableStartCompat="@drawable/ic_telephone"
+                        android:drawablePadding="10dp"
+                        android:text="Telephone number" />
+
+                    <TextView
+                        android:id="@+id/phone_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true" />
+
+                </RelativeLayout>
+
+                <!--                Divide line between Telephone number and Website-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#dcdcdc"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <!--                Website parts-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        app:drawableStartCompat="@drawable/ic_website"
+                        android:drawablePadding="10dp"
+                        android:text="Website" />
+
+                    <TextView
+                        android:id="@+id/website"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--            The facilities suggestion parts-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#eeeeee"
+                android:paddingTop="15dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <!--                The headline of facilities parts-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Facilities Available"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:paddingStart="10dp" />
+
+                <!--                The first facility-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/view_facility_background"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="15dp">
+
+                    <!--                    A pic of this facility-->
+                    <ImageView
+                        android:id="@+id/fac1_ic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="10dp" />
+
+                    <!--                    The name of this facility-->
+                    <TextView
+                        android:id="@+id/fac1_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac1_ic"
+                        android:textStyle="bold" />
+
+                    <!--                    The location of this facility-->
+                    <TextView
+                        android:id="@+id/fac1_addr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fac1_name"
+                        android:layout_toEndOf="@id/fac1_ic"
+                        android:textSize="11sp" />
+
+                    <!--                    The first tags of this facility-->
+                    <TextView
+                        android:id="@+id/fac1_tag1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac1_name"
+                        android:background="@drawable/view_tag_background"
+                        android:padding="2dp"
+                        android:textColor="#7fc0db"
+                        android:textSize="11sp" />
+
+                    <!--                    The second tags of this facility-->
+                    <TextView
+                        android:id="@+id/fac1_tag2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac1_tag1"
+                        android:background="@drawable/view_tag_background"
+                        android:padding="2dp"
+                        android:textColor="#7fc0db"
+                        android:textSize="11sp" />
+
+                    <!--                    The third tags of this facility-->
+                    <TextView
+                        android:id="@+id/fac1_tag3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac1_tag2"
+                        android:background="@drawable/view_tag_background"
+                        android:padding="2dp"
+                        android:textColor="#7fc0db"
+                        android:textSize="11sp"
+                        />
+
+                    <!--                    The star rating of this facility-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/fac1_addr"
+                        android:layout_marginEnd="25dp">
+
+                        <ImageView
+                            android:id="@+id/fac1_star1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac1_star2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac1_star3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac1_star4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac1_star5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <!--                The second facility-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/view_facility_background"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="15dp">
+
+                    <!--                    A pic of second facility-->
+                    <ImageView
+                        android:id="@+id/fac2_ic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="10dp" />
+
+                    <!--                    The name of second facility-->
+                    <TextView
+                        android:id="@+id/fac2_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac2_ic"
+                        android:textStyle="bold" />
+
+                    <!--                    The location of second facility-->
+                    <TextView
+                        android:id="@+id/fac2_addr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fac2_name"
+                        android:layout_toEndOf="@id/fac2_ic"
+                        android:textSize="11sp" />
+
+                    <!--                    The first tags of second facility-->
+                    <TextView
+                        android:id="@+id/fac2_tag1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac2_name"
+                        android:background="@drawable/view_tag_background"
+                        android:padding="2dp"
+                        android:textColor="#7fc0db"
+                        android:textSize="11sp" />
+
+                    <!--                    The second tags of second facility-->
+                    <TextView
+                        android:id="@+id/fac2_tag2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac2_tag1"
+                        android:background="@drawable/view_tag_background"
+                        android:padding="2dp"
+                        android:textColor="#7fc0db"
+                        android:textSize="11sp" />
+
+                    <!--                    The third tags of second facility-->
+                    <TextView
+                        android:id="@+id/fac2_tag3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac2_tag2"
+                        android:background="@drawable/view_tag_background"
+                        android:padding="2dp"
+                        android:textColor="#7fc0db"
+                        android:textSize="11sp" />
+
+                    <!--                    The star rating of second facility-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/fac2_addr"
+                        android:layout_marginEnd="25dp">
+
+                        <ImageView
+                            android:id="@+id/fac2_star1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac2_star2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac2_star3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac2_star4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac2_star5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <!--                The third facility-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/view_facility_background"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="15dp">
+
+                    <!--                    A pic of third facility-->
+                    <ImageView
+                        android:id="@+id/fac3_ic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="10dp" />
+
+                    <!--                    The name of this facility-->
+                    <TextView
+                        android:id="@+id/fac3_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac3_ic"
+                        android:textStyle="bold" />
+
+                    <!--                    The location of this facility-->
+                    <TextView
+                        android:id="@+id/fac3_addr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fac3_name"
+                        android:layout_toEndOf="@id/fac3_ic"
+                        android:textSize="11sp"/>
+
+                    <!--                    The first tags of this facility-->
+                    <TextView
+                        android:id="@+id/fac3_tag1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac3_name"
+                        android:background="@drawable/view_tag_background"
+                        android:padding="2dp"
+                        android:textColor="#7fc0db"
+                        android:textSize="11sp" />
+
+                    <!--                    The second tags of this facility-->
+                    <TextView
+                        android:id="@+id/fac3_tag2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac3_tag1"
+                        android:background="@drawable/view_tag_background"
+                        android:padding="2dp"
+                        android:textColor="#7fc0db"
+                        android:textSize="11sp" />
+
+                    <!--                    The third tags of this facility-->
+                    <TextView
+                        android:id="@+id/fac3_tag3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toEndOf="@id/fac3_tag2"
+                        android:background="@drawable/view_tag_background"
+                        android:padding="2dp"
+                        android:textColor="#7fc0db"
+                        android:textSize="11sp" />
+
+                    <!--                    The star rating of this facility-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/fac3_addr"
+                        android:layout_marginEnd="25dp">
+
+                        <ImageView
+                            android:id="@+id/fac3_star1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac3_star2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac3_star3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac3_star4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <ImageView
+                            android:id="@+id/fac3_star5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <!--                Divide line between facilities suggestion and PROCEED button-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#dcdcdc"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="PROCEED"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/view_button_background"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

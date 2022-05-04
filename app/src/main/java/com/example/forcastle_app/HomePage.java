@@ -17,6 +17,7 @@ public class HomePage extends AppCompatActivity {
     RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
     Button submit;
     BusJourney busJourney;
+    static String selectedCastle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,16 +103,20 @@ public class HomePage extends AppCompatActivity {
 
     public void openActivity2() {
         if (radioButton1.isChecked()) {
-            Intent intent = new Intent(HomePage.this, FacilitiesPageAlnwick.class);
+            selectedCastle = "1";
+            Intent intent = new Intent(HomePage.this, FacilitiesPage.class);
             startActivity(intent);
         } else if (radioButton2.isChecked()) {
-            Intent intent = new Intent(HomePage.this, FacilitiesPageAuckland.class);
+            selectedCastle = "2";
+            Intent intent = new Intent(HomePage.this, FacilitiesPage.class);
             startActivity(intent);
         } else if (radioButton3.isChecked()) {
-            Intent intent = new Intent(HomePage.this, FacilitiesPageBamburgh.class);
+            selectedCastle = "3";
+            Intent intent = new Intent(HomePage.this, FacilitiesPage.class);
             startActivity(intent);
         } else if (radioButton4.isChecked()) {
-            Intent intent = new Intent(HomePage.this, FacilitiesPageBarnard.class);
+            selectedCastle = "4";
+            Intent intent = new Intent(HomePage.this, FacilitiesPage.class);
             startActivity(intent);
         } else {
             Toast.makeText(HomePage.this, "Please select a castle", Toast.LENGTH_SHORT).show();

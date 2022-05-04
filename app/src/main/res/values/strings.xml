@@ -1,4 +1,90 @@
 <resources>
     <string name="app_name">Forcastle_App</string>
-    <string name="Alnwick_Castle">Alnwick_Castle</string>
+    <!--alnwick castle part-->
+    <string name="alnwick_castle">Alnwick Castle</string>
+    <string name="alnwick_intro">Alnwick Castle,in Northumberland, UK, has been home to the Percy family for over 700 years as a film location for Harry Potter and Downton Abbey.</string>
+    <string name="alnwick_adults_price">£19.50</string>
+    <string name="alnwick_children_price">£10.25</string>
+    <string name="alnwick_phone_num">01665 511100</string>
+    <string name="alnwick_website">alnwickcastle.com</string>
+
+    <string name="alnwick_fac1_name">Costa Coffee</string>
+    <string name="alnwick_fac1_addr">Location: 69–71 Bondgate Within</string>
+
+    <string name="alnwick_fac2_name">Restaurant at the Castle</string>
+    <string name="alnwick_fac2_addr">Location: 18 Narrowgate</string>
+
+    <string name="alnwick_fac3_name">Carlo\'s</string>
+    <string name="alnwick_fac3_addr">Location: 7–9 Market St</string>
+
+    <!--auckland castle part-->
+    <string name="auckland_castle">Auckland Castle</string>
+    <string name="auckland_intro">Auckland Castle, in Durham, UK, is one of the best-preserved bishop\'s residences in the whole of Europe. Despite many years, the castle still houses Bishop\'s offices.</string>
+    <string name="auckland_adults_price">£14.00</string>
+    <string name="auckland_children_price">£7.00</string>
+    <string name="auckland_phone_num">01388 743750</string>
+    <string name="auckland_website">aucklandproject.com</string>
+
+    <string name="auckland_fac1_name">Bishop\'s Kitchen</string>
+    <string name="auckland_fac1_addr">Location: 20 Bishop Auckland</string>
+
+    <string name="auckland_fac2_name">Fifteas Vintage Tea Room</string>
+    <string name="auckland_fac2_addr">Location: 9 Market Pl</string>
+
+    <string name="auckland_fac3_name">Spudfellas</string>
+    <string name="auckland_fac3_addr">Location: 68 Fore Bondgate</string>
+
+    <!--bamburgh castle part-->
+    <string name="bamburgh_castle">Bamburgh Castle</string>
+    <string name="bamburgh_intro">Bamburgh Castle, has stood guard above the spectacular Northumberland coastline for over 1,400 years. It is one of the largest inhabited castles in the country.</string>
+    <string name="bamburgh_adults_price">£14.10</string>
+    <string name="bamburgh_children_price">£6.95</string>
+    <string name="bamburgh_phone_num">01668 214208</string>
+    <string name="bamburgh_website">bamburghcastle.com</string>
+
+    <string name="bamburgh_fac1_name">The Clock Tower Tea Rooms</string>
+    <string name="bamburgh_fac1_addr">Location: 1 Castle Hotel</string>
+
+    <string name="bamburgh_fac2_name">BAMburger</string>
+    <string name="bamburgh_fac2_addr">Location: 3 Front St</string>
+
+    <string name="bamburgh_fac3_name">The Potted Lobster</string>
+    <string name="bamburgh_fac3_addr">Location: The Potted Lobster</string>
+
+    <!--barnard castle part-->
+    <string name="barnard_castle">Barnard Castle</string>
+    <string name="barnard_intro">Barnard Castle, in Durham, UK, is a ruined Norman castle that sits high above the Tees Gorge. Castle\'s landmark is the Bowson Museum - an Imperial French chateau.</string>
+    <string name="barnard_adults_price">£10.00</string>
+    <string name="barnard_children_price">£6.00</string>
+    <string name="barnard_phone_num">01665 511100</string>
+    <string name="barnard_website">english_heritage.org.uk</string>
+
+    <string name="barnard_fac1_name">Starbucks</string>
+    <string name="barnard_fac1_addr">Location: 42 Horse Market</string>
+
+    <string name="barnard_fac2_name">Valentine\'s Restaurant</string>
+    <string name="barnard_fac2_addr">Location: 11 Galgate</string>
+
+    <string name="barnard_fac3_name">Greggs</string>
+    <string name="barnard_fac3_addr">Location: 11 Horse Market</string>
+
+    <!--    facilities tags-->
+    <string name="coffee_tag">coffee</string>
+    <string name="casual_tag">casual</string>
+    <string name="restaurant_tag">restaurant</string>
+    <string name="bar_tag">bar</string>
+    <string name="fish_chips_tag">fish&amp;chips</string>
+    <string name="takeaway_tag">takeaway</string>
+    <string name="tapas_bar_tag">tapas bar</string>
+    <string name="breakfast_lunch_tag">breakfast/lunch</string>
+    <string name="pizza_tag">pizza</string>
+    <string name="burger_tag">burger</string>
+    <string name="wine_tag">wine</string>
+    <string name="lobster_tag">lobster</string>
+    <string name="british_tag">british</string>
+    <string name="sandwiches_tag">sandwiches</string>
+
+    <!--    bound page-->
+    <string name="outbound">Select outbound</string>
+    <string name="inbound">Select inbound</string>
 </resources>

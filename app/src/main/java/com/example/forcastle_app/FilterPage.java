@@ -36,10 +36,8 @@ public class FilterPage extends AppCompatActivity {
     int count2 = 0;
     int tHour, tMinute;
     DatePickerDialog datePickerDialog;
-    String confirmedDate;
-    String confirmedAdultTickets;
-    String confirmedChildTickets;
     Boolean timerClicked = false;
+    static String anchor = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,13 +117,7 @@ public class FilterPage extends AppCompatActivity {
                 if (timerClicked) {
                     //check all fields are complete
                     Intent intent1 = new Intent(FilterPage.this, OutboundPage.class);
-                    /*confirmedDate = timer.getText().toString();
-                    intent1.putExtra("confirmedDate", confirmedDate);
-                    confirmedAdultTickets = value1.getText().toString();
-                    intent1.putExtra("confirmedAdultTickets", confirmedAdultTickets);
-                    confirmedChildTickets = value2.getText().toString();
-                    intent1.putExtra("confirmedChildTickets", confirmedChildTickets);
-                    */
+                    intent1.putExtra("anchor", anchor);
                     startActivity(intent1);
                 } else {
                     Toast.makeText(FilterPage.this, "Please pick a time", Toast.LENGTH_SHORT).show();

@@ -28,34 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FacilitiesPageAlnwick"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".FacilitiesPageAuckland"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".FacilitiesPageBamburgh"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".FacilitiesPageBarnard"
+            android:name=".FacilitiesPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
