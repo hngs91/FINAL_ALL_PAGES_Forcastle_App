@@ -16,7 +16,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static DataBaseHelper sInstance;
 
     public static synchronized DataBaseHelper getInstance(Context context) {
-        if(sInstance == null) {
+        if (sInstance == null) {
             sInstance = new DataBaseHelper(context.getApplicationContext());
         }
         return sInstance;
@@ -41,7 +41,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     //method queries database for the 5 times nearest to the user selected time and puts results into a List
-    public List<Integer> outboundTimeListInt(int time, String journey) {
+    public List<Integer> bus1LeaveTimes(int time, String journey) {
 
         List<Integer> integerList = new ArrayList<>();
 
@@ -65,25 +65,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
 
-        // if list not populate by 5 bus times, then morning bus times added in
-        if (integerList.size() < 5) {
-            int i = 5 - integerList.size();
-            for (int j = 0; j < i; j++) {
-                integerList.add(morningTimeListInt(journey).get(j));
-            }
-        }
         return integerList;
     }
 
     //method queries database for the one nearest times of the second bus journey to the arrival of the first bus journey
-    public List<Integer> outboundTimeListInt2(int outboundTime1, String journey, int journeyTime1) {
+    public int bus2LeaveTime(int bus1ArrivalTime, String journey) {
 
-        List<Integer> integerList = new ArrayList<>();
-
-        int arrivalAtChangeBusStop = outboundTime1 + journeyTime1;
+        int bus2Leave = 0;
 
         // query string
-        String queryString = "SELECT * FROM TIME_TABLE WHERE COLUMN_TOTAL_TIME>=" + arrivalAtChangeBusStop + " AND COLUMN_JOURNEY_ID='" + journey + "' LIMIT 1";
+        String queryString = "SELECT * FROM TIME_TABLE WHERE COLUMN_TOTAL_TIME>=" + bus1ArrivalTime + " AND COLUMN_JOURNEY_ID='" + journey + "' LIMIT 1";
 
         //creates readable version of database
         SQLiteDatabase db = this.getReadableDatabase();
@@ -94,40 +85,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         // formats and adds query results to List
         if (cursor.moveToFirst()) {
             do {
-                int totalTime = cursor.getInt(4);
-                integerList.add(totalTime);
+                bus2Leave = cursor.getInt(4);
             } while (cursor.moveToNext());
         }
 
         cursor.close();
         db.close();
 
-        return integerList;
-    }
-
-    // produces a list of the 5 earliest bus times available
-    public List<Integer> morningTimeListInt(String journey) {
-
-        List<Integer> integerList = new ArrayList<>();
-
-        // query string
-        String queryString = "SELECT * FROM TIME_TABLE WHERE COLUMN_TOTAL_TIME>=0 AND COLUMN_JOURNEY_ID='" + journey + "' LIMIT 5";
-
-        //creates readable version of database
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        // queries database
-        Cursor cursor = db.rawQuery(queryString, null);
-
-        // formats and adds query results to List
-        if (cursor.moveToFirst()) {
-            do {
-                int totalTime = cursor.getInt(4);
-                integerList.add(totalTime);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        db.close();
-        return integerList;
+        return bus2Leave;
     }
 }

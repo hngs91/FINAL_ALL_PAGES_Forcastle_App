@@ -26,6 +26,7 @@ public class PaymentPage extends AppCompatActivity {
 
     TextView details1, details2;
     Button backPayment;
+    static String anchor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +48,13 @@ public class PaymentPage extends AppCompatActivity {
         ((TextView) findViewById(R.id.confirmDate2)).setText(BusJourney.getTravelDate());
 
         if (BusJourney.getDirectChange().equals("Direct")) {
-            ((TextView) findViewById(R.id.time1)).setText(TimeDateFormatters.durationFormat((BusJourney.getJourneyTime1())));
+            ((TextView) findViewById(R.id.time1)).setText(TimeDateFormatters.durationFormat((BusJourney.getJourneyDurationTotalMinutes1())));
         } else {
             ((TextView) findViewById(R.id.time1)).setText((BusJourney.getTravelTime1()));
         }
 
         if (BusJourney.getDirectChange().equals("Direct")) {
-            ((TextView) findViewById(R.id.time2)).setText(TimeDateFormatters.durationFormat((BusJourney.getJourneyTime1())));
+            ((TextView) findViewById(R.id.time2)).setText(TimeDateFormatters.durationFormat((BusJourney.getJourneyDurationTotalMinutes1())));
         } else {
             ((TextView) findViewById(R.id.time2)).setText((BusJourney.getTravelTime2()));
         }
@@ -63,14 +64,18 @@ public class PaymentPage extends AppCompatActivity {
         details1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openOutboundDetails();
+                anchor = "1";
+                Intent intent = new Intent(PaymentPage.this, BoundDetails.class);
+                startActivity(intent);
             }
         });
 
         details2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openInboundDetails();
+                anchor = "2";
+                Intent intent = new Intent(PaymentPage.this, BoundDetails.class);
+                startActivity(intent);
             }
         });
 
@@ -87,22 +92,12 @@ public class PaymentPage extends AppCompatActivity {
 
     }
 
-    public void openOutboundDetails() {
-        Intent intent = new Intent(PaymentPage.this, OutboundDetails.class);
-        startActivity(intent);
-    }
-
-    public void openInboundDetails() {
-        Intent intent = new Intent(PaymentPage.this, InboundDetails.class);
-        startActivity(intent);
-    }
-
     /*
     The backToTimeSelection() method should be uncommented and the InboundTimeSelection(page) should be renamed
     to the class of name of the outbound time selection page.
      */
     public void backToTimeSelection() {
-        Intent intent = new Intent(PaymentPage.this, OutboundPage.class);
+        Intent intent = new Intent(PaymentPage.this, BoundPage.class);
         startActivity(intent);
     }
 

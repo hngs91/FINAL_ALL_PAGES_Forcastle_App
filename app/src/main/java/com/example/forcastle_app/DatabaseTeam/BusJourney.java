@@ -10,64 +10,81 @@ public class BusJourney {
 
     //variables are static so that only one BusJourney object needs to be made with all variables of the one object being accessible from all other classes
     //removes the need to create a BusJourney object on every page of the app
-    private static String journey1, journey2,
-            return1, return2,
+    private static String journeyCode1, journeyCode2,
+            returnCode1, returnCode2,
             partOfWeek,
             operator1, operator2,
             busNo1, busNo2,
             outboundTime1, outboundTime2,
             inboundTime1, inboundTime2,
-            departureStationOut1, departureStationOut2, departureStationIn1, departureStationIn2,
-            arrivalStationOut1, arrivalStationOut2, arrivalStationIn1, arrivalStationIn2,
+            departureStationOut1, departureStationOut2, arrivalStationOut1, arrivalStationOut2,
+            departureStationIn1, departureStationIn2, arrivalStationIn1, arrivalStationIn2,
             travelDate,
             travelTime1, travelTime2,
             directChange,
-            changeWait;
-    private static int hour = 0, minute = 0, totalTime, arrivalTime, returnTime;
-    private static Integer journeyTime1, journeyTime2;
+            changeWaitOut, changeWaitIn;
+    private static int hour, minute, totalTime, arrivalTimeOut, arrivalTimeIn;
+    private static Integer journeyDurationTotalMinutes1, journeyDurationTotalMinutes2;
 
-    //constructor sets data dictated by the journey chosen by the user via HashMaps
-    public BusJourney(String journey1, String journey2) {
-        BusJourney.journey1 = journey1;
-        BusJourney.journey2 = journey2;
+    //private empty constructor
+    private BusJourney() {
+    }
 
-        HashMaps hashMaps = new HashMaps();
+    //method sets data dictated by the journey chosen by the user via HashMaps
+    public static void buildBusJourney(String journey1, String journey2) {
+        BusJourney.journeyCode1 = journey1;
+        BusJourney.journeyCode2 = journey2;
 
-        return1 = hashMaps.getReturnJourney().get(journey1);
-        return2 = hashMaps.getReturnJourney().get(journey2);
-        operator1 = hashMaps.getOperators().get(journey1);
-        operator2 = hashMaps.getOperators().get(journey2);
-        busNo1 = hashMaps.getBusNo().get(journey1);
-        busNo2 = hashMaps.getBusNo().get(journey2);
-        journeyTime1 = hashMaps.getJourneyTimes().get(journey1);
-        journeyTime2 = hashMaps.getJourneyTimes().get(journey2);
-        TimeDateFormatters.durationFormat(journeyTime1);
-        directChange = hashMaps.getDirectChange().get(journey1);
-        departureStationOut1 = hashMaps.getStation().get(journey1);
-        arrivalStationOut1 = hashMaps.getStation().get(return1);
-        departureStationOut2 = hashMaps.getStation().get(journey2);
-        arrivalStationOut2 = hashMaps.getStation().get(return2);
-        departureStationIn1 = hashMaps.getStation().get(return1);
-        departureStationIn2 = hashMaps.getStation().get(return2);
-        arrivalStationIn1 = hashMaps.getStation().get(journey1);
-        arrivalStationIn2 = hashMaps.getStation().get(journey2);
+        HashMaps.buildAllHashMaps();
+
+        returnCode1 = HashMaps.getReturnJourney().get(journey1);
+        returnCode2 = HashMaps.getReturnJourney().get(journey2);
+
+        operator1 = HashMaps.getOperators().get(journey1);
+        operator2 = HashMaps.getOperators().get(journey2);
+
+        busNo1 = HashMaps.getBusNo().get(journey1);
+        busNo2 = HashMaps.getBusNo().get(journey2);
+
+        journeyDurationTotalMinutes1 = HashMaps.getJourneyTimes().get(journey1);
+
+        if (HashMaps.getJourneyTimes().containsKey(journey2)) {
+            journeyDurationTotalMinutes2 = HashMaps.getJourneyTimes().get(journey2);
+        } else {
+            journeyDurationTotalMinutes2 = 0;
+        }
+        //TimeDateFormatters.durationFormat(journeyDurationTotalMinutes1);
+
+        directChange = HashMaps.getDirectChange().get(journey1);
+
+        departureStationOut1 = HashMaps.getStation().get(journey1);
+        departureStationOut2 = HashMaps.getStation().get(journey2);
+
+        arrivalStationOut1 = HashMaps.getStation().get(returnCode1);
+        arrivalStationOut2 = HashMaps.getStation().get(returnCode2);
+
+        departureStationIn1 = HashMaps.getStation().get(returnCode1);
+        departureStationIn2 = HashMaps.getStation().get(returnCode2);
+
+        arrivalStationIn1 = HashMaps.getStation().get(journey1);
+        arrivalStationIn2 = HashMaps.getStation().get(journey2);
     }
 
     /****************** GETTERS & SETTERS **************************/
-    public static String getJourney1() {
-        return journey1;
+    public static String getJourneyCode1() {
+        return journeyCode1;
     }
 
-    public static String getJourney2() {
-        return journey2;
+    public static String getJourneyCode2() {
+        return journeyCode2;
     }
 
-    public static String getReturn1() {
-        return return1;
+    public static String getReturnCode1() {
+        return returnCode1;
     }
 
-    public static String getReturn2() {
-        return return2;
+    public static String getReturnCode2() {
+        return returnCode2;
     }
 
     public static String getOperator1() {
@@ -141,10 +158,6 @@ public class BusJourney {
         return arrivalStationIn1;
     }
 
-    public static void setReturnTime(int returnTime) {
-        BusJourney.returnTime = returnTime;
-    }
-
     public static String getTravelTime2() {
         return travelTime2;
     }
@@ -153,12 +166,20 @@ public class BusJourney {
         BusJourney.travelTime2 = travelTime2;
     }
 
-    public static int getArrivalTime() {
-        return arrivalTime;
+    public static int getArrivalTimeOut() {
+        return arrivalTimeOut;
     }
 
-    public static void setArrivalTime(int arrivalTime) {
-        BusJourney.arrivalTime = arrivalTime;
+    public static void setArrivalTimeOut(int arrivalTimeOut) {
+        BusJourney.arrivalTimeOut = arrivalTimeOut;
+    }
+
+    public static int getArrivalTimeIn() {
+        return arrivalTimeIn;
+    }
+
+    public static void setArrivalTimeIn(int arrivalTimeIn) {
+        BusJourney.arrivalTimeIn = arrivalTimeIn;
     }
 
     public static void setTravelTime1(String travelTime1) {
@@ -173,12 +194,12 @@ public class BusJourney {
         return travelTime1;
     }
 
-    public static int getJourneyTime1() {
-        return journeyTime1;
+    public static int getJourneyDurationTotalMinutes1() {
+        return journeyDurationTotalMinutes1;
     }
 
-    public static int getJourneyTime2() {
-        return journeyTime2;
+    public static int getJourneyDurationTotalMinutes2() {
+        return journeyDurationTotalMinutes2;
     }
 
     public static int getHour() {
@@ -222,12 +243,20 @@ public class BusJourney {
 
     }
 
-    public static String getChangeWait() {
-        return changeWait;
+    public static String getChangeWaitOut() {
+        return changeWaitOut;
     }
 
-    public static void setChangeWait(String changeWait) {
-        BusJourney.changeWait = changeWait;
+    public static void setChangeWaitOut(String changeWaitOut) {
+        BusJourney.changeWaitOut = changeWaitOut;
+    }
+
+    public static String getChangeWaitIn() {
+        return changeWaitIn;
+    }
+
+    public static void setChangeWaitIn(String changeWaitIn) {
+        BusJourney.changeWaitIn = changeWaitIn;
     }
 
     public static int getTotalTime() {

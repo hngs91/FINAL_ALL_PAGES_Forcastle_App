@@ -44,8 +44,6 @@ public class FilterPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter_page);
         initDatePicker();
-
-
         back = findViewById(R.id.back_button);
         dateButton = findViewById(R.id.datePickerButton);
         bookTripButton = findViewById(R.id.bookTripButton);
@@ -116,7 +114,7 @@ public class FilterPage extends AppCompatActivity {
             public void onClick(View view) {
                 if (timerClicked) {
                     //check all fields are complete
-                    Intent intent1 = new Intent(FilterPage.this, OutboundPage.class);
+                    Intent intent1 = new Intent(FilterPage.this, BoundPage.class);
                     intent1.putExtra("anchor", anchor);
                     startActivity(intent1);
                 } else {

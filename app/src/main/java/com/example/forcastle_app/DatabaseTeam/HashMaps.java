@@ -4,11 +4,11 @@ import java.util.HashMap;
 
 public class HashMaps {
 
-    private HashMap<String, String> busNo, operators, returnJourney, station, directChange;
-    private HashMap<String, Integer> journeyTimes;
+    private static HashMap<String, String> busNo, operators, returnJourney, station, directChange;
+    private static HashMap<String, Integer> journeyTimes;
 
     // constructor builds all required hashmaps when called
-    public HashMaps() {
+    public static void  buildAllHashMaps() {
         buildBusNo();
         buildOperators();
         buildDepartureStation();
@@ -18,7 +18,7 @@ public class HashMaps {
     }
 
     //maps journey to direct or one change needed
-    public void buildDirectChange() {
+    public static void buildDirectChange() {
         directChange = new HashMap<>();
 
         directChange.put("NCALN", "Direct");
@@ -36,7 +36,7 @@ public class HashMaps {
     }
 
     //maps journey to how long it takes
-    public void buildJourneyTimes() {
+    public static void buildJourneyTimes() {
         journeyTimes = new HashMap<>();
 
         journeyTimes.put("NCALN", 120);
@@ -55,7 +55,7 @@ public class HashMaps {
     }
 
     //maps journey to bus station name
-    public void buildDepartureStation() {
+    public static void buildDepartureStation() {
         station = new HashMap<>();
 
         station.put("NCALN", "Haymarket");
@@ -73,19 +73,19 @@ public class HashMaps {
     }
 
     //maps journey to return journey
-    public void buildReturnJourney() {
+    public static void buildReturnJourney() {
         returnJourney = new HashMap<>();
 
         returnJourney.put("NCALN", "ALNNC");
-        returnJourney.put("NCBAM1", "BAMNC2");
-        returnJourney.put("NCBAM2", "BAMNC1");
+        returnJourney.put("NCBAM1", "BAMNC1");
+        returnJourney.put("NCBAM2", "BAMNC2");
         returnJourney.put("NCAUK", "AUKNC");
-        returnJourney.put("NCBAR1", "BARNC2");
-        returnJourney.put("NCBAR2", "BARNC1");
+        returnJourney.put("NCBAR1", "BARNC1");
+        returnJourney.put("NCBAR2", "BARNC2");
     }
 
     //maps journey to bus operator
-    public void buildOperators() {
+    public static void buildOperators() {
         operators = new HashMap<>();
 
         operators.put("NCALN", "Arriva North East");
@@ -103,7 +103,7 @@ public class HashMaps {
     }
 
     //maps journey to Bus Number
-    public void buildBusNo() {
+    public static void buildBusNo() {
         busNo = new HashMap<>();
 
         busNo.put("NCALN", "X15 MAX");
@@ -121,27 +121,27 @@ public class HashMaps {
     }
 
     /************** Getter methods ************************/
-    public HashMap<String, Integer> getJourneyTimes() {
+    public static HashMap<String, Integer> getJourneyTimes() {
         return journeyTimes;
     }
 
-    public HashMap<String, String> getBusNo() {
+    public static HashMap<String, String> getBusNo() {
         return busNo;
     }
 
-    public HashMap<String, String> getOperators() {
+    public static HashMap<String, String> getOperators() {
         return operators;
     }
 
-    public HashMap<String, String> getReturnJourney() {
+    public static HashMap<String, String> getReturnJourney() {
         return returnJourney;
     }
 
-    public HashMap<String, String> getStation() {
+    public static HashMap<String, String> getStation() {
         return station;
     }
 
-    public HashMap<String, String> getDirectChange() {
+    public static HashMap<String, String> getDirectChange() {
         return directChange;
     }
 }

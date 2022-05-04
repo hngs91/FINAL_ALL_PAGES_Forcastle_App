@@ -41,7 +41,7 @@ public class HomePage extends AppCompatActivity {
                     radioButton4.setChecked(false);
 
                     //creates busJourney object with relevant journey code(s)
-                    busJourney = new BusJourney("NCALN", null);
+                    BusJourney.buildBusJourney("NCALN", "");
                 }
             }
         });
@@ -56,7 +56,7 @@ public class HomePage extends AppCompatActivity {
                     radioButton4.setChecked(false);
 
                     //creates busJourney object with relevant journey code(s)
-                    busJourney = new BusJourney("NCAUK", null);
+                    BusJourney.buildBusJourney("NCAUK", null);
                 }
             }
         });
@@ -71,7 +71,7 @@ public class HomePage extends AppCompatActivity {
                     radioButton4.setChecked(false);
 
                     //creates busJourney object with relevant journey code(s)
-                    busJourney = new BusJourney("NCBAM1", "NCBAM2");
+                    BusJourney.buildBusJourney("NCBAM1", "NCBAM2");
                 }
             }
         });
@@ -86,7 +86,7 @@ public class HomePage extends AppCompatActivity {
                     radioButton4.setChecked(true);
 
                     //creates busJourney object with relevant journey code(s)
-                    busJourney = new BusJourney("NCBAR1", "NCBAR2");
+                    BusJourney.buildBusJourney("NCBAR1", "NCBAR2");
                 }
             }
         });

@@ -46,24 +46,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OutboundPage"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".InboundPage"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".PaymentPage"
             android:exported="true">
             <intent-filter>
@@ -73,7 +55,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".InboundDetails"
+            android:name=".BoundPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -82,7 +64,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OutboundDetails"
+            android:name=".BoundDetails"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
