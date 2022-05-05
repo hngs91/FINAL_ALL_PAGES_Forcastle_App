@@ -56,7 +56,7 @@ public class HomePage extends AppCompatActivity {
                     radioButton4.setChecked(false);
 
                     //creates busJourney object with relevant journey code(s)
-                    BusJourney.buildBusJourney("NCAUK", null);
+                    BusJourney.buildBusJourney("NCAUK", "");
                 }
             }
         });

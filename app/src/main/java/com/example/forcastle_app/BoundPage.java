@@ -137,6 +137,96 @@ public class BoundPage extends AppCompatActivity {
             }
         });
 
+        buyButton3.setOnClickListener(v -> {
+            if ("1".equals(FilterPage.anchor)) {
+                BusJourney.setOutboundTime1(leaveTime3.getText().toString());
+                BusJourney.setArrivalTimeOut(TimeDateFormatters.reverseTimeFormat(arriveTime3.getText().toString()));
+                BusJourney.setTravelTime1(duration3.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setOutboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(5)));
+                    int changeWaitTime = waitChangeTimes.get(5) - waitChangeTimes.get(4);
+                    BusJourney.setChangeWaitOut(TimeDateFormatters.timeFormat(changeWaitTime));
+                }
+                FilterPage.anchor = "2";
+                Intent intent = new Intent(BoundPage.this, BoundPage.class);
+                startActivity(intent);
+
+            } else if ("2".equals(FilterPage.anchor)) {
+                BusJourney.setInboundTime1(leaveTime3.getText().toString());
+                BusJourney.setArrivalTimeIn(TimeDateFormatters.reverseTimeFormat(arriveTime3.getText().toString()));
+                BusJourney.setTravelTime2(duration3.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setInboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(5)));
+                    int changeWaitTime = waitChangeTimes.get(5) - waitChangeTimes.get(4);
+                    BusJourney.setChangeWaitIn(TimeDateFormatters.timeFormat(changeWaitTime));
+                }
+                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                startActivity(intent);
+            }
+        });
+
+        buyButton4.setOnClickListener(v -> {
+            if ("1".equals(FilterPage.anchor)) {
+                BusJourney.setOutboundTime1(leaveTime4.getText().toString());
+                BusJourney.setArrivalTimeOut(TimeDateFormatters.reverseTimeFormat(arriveTime4.getText().toString()));
+                BusJourney.setTravelTime1(duration4.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setOutboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(7)));
+                    int changeWaitTime = waitChangeTimes.get(7) - waitChangeTimes.get(6);
+                    BusJourney.setChangeWaitOut(TimeDateFormatters.timeFormat(changeWaitTime));
+                }
+                FilterPage.anchor = "2";
+                Intent intent = new Intent(BoundPage.this, BoundPage.class);
+                startActivity(intent);
+
+            } else if ("2".equals(FilterPage.anchor)) {
+                BusJourney.setInboundTime1(leaveTime4.getText().toString());
+                BusJourney.setArrivalTimeIn(TimeDateFormatters.reverseTimeFormat(arriveTime4.getText().toString()));
+                BusJourney.setTravelTime2(duration4.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setInboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(7)));
+                    int changeWaitTime = waitChangeTimes.get(7) - waitChangeTimes.get(6);
+                    BusJourney.setChangeWaitIn(TimeDateFormatters.timeFormat(changeWaitTime));
+                }
+                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                startActivity(intent);
+            }
+        });
+
+        buyButton5.setOnClickListener(v -> {
+            if ("1".equals(FilterPage.anchor)) {
+                BusJourney.setOutboundTime1(leaveTime5.getText().toString());
+                BusJourney.setArrivalTimeOut(TimeDateFormatters.reverseTimeFormat(arriveTime5.getText().toString()));
+                BusJourney.setTravelTime1(duration5.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setOutboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(9)));
+                    int changeWaitTime = waitChangeTimes.get(9) - waitChangeTimes.get(8);
+                    BusJourney.setChangeWaitOut(TimeDateFormatters.timeFormat(changeWaitTime));
+                }
+                FilterPage.anchor = "2";
+                Intent intent = new Intent(BoundPage.this, BoundPage.class);
+                startActivity(intent);
+
+            } else if ("2".equals(FilterPage.anchor)) {
+                BusJourney.setInboundTime1(leaveTime5.getText().toString());
+                BusJourney.setArrivalTimeIn(TimeDateFormatters.reverseTimeFormat(arriveTime5.getText().toString()));
+                BusJourney.setTravelTime2(duration5.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setInboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(9)));
+                    int changeWaitTime = waitChangeTimes.get(9) - waitChangeTimes.get(8);
+                    BusJourney.setChangeWaitIn(TimeDateFormatters.timeFormat(changeWaitTime));
+                }
+                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

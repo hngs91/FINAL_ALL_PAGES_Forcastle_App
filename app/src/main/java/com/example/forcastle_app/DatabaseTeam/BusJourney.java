@@ -23,7 +23,11 @@ public class BusJourney {
             travelTime1, travelTime2,
             directChange,
             changeWaitOut, changeWaitIn;
-    private static int hour, minute, totalTime, arrivalTimeOut, arrivalTimeIn;
+    private static int hour, minute, totalTime,
+            arrivalTimeOut, arrivalTimeIn,
+            noAdultTickets, noChildTickets,
+            adultBusPrice, childBusPrice,
+            adultCastlePrice, childCastlePrice;
     private static Integer journeyDurationTotalMinutes1, journeyDurationTotalMinutes2;
 
     //private empty constructor
@@ -31,6 +35,7 @@ public class BusJourney {
     }
 
     //method sets data dictated by the journey chosen by the user via HashMaps
+    @SuppressWarnings("ConstantConditions")
     public static void buildBusJourney(String journey1, String journey2) {
         BusJourney.journeyCode1 = journey1;
         BusJourney.journeyCode2 = journey2;
@@ -68,6 +73,9 @@ public class BusJourney {
 
         arrivalStationIn1 = HashMaps.getStation().get(journey1);
         arrivalStationIn2 = HashMaps.getStation().get(journey2);
+
+        adultBusPrice = HashMaps.getAdultPrice().get(journey1);
+        childBusPrice = HashMaps.getChildPrice().get(journey1);
     }
 
     /****************** GETTERS & SETTERS **************************/
@@ -303,4 +311,51 @@ public class BusJourney {
         BusJourney.travelDate = travelDate;
     }
 
+    public static int getNoAdultTickets() {
+        return noAdultTickets;
+    }
+
+    public static void setNoAdultTickets(int noAdultTickets) {
+        BusJourney.noAdultTickets = noAdultTickets;
+    }
+
+    public static int getNoChildTickets() {
+        return noChildTickets;
+    }
+
+    public static void setNoChildTickets(int noChildTickets) {
+        BusJourney.noChildTickets = noChildTickets;
+    }
+
+    public static int getAdultBusPrice() {
+        return adultBusPrice;
+    }
+
+    public static void setAdultBusPrice(int adultBusPrice) {
+        BusJourney.adultBusPrice = adultBusPrice;
+    }
+
+    public static int getChildBusPrice() {
+        return childBusPrice;
+    }
+
+    public static void setChildBusPrice(int childBusPrice) {
+        BusJourney.childBusPrice = childBusPrice;
+    }
+
+    public static int getAdultCastlePrice() {
+        return adultCastlePrice;
+    }
+
+    public static void setAdultCastlePrice(int adultCastlePrice) {
+        BusJourney.adultCastlePrice = adultCastlePrice;
+    }
+
+    public static int getChildCastlePrice() {
+        return childCastlePrice;
+    }
+
+    public static void setChildCastlePrice(int childCastlePrice) {
+        BusJourney.childCastlePrice = childCastlePrice;
+    }
 }

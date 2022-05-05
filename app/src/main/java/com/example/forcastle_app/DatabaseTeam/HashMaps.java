@@ -5,16 +5,39 @@ import java.util.HashMap;
 public class HashMaps {
 
     private static HashMap<String, String> busNo, operators, returnJourney, station, directChange;
-    private static HashMap<String, Integer> journeyTimes;
+    private static HashMap<String, Integer> journeyTimes, adultPrice, childPrice;
 
     // constructor builds all required hashmaps when called
-    public static void  buildAllHashMaps() {
+    public static void buildAllHashMaps() {
         buildBusNo();
         buildOperators();
         buildDepartureStation();
         buildReturnJourney();
         buildJourneyTimes();
         buildDirectChange();
+        buildAdultPrice();
+        buildChildPrice();
+    }
+    
+    public static void buildChildPrice(){
+        childPrice = new HashMap<>();
+        childPrice.put("NCALN", 5);
+        childPrice.put("NCBAM1", 5);
+        childPrice.put("NCBAM2", 5);
+        childPrice.put("NCAUK", 5);
+        childPrice.put("NCBAR1", 5);
+        childPrice.put("NCBAR2", 5);
+    }
+
+    public static void buildAdultPrice() {
+        adultPrice = new HashMap<>();
+
+        adultPrice.put("NCALN", 10);
+        adultPrice.put("NCBAM1", 10);
+        adultPrice.put("NCBAM2", 10);
+        adultPrice.put("NCAUK", 10);
+        adultPrice.put("NCBAR1", 10);
+        adultPrice.put("NCBAR2", 10);
     }
 
     //maps journey to direct or one change needed
@@ -143,5 +166,13 @@ public class HashMaps {
 
     public static HashMap<String, String> getDirectChange() {
         return directChange;
+    }
+
+    public static HashMap<String, Integer> getAdultPrice() {
+        return adultPrice;
+    }
+
+    public static HashMap<String, Integer> getChildPrice() {
+        return childPrice;
     }
 }
