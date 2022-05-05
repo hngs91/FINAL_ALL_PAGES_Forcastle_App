@@ -25,16 +25,14 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 /*
-Code implemented by Eugenia Vuong
+Code implemented by Eugenia Vuong & Harry Smith
  */
 
 public class FilterPage extends AppCompatActivity {
     Button back, dateButton, bookTripButton;
     ImageView minus2, childMinus2, add1;
     TextView value1, value2, timer;
-    int count1 = 1;
-    int count2 = 0;
-    int tHour, tMinute;
+    int count1 = 1, count2 = 0, tHour, tMinute;
     DatePickerDialog datePickerDialog;
     Boolean timerClicked = false;
     static String anchor = "1";
@@ -44,20 +42,8 @@ public class FilterPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter_page);
         initDatePicker();
-        back = findViewById(R.id.back_button);
-        dateButton = findViewById(R.id.datePickerButton);
-        bookTripButton = findViewById(R.id.bookTripButton);
-        dateButton.setText(getTodaysDate());
-        value1 = findViewById(R.id.adultTickets);
-        value2 = findViewById(R.id.childTickets);
-        minus2 = findViewById(R.id.minus2);
-        add1 = findViewById(R.id.add1);
-        childMinus2 = findViewById(R.id.childMinus2);
-        timer = findViewById(R.id.timer);
 
-        //displays the departure station and destination castle in the "From" & "To" on the filter page
-        ((TextView) findViewById(R.id.insertBusStop)).setText(BusJourney.getDepartureStationOut1());
-        ((TextView) findViewById(R.id.insertCastle)).setText(BusJourney.getArrivalStationOut1());
+        setViews();
 
         timer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,4 +203,22 @@ public class FilterPage extends AppCompatActivity {
         } else count2--;
         value2.setText("" + count2);
     }
+
+    public void setViews() {
+        back = findViewById(R.id.back_button);
+        dateButton = findViewById(R.id.datePickerButton);
+        bookTripButton = findViewById(R.id.bookTripButton);
+        dateButton.setText(getTodaysDate());
+        value1 = findViewById(R.id.adultTickets);
+        value2 = findViewById(R.id.childTickets);
+        minus2 = findViewById(R.id.minus2);
+        add1 = findViewById(R.id.add1);
+        childMinus2 = findViewById(R.id.childMinus2);
+        timer = findViewById(R.id.timer);
+
+        //displays the departure station and destination castle in the "From" & "To" on the filter page
+        ((TextView) findViewById(R.id.insertBusStop)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView) findViewById(R.id.insertCastle)).setText(BusJourney.getArrivalStationOut1());
+    }
+
 }

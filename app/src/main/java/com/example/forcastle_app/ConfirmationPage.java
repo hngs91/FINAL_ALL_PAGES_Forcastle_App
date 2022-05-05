@@ -16,6 +16,9 @@ import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/*
+Code implemented by Eugenia Vuong
+ */
 public class ConfirmationPage extends AppCompatActivity {
 
     ImageView iv_map;
@@ -26,11 +29,9 @@ public class ConfirmationPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
+
+        setViews();
         RelativeLayout rlMap = findViewById(R.id.rl_map);
-        iv_map = findViewById(R.id.iv_map);
-        email = findViewById(R.id.email);
-        sendReceipt = findViewById(R.id.sendReceipt);
-        backConfirmation = findViewById(R.id.back_confirmation);
 
         iv_map.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +40,7 @@ public class ConfirmationPage extends AppCompatActivity {
             }
         });
 
-        backConfirmation.setOnClickListener(new View.OnClickListener(){
+        backConfirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ConfirmationPage.this, PaymentPage.class);
@@ -57,7 +58,7 @@ public class ConfirmationPage extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.map);
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        int screenWidth = getResources().getDisplayMetrics().widthPixels-dp2px(20);
+        int screenWidth = getResources().getDisplayMetrics().widthPixels - dp2px(20);
         float ivMapHeight = height * (1f * screenWidth / width);
         Log.d("TAG", "height: " + height);
         Log.d("TAG", "width: " + width);
@@ -71,7 +72,7 @@ public class ConfirmationPage extends AppCompatActivity {
 
     private void gotoUrl(String s) {
         Uri uri = Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 
     private int dp2px(int value) {
@@ -84,18 +85,24 @@ public class ConfirmationPage extends AppCompatActivity {
         String mMessage = "Thank you for using the Forcastle app! \n" +
                 "Booking reference: " + "829394 \n" +
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                "Outbound: "+ "Newcastle " + "to " + "Alnwick\n" +
+                "Outbound: " + "Newcastle " + "to " + "Alnwick\n" +
                 "Departs: " + "12:00" + "at" + "Eldon Square\n" +
                 "Bus service: " + "307\n" +
                 "------------------------------------\n" +
                 "Inbound: " + "Alnwick " + "to " + "Newcastle\n" +
                 "Departs: " + "18:00" + "at" + "Alnwick\n" +
-                "Bus service: " + "307\n" ;
+                "Bus service: " + "307\n";
 
         JavaMailAPI javaMailAPI = new JavaMailAPI(this, mEmail, mSubject, mMessage);
 
         javaMailAPI.execute();
     }
 
+    public void setViews() {
+        iv_map = findViewById(R.id.iv_map);
+        email = findViewById(R.id.email);
+        sendReceipt = findViewById(R.id.sendReceipt);
+        backConfirmation = findViewById(R.id.back_confirmation);
+    }
 
 }

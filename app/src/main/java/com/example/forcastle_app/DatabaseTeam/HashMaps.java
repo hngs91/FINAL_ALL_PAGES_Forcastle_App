@@ -1,7 +1,9 @@
 package com.example.forcastle_app.DatabaseTeam;
 
 import java.util.HashMap;
-
+/*
+Code implemented by Harry Smith
+ */
 public class HashMaps {
 
     private static HashMap<String, String> busNo, operators, returnJourney, station, directChange;

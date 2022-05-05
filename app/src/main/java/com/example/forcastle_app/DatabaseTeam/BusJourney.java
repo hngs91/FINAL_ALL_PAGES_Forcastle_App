@@ -5,7 +5,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
+/*
+Code implemented by Harry Smith
+ */
 public class BusJourney {
 
     //variables are static so that only one BusJourney object needs to be made with all variables of the one object being accessible from all other classes
@@ -25,8 +27,8 @@ public class BusJourney {
             changeWaitOut, changeWaitIn;
     private static int hour, minute, totalTime,
             arrivalTimeOut, arrivalTimeIn,
-            noAdultTickets, noChildTickets,
-            adultBusPrice, childBusPrice,
+            noAdultTickets, noChildTickets;
+    private static double adultBusPrice, childBusPrice,
             adultCastlePrice, childCastlePrice;
     private static Integer journeyDurationTotalMinutes1, journeyDurationTotalMinutes2;
 
@@ -327,35 +329,35 @@ public class BusJourney {
         BusJourney.noChildTickets = noChildTickets;
     }
 
-    public static int getAdultBusPrice() {
+    public static double getAdultBusPrice() {
         return adultBusPrice;
     }
 
-    public static void setAdultBusPrice(int adultBusPrice) {
+    public static void setAdultBusPrice(double adultBusPrice) {
         BusJourney.adultBusPrice = adultBusPrice;
     }
 
-    public static int getChildBusPrice() {
+    public static double getChildBusPrice() {
         return childBusPrice;
     }
 
-    public static void setChildBusPrice(int childBusPrice) {
+    public static void setChildBusPrice(double childBusPrice) {
         BusJourney.childBusPrice = childBusPrice;
     }
 
-    public static int getAdultCastlePrice() {
+    public static double getAdultCastlePrice() {
         return adultCastlePrice;
     }
 
-    public static void setAdultCastlePrice(int adultCastlePrice) {
+    public static void setAdultCastlePrice(double adultCastlePrice) {
         BusJourney.adultCastlePrice = adultCastlePrice;
     }
 
-    public static int getChildCastlePrice() {
+    public static double getChildCastlePrice() {
         return childCastlePrice;
     }
 
-    public static void setChildCastlePrice(int childCastlePrice) {
+    public static void setChildCastlePrice(double childCastlePrice) {
         BusJourney.childCastlePrice = childCastlePrice;
     }
 }

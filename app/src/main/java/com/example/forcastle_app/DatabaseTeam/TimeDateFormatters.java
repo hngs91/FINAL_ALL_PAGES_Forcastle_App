@@ -1,5 +1,8 @@
 package com.example.forcastle_app.DatabaseTeam;
 
+/*
+Code implemented by Harry Smith
+ */
 public class TimeDateFormatters {
 
     public static String timeFormat(int totalTime) {
@@ -32,7 +35,7 @@ public class TimeDateFormatters {
 
         String minuteString = String.valueOf(minute);
 
-        if (minute < 10 && minute > 0) minuteString = "0" + minute;
+        if (hour > 0 && minute < 10) minuteString = "0" + minute;
 
         String finalString = "";
 
@@ -73,6 +76,12 @@ public class TimeDateFormatters {
 
         //DEFAULT
         return "JAN";
+    }
+
+    public static double getCastlePrice(String castlePrice) {
+        String[] parts = castlePrice.split("£");
+
+        return Double.parseDouble(parts[1]);
     }
 
 }

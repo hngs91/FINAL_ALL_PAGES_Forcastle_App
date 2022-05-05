@@ -9,7 +9,9 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+Code implemented by Harry Smith
+ */
 //using SQLite database allows the app to be used offline
 public class DataBaseHelper extends SQLiteOpenHelper {
 

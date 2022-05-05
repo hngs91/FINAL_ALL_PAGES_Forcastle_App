@@ -11,12 +11,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
-
+/*
+Code implemented by Eugenia Vuong, Zheng Yang, & Harry Smith
+ */
 public class HomePage extends AppCompatActivity {
 
     RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
     Button submit;
-    BusJourney busJourney;
     static String selectedCastle;
 
     @Override
@@ -24,11 +25,7 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        radioButton1 = findViewById(R.id.radioButton1);
-        radioButton2 = findViewById(R.id.radioButton2);
-        radioButton3 = findViewById(R.id.radioButton3);
-        radioButton4 = findViewById(R.id.radioButton4);
-        submit = findViewById(R.id.submit);
+        setViews();
 
         /* The code below prevents multiple selections of the radio button */
         radioButton1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -123,4 +120,13 @@ public class HomePage extends AppCompatActivity {
         }
 
     }
+
+    public void setViews() {
+        radioButton1 = findViewById(R.id.radioButton1);
+        radioButton2 = findViewById(R.id.radioButton2);
+        radioButton3 = findViewById(R.id.radioButton3);
+        radioButton4 = findViewById(R.id.radioButton4);
+        submit = findViewById(R.id.submit);
+    }
+
 }

@@ -10,8 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
-
-
+/*
+Code implemented by Eugenia Vuong, Zheng Yang, & Harry Smith
+ */
 public class PaymentPage extends AppCompatActivity {
 
     TextView details1, details2;
@@ -23,20 +24,7 @@ public class PaymentPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_page);
 
-        details1 = findViewById(R.id.details1);
-        details2 = findViewById(R.id.details2);
-        backPayment = findViewById(R.id.back_payment);
-        payButton = (Button) findViewById(R.id.payButton);
-
-        //setting TextViews to user chosen journey data
-        ((TextView) findViewById(R.id.JourneyFrom1)).setText(BusJourney.getDepartureStationOut1());
-        ((TextView) findViewById(R.id.JourneyTo1)).setText(BusJourney.getArrivalStationOut1());
-        ((TextView) findViewById(R.id.JourneyFrom2)).setText(BusJourney.getDepartureStationIn1());
-        ((TextView) findViewById(R.id.JourneyTo2)).setText(BusJourney.getArrivalStationIn1());
-        ((TextView) findViewById(R.id.journeyType1)).setText(BusJourney.getDirectChange());
-        ((TextView) findViewById(R.id.journeyType2)).setText(BusJourney.getDirectChange());
-        ((TextView) findViewById(R.id.confirmedDate)).setText(BusJourney.getTravelDate());
-        ((TextView) findViewById(R.id.confirmDate2)).setText(BusJourney.getTravelDate());
+        setViews();
 
         if (BusJourney.getDirectChange().equals("Direct")) {
             ((TextView) findViewById(R.id.time1)).setText(TimeDateFormatters.durationFormat((BusJourney.getJourneyDurationTotalMinutes1())));
@@ -89,6 +77,21 @@ public class PaymentPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    public void setViews() {
+        details1 = findViewById(R.id.details1);
+        details2 = findViewById(R.id.details2);
+        backPayment = findViewById(R.id.back_payment);
+        payButton = (Button) findViewById(R.id.payButton);
 
+        //setting TextViews to user chosen journey data
+        ((TextView) findViewById(R.id.JourneyFrom1)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView) findViewById(R.id.JourneyTo1)).setText(BusJourney.getArrivalStationOut1());
+        ((TextView) findViewById(R.id.JourneyFrom2)).setText(BusJourney.getDepartureStationIn1());
+        ((TextView) findViewById(R.id.JourneyTo2)).setText(BusJourney.getArrivalStationIn1());
+        ((TextView) findViewById(R.id.journeyType1)).setText(BusJourney.getDirectChange());
+        ((TextView) findViewById(R.id.journeyType2)).setText(BusJourney.getDirectChange());
+        ((TextView) findViewById(R.id.confirmedDate)).setText(BusJourney.getTravelDate());
+        ((TextView) findViewById(R.id.confirmDate2)).setText(BusJourney.getTravelDate());
     }
 }

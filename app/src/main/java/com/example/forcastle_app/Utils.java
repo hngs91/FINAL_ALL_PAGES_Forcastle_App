@@ -1,5 +1,8 @@
 package com.example.forcastle_app;
 
+/*
+Code implemented by Eugenia Vuong
+ */
 public class Utils {
     // HERE PUT EMAIL AND PASSWORD , LIKE example@gmail.com
 
