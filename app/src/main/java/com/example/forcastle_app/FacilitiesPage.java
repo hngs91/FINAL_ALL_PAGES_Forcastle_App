@@ -45,6 +45,7 @@ public class FacilitiesPage extends AppCompatActivity {
         button.setOnClickListener(v -> {
             Intent intent = new Intent(FacilitiesPage.this, FilterPage.class);
             BusJourney.setAdultCastlePrice(TimeDateFormatters.getCastlePrice(adult_price.getText().toString()));
+            BusJourney.setChildCastlePrice(TimeDateFormatters.getCastlePrice(children_price.getText().toString()));
             startActivity(intent);
         });
 

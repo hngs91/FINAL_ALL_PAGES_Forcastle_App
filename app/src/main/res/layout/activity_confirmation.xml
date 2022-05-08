@@ -75,6 +75,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <TextView
+                android:id="@+id/totalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -141,6 +142,7 @@
                                 android:text="From" />
 
                             <TextView
+                                android:id="@+id/outboundStation1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Eldon Square Bus Station"
@@ -155,6 +157,7 @@
                                 android:text="To" />
 
                             <TextView
+                                android:id="@+id/outboundArrivalStation1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Alnwick Castle"
@@ -202,6 +205,7 @@
                                 android:text="Onboarding" />
 
                             <TextView
+                                android:id="@+id/outboundTime1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="07:39 AM"
@@ -216,6 +220,7 @@
                                 android:text="Arrival" />
 
                             <TextView
+                                android:id="@+id/outboundArrivalTime1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="11:08 AM"
@@ -257,6 +262,7 @@
                                 android:text="From" />
 
                             <TextView
+                                android:id="@+id/inboundStation1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Alnwick Castle"
@@ -271,6 +277,7 @@
                                 android:text="To" />
 
                             <TextView
+                                android:id="@+id/inboundArrivalStation1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Eldon Square Bus Station"
@@ -319,6 +326,7 @@
                                 android:text="Onboarding" />
 
                             <TextView
+                                android:id="@+id/inboundTime1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="07:39 AM"
@@ -333,6 +341,7 @@
                                 android:text="Arrival" />
 
                             <TextView
+                                android:id="@+id/inboundArrivalTime1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="11:08 AM"
@@ -373,6 +382,7 @@
                                 android:text="Bus number" />
 
                             <TextView
+                                android:id="@+id/busNumber"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="LNER- X66"
@@ -387,6 +397,7 @@
                                 android:text="Date" />
 
                             <TextView
+                                android:id="@+id/dateOfTravel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="14 April,2022"
@@ -405,9 +416,10 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="passanger details" />
+                                android:text="Operator" />
 
                             <TextView
+                                android:id="@+id/operator"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="XXXX XXXXXX"
@@ -422,6 +434,7 @@
                                 android:text="No of Tickets" />
 
                             <TextView
+                                android:id="@+id/numberOfTickets"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1 adult"

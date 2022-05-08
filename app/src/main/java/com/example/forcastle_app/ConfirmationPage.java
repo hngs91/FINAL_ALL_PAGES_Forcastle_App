@@ -13,8 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.forcastle_app.DatabaseTeam.BusJourney;
+import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 
 /*
 Code implemented by Eugenia Vuong
@@ -30,7 +35,12 @@ public class ConfirmationPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
 
-        setViews();
+        try {
+            setViews();
+        }catch (Exception e) {
+            Toast.makeText(this, "setViews() broken", Toast.LENGTH_SHORT).show();
+        }
+
         RelativeLayout rlMap = findViewById(R.id.rl_map);
 
         iv_map.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +113,30 @@ public class ConfirmationPage extends AppCompatActivity {
         email = findViewById(R.id.email);
         sendReceipt = findViewById(R.id.sendReceipt);
         backConfirmation = findViewById(R.id.back_confirmation);
+
+        ((TextView)findViewById(R.id.outboundStation1)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView)findViewById(R.id.outboundTime1)).setText(BusJourney.getOutboundTime1());
+        ((TextView) findViewById(R.id.outboundArrivalTime1)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
+        ((TextView) findViewById(R.id.inboundArrivalStation1)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView) findViewById(R.id.numberOfTickets)).setText(BusJourney.getNoAdultTickets() + BusJourney.getNoChildTickets());
+        double totalPrice = BusJourney.getNoAdultTickets() * (BusJourney.getAdultBusPrice() + BusJourney.getAdultCastlePrice()) +
+                BusJourney.getNoChildTickets() * (BusJourney.getChildBusPrice() + BusJourney.getChildCastlePrice());
+        String totalPricePrintOut = "Total Price (inc. Bus & Castle Tickets) = " + (totalPrice);
+        ((TextView) findViewById(R.id.total)).setText(totalPricePrintOut);
+
+        if(BusJourney.getDirectChange().equals("Direct")) {
+            ((TextView) findViewById(R.id.outboundArrivalStation1)).setText(BusJourney.getArrivalStationIn1());
+            ((TextView) findViewById(R.id.inboundStation1)).setText(BusJourney.getArrivalStationIn1());
+            ((TextView) findViewById(R.id.busNumber)).setText(BusJourney.getBusNo1());
+            ((TextView) findViewById(R.id.operator)).setText(BusJourney.getOperator1());
+        } else {
+            ((TextView) findViewById(R.id.outboundArrivalStation1)).setText(BusJourney.getArrivalStationIn2());
+            ((TextView) findViewById(R.id.inboundStation1)).setText(BusJourney.getArrivalStationIn2());
+            String buses = BusJourney.getBusNo1() + " -> " + BusJourney.getBusNo2();
+            ((TextView) findViewById(R.id.busNumber)).setText(buses);
+            String operators = BusJourney.getOperator1() + " -> " + BusJourney.getOperator2();
+            ((TextView) findViewById(R.id.operator)).setText(operators);
+        }
     }
 
 }

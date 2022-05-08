@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +24,10 @@ public class PaymentPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_page);
+
+        String tickets = "Adult: " + BusJourney.getNoAdultTickets() + "\nChildren: " + BusJourney.getNoChildTickets();
+
+        Toast.makeText(this, tickets, Toast.LENGTH_LONG).show();
 
         setViews();
 

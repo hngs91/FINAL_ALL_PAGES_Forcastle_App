@@ -100,6 +100,8 @@ public class FilterPage extends AppCompatActivity {
             public void onClick(View view) {
                 if (timerClicked) {
                     //check all fields are complete
+                    BusJourney.setNoAdultTickets(count1);
+                    BusJourney.setNoChildTickets(count2);
                     Intent intent1 = new Intent(FilterPage.this, BoundPage.class);
                     intent1.putExtra("anchor", anchor);
                     startActivity(intent1);

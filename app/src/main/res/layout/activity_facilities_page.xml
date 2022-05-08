@@ -131,9 +131,9 @@
                         android:id="@+id/price_text_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/price_text_2"
                         android:text=" | Children: "
-                        android:textStyle="bold"
-                        android:layout_toEndOf="@id/price_text_2"/>
+                        android:textStyle="bold" />
 
                     <!--                    '£10.25'-->
                     <TextView
