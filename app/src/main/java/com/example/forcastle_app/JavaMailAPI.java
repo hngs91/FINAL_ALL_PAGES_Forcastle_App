@@ -1,6 +1,7 @@
 package com.example.forcastle_app;
 
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.util.Properties;
 
@@ -37,12 +38,9 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
 
         session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                PasswordAuthentication passwordAuthentication = new PasswordAuthentication(Utils.EMAIL, Utils.PASSWORD);
-                return passwordAuthentication;
+                return new PasswordAuthentication(Utils.EMAIL, Utils.PASSWORD);
             }
         });
-
-
 
         MimeMessage mimeMessage = new MimeMessage(session);
         try {

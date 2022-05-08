@@ -38,13 +38,13 @@
         android:id="@+id/outJourneyFromPop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="73dp"
+        android:layout_marginStart="-50dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="28dp"
         android:text="[Eldon Square]"
+        android:textAlignment="center"
         android:textColor="#3e4352"
         app:layout_constraintEnd_toStartOf="@+id/outArrowPop"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outboundJourneyDetails" />
 
     <TextView
@@ -64,10 +64,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="63dp"
         android:text="[Alnwick Castle]"
+        android:textAlignment="center"
         android:textColor="#3e4352"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/outArrowPop"
         app:layout_constraintTop_toBottomOf="@+id/outboundJourneyDetails" />
 
@@ -108,6 +107,7 @@
         android:text="3hr 29m"
         android:textColor="#848484"
         app:layout_constraintBottom_toBottomOf="@+id/greyBox1Pop"
+        app:layout_constraintEnd_toStartOf="@+id/journeyType1Pop"
         app:layout_constraintStart_toEndOf="@+id/outboundPop"
         app:layout_constraintTop_toTopOf="@+id/greyBox1Pop"
         app:layout_constraintVertical_bias="0.666" />
@@ -131,10 +131,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="98dp"
         android:text=" Haymarket Bus Station"
         android:textColor="#848484"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/outRoute1"
         app:layout_constraintTop_toBottomOf="@+id/greyBox1Pop" />
 
@@ -144,7 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="20dp"
         android:text="1hr 00m"
         android:textColor="#848484"
         app:layout_constraintBottom_toTopOf="@+id/outSecondJourneyTo"
@@ -171,13 +169,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="12dp"
         android:layout_marginBottom="20dp"
         android:text="2hr 29m"
         android:textColor="#848484"
         app:layout_constraintBottom_toTopOf="@+id/outFirstJourneyTo"
-        app:layout_constraintEnd_toStartOf="@+id/outFirstJourneyBus"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/outRoute1"
         app:layout_constraintTop_toBottomOf="@+id/outFirstJourneyFromPop" />
 
@@ -199,13 +194,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="91dp"
-        android:layout_marginEnd="168dp"
         android:layout_marginBottom="32dp"
         android:text="change"
         android:textColor="#848484"
         app:layout_constraintBottom_toTopOf="@+id/outSecondJourneyFrom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/outChangeDur"
         app:layout_constraintTop_toBottomOf="@+id/outFirstJourneyFromPop" />
 
@@ -215,10 +207,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
         android:layout_marginTop="142dp"
-        android:layout_marginEnd="94dp"
         android:text="Cramlington Bus Station"
         android:textColor="#848484"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/outRoute2"
         app:layout_constraintTop_toBottomOf="@+id/outFirstJourneyFromPop" />
 
@@ -226,12 +216,10 @@
         android:id="@+id/outSecondJourneyTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="17dp"
         android:layout_marginTop="65dp"
-        android:layout_marginEnd="135dp"
         android:text="Bamburgh Castle"
         android:textColor="#848484"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/outRoute2"
         app:layout_constraintTop_toBottomOf="@+id/outSecondJourneyFrom" />
 
@@ -239,17 +227,16 @@
         android:id="@+id/outSecondJourneyBus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="20dp"
         android:text="- Bus"
         android:textColor="#848484"
         app:layout_constraintBottom_toTopOf="@+id/outSecondJourneyTo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/outSecondJourneyDur"
+        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outSecondJourneyFrom"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.571" />
 
     <TextView
         android:id="@+id/outSecondJourneyTime1"
@@ -302,12 +289,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="94dp"
         android:layout_marginBottom="19dp"
         android:text="Cramlington Bus Station"
         android:textColor="#848484"
         app:layout_constraintBottom_toTopOf="@+id/outChange"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/outRoute1"
         app:layout_constraintTop_toBottomOf="@+id/outFirstJourneyFromPop" />
 
@@ -355,13 +340,14 @@
         android:id="@+id/outRoute1"
         android:layout_width="8dp"
         android:layout_height="80dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="13dp"
         android:background="@drawable/route"
         app:layout_constraintBottom_toTopOf="@+id/outDot1"
-        app:layout_constraintStart_toEndOf="@+id/outFirstJourneyTime1"
-        app:layout_constraintTop_toTopOf="@+id/greyBox1Pop" />
+        app:layout_constraintEnd_toStartOf="@+id/outFirstJourneyDur"
+        app:layout_constraintStart_toStartOf="@+id/outBusIcon1"
+        app:layout_constraintTop_toTopOf="@+id/greyBox1Pop"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/outRoute2"
@@ -369,7 +355,6 @@
         android:layout_height="80dp"
         android:layout_marginStart="17dp"
         android:layout_marginTop="187dp"
-        android:layout_marginEnd="18dp"
         android:layout_marginBottom="313dp"
         android:background="@drawable/route"
         app:layout_constraintBottom_toBottomOf="parent"

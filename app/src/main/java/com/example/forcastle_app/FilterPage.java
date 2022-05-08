@@ -37,6 +37,7 @@ public class FilterPage extends AppCompatActivity {
     int tHour, tMinute;
     DatePickerDialog datePickerDialog;
     Boolean timerClicked = false;
+    Boolean dateClicked = false;
     static String anchor = "1";
 
     @Override
@@ -112,13 +113,13 @@ public class FilterPage extends AppCompatActivity {
         bookTripButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (timerClicked) {
+                if (dateClicked && timerClicked) {
                     //check all fields are complete
                     Intent intent1 = new Intent(FilterPage.this, BoundPage.class);
                     intent1.putExtra("anchor", anchor);
                     startActivity(intent1);
                 } else {
-                    Toast.makeText(FilterPage.this, "Please pick a time", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FilterPage.this, "Please pick a time and date", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -145,13 +146,16 @@ public class FilterPage extends AppCompatActivity {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                dateClicked = true;
                 month = month + 1; // so January is equal to 01
+
 
                 //assigns busJourney as weekDay or weekend, needed when query database as different timetables for weekdays vs weekend
                 BusJourney.setPartOfWeek(day + "/" + month + "/" + year);
                 BusJourney.setTravelDate(day, month, year);
 
                 String date = makeDateString(day, month, year);
+                //datePicker.setMaxDate(System.currentTimeMillis() - 1000);
                 dateButton.setText(date);
             }
         };
@@ -162,6 +166,7 @@ public class FilterPage extends AppCompatActivity {
 
         int style = AlertDialog.THEME_HOLO_LIGHT;
         datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+
     }
 
     //prints the date in the format of DAY MONTH YEAR

@@ -13,13 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ConfirmationPage extends AppCompatActivity {
 
     ImageView iv_map;
-    EditText email, subject;
+    EditText email;
     Button sendReceipt, backConfirmation;
 
     @Override
@@ -79,6 +80,7 @@ public class ConfirmationPage extends AppCompatActivity {
     }
 
     private void sendEmail() {
+        Toast.makeText(ConfirmationPage.this, "it works", Toast.LENGTH_SHORT).show();
         String mEmail = email.getText().toString();
         String mSubject = "Forcastle Journey Receipt";
         String mMessage = "Thank you for using the Forcastle app! \n" +
@@ -92,7 +94,7 @@ public class ConfirmationPage extends AppCompatActivity {
                 "Departs: " + "18:00" + "at" + "Alnwick\n" +
                 "Bus service: " + "307\n" ;
 
-        JavaMailAPI javaMailAPI = new JavaMailAPI(this, mEmail, mSubject, mMessage);
+        JavaMailAPI javaMailAPI = new JavaMailAPI(this, mEmail, mMessage, mSubject);
 
         javaMailAPI.execute();
     }

@@ -65,7 +65,7 @@ public class HashMaps {
         station.put("BAMNC1", "Bamburgh The Grove");
         station.put("BAMNC2", "Belford Fire Station");
         station.put("NCAUK", "Eldon Square");
-        station.put("AUKNC", "Bishop Auckland Bus Station");
+        station.put("AUKNC", "Bishop Auckland\nBus Station");
         station.put("NCBAR1", "Eldon Square");
         station.put("NCBAR2", "Tindale Cresent Club");
         station.put("BARNC1", "Galgate");

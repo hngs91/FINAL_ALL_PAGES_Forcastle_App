@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select outbound"
-            android:textSize="30dp"
+            android:textSize="26dp"
             android:textStyle="bold"
             android:textColor="#ffffff"
             android:layout_gravity="center"/>
@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:text="Eldon square"
+            android:textAlignment="center"
             android:textColor="#ffffff" />
 
         <ImageView
@@ -59,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:text="Alnwick Castle"
+            android:textAlignment="center"
             android:textColor="#ffffff" />
 
     </LinearLayout>
@@ -122,15 +124,20 @@
             android:layout_marginRight="10dp">
 
             <!--            Time-->
+
+            <!--            Passenger icon and number-->
             <TextView
                 android:id="@+id/dayOfJourney"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="1dp"
                 android:text="Wed 6 Apr"
-                android:textColor="#000000"
+                android:textColor="#2d1056"
                 android:textStyle="bold" />
 
-            <!--            Passenger icon and number-->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -206,7 +213,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginRight="10dp"
                                 android:text="07:00"
-                                android:textColor="#000000"
+                                android:textColor="#2d1056"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -247,7 +254,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text="10:00"
-                                android:textColor="#000000"
+                                android:textColor="#2d1056"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -267,8 +274,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
-                                android:textColor="#000000"
-                                android:textSize="20dp"
+                                android:textColor="#7d7d7d"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
 
                             <!--                        child price-->
@@ -276,8 +283,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
-                                android:textColor="#000000"
-                                android:textSize="20dp"
+                                android:textColor="#7d7d7d"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
@@ -322,7 +329,9 @@
                             android:layout_centerVertical="true"
                             android:background="#00000000"
                             android:drawableRight="@drawable/ic_buy_ticket_arrow"
-                            android:text="To buy" />
+                            android:text="To buy"
+                            android:textColor="#2d1056"
+                            android:textStyle="bold"/>
 
                     </RelativeLayout>
 
@@ -367,7 +376,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginRight="10dp"
                                 android:text="07:00"
-                                android:textColor="#000000"
+                                android:textColor="#2d1056"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -408,7 +417,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text="10:00"
-                                android:textColor="#000000"
+                                android:textColor="#2d1056"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -428,8 +437,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
-                                android:textColor="#000000"
-                                android:textSize="20dp"
+                                android:textColor="#7d7d7d"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
 
                             <!--                        child price-->
@@ -437,8 +446,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
-                                android:textColor="#000000"
-                                android:textSize="20dp"
+                                android:textColor="#7d7d7d"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
@@ -480,10 +489,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginBottom="0dp"
                             android:background="#00000000"
                             android:drawableRight="@drawable/ic_buy_ticket_arrow"
-                            android:text="To buy" />
+                            android:text="To buy"
+                            android:textColor="#2d1056"
+                            android:textStyle="bold"/>
 
                     </RelativeLayout>
 
@@ -528,7 +541,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginRight="10dp"
                                 android:text="07:00"
-                                android:textColor="#000000"
+                                android:textColor="#2d1056"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -569,7 +582,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text="10:00"
-                                android:textColor="#000000"
+                                android:textColor="#2d1056"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -588,8 +601,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
-                                android:textColor="#000000"
-                                android:textSize="20dp"
+                                android:textColor="#7d7d7d"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
 
                             <!--                        child price-->
@@ -598,8 +611,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
-                                android:textColor="#000000"
-                                android:textSize="20dp"
+                                android:textColor="#7d7d7d"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
@@ -644,7 +657,9 @@
                             android:layout_centerVertical="true"
                             android:background="#00000000"
                             android:drawableRight="@drawable/ic_buy_ticket_arrow"
-                            android:text="To buy" />
+                            android:text="To buy"
+                            android:textColor="#2d1056"
+                            android:textStyle="bold" />
 
                     </RelativeLayout>
 
@@ -689,7 +704,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginRight="10dp"
                                 android:text="07:00"
-                                android:textColor="#000000"
+                                android:textColor="#2d1056"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -730,7 +745,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text="10:00"
-                                android:textColor="#000000"
+                                android:textColor="#2d1056"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -749,8 +764,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
-                                android:textColor="#000000"
-                                android:textSize="20dp"
+                                android:textColor="#7d7d7d"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
 
                             <!--                        child price-->
@@ -759,8 +774,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
-                                android:textColor="#000000"
-                                android:textSize="20dp"
+                                android:textColor="#7d7d7d"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
@@ -804,7 +819,9 @@
                             android:layout_centerVertical="true"
                             android:background="#00000000"
                             android:drawableRight="@drawable/ic_buy_ticket_arrow"
-                            android:text="To buy" />
+                            android:text="To buy"
+                            android:textColor="#2d1056"
+                            android:textStyle="bold"/>
 
                     </RelativeLayout>
 
@@ -849,7 +866,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginRight="10dp"
                                 android:text="07:00"
-                                android:textColor="#000000"
+                                android:textColor="#2d1056"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -890,7 +907,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text="10:00"
-                                android:textColor="#000000"
+                                android:textColor="#2d1056"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -909,8 +926,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
-                                android:textColor="#000000"
-                                android:textSize="20dp"
+                                android:textColor="#7d7d7d"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
 
                             <!--                        child price-->
@@ -919,8 +936,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
-                                android:textColor="#000000"
-                                android:textSize="20dp"
+                                android:textColor="#7d7d7d"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
@@ -965,7 +982,9 @@
                             android:layout_centerVertical="true"
                             android:background="#00000000"
                             android:drawableRight="@drawable/ic_buy_ticket_arrow"
-                            android:text="To buy" />
+                            android:text="To buy"
+                            android:textColor="#2d1056"
+                            android:textStyle="bold" />
 
                     </RelativeLayout>
 

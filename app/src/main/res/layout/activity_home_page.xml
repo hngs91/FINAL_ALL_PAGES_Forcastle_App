@@ -121,6 +121,7 @@
                     android:layout_height="wrap_content"
                     android:text="Alnwick \n Castle"
                     android:textColor="#6f15e7"
+                    android:buttonTint="#2d1056"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -168,6 +169,7 @@
                     android:layout_height="wrap_content"
                     android:text="Auckland \n Castle"
                     android:textColor="#6f15e7"
+                    android:buttonTint="#2d1056"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -215,6 +217,7 @@
                     android:layout_height="wrap_content"
                     android:text="Bamburgh \n Castle"
                     android:textColor="#6f15e7"
+                    android:buttonTint="#2d1056"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -263,6 +266,7 @@
                     android:layout_height="wrap_content"
                     android:text="Barnard \n Castle"
                     android:textColor="#6f15e7"
+                    android:buttonTint="#2d1056"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -284,17 +288,19 @@
 
     <Button
         android:id="@+id/submit"
-        android:layout_width="302dp"
-        android:layout_height="54dp"
+        android:layout_width="286dp"
+        android:layout_height="45dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="24dp"
+        android:background="@drawable/view_button_background"
         android:backgroundTint="#0ECE83"
-        app:cornerRadius="10dp"
         android:text="Confirm"
+        android:textColor="@color/white"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
