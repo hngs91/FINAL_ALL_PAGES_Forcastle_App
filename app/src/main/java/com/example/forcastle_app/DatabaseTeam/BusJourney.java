@@ -129,9 +129,9 @@ public class BusJourney {
         DateFormat format2 = new SimpleDateFormat("EEEE", Locale.UK);
         String dayOfWeek = format2.format(dt1);
 
-        if (dayOfWeek.equals("Saturday")) partOfWeek = "Saturday";
+        if (dayOfWeek.equals("Saturday")) partOfWeek = "Sat";
 
-        else if (dayOfWeek.equals("Sunday")) partOfWeek = "Sunday";
+        else if (dayOfWeek.equals("Sunday")) partOfWeek = "Sun";
 
         else partOfWeek = "weekDay";
     }

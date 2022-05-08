@@ -21,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 
+import java.util.Locale;
+
 /*
 Code implemented by Eugenia Vuong
  */
@@ -116,19 +118,28 @@ public class ConfirmationPage extends AppCompatActivity {
 
         ((TextView)findViewById(R.id.outboundStation1)).setText(BusJourney.getDepartureStationOut1());
         ((TextView)findViewById(R.id.outboundTime1)).setText(BusJourney.getOutboundTime1());
-        ((TextView) findViewById(R.id.outboundArrivalTime1)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
-        ((TextView) findViewById(R.id.inboundArrivalStation1)).setText(BusJourney.getDepartureStationOut1());
-        ((TextView) findViewById(R.id.numberOfTickets)).setText(BusJourney.getNoAdultTickets() + BusJourney.getNoChildTickets());
+        ((TextView) findViewById(R.id.outboundArrivalTime1)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeOut()));
+        ((TextView) findViewById(R.id.inboundArrivalStation1)).setText(BusJourney.getArrivalStationOut1());
+        ((TextView) findViewById(R.id.dateOfTravel)).setText(BusJourney.getTravelDate());
+
+        // setting number of tickets
+        String totalTicketsString = BusJourney.getNoAdultTickets() + " adult\n" + BusJourney.getNoChildTickets() + " child";
+        ((TextView) findViewById(R.id.numberOfTickets)).setText((totalTicketsString));
+
+        // calculating & setting total price
         double totalPrice = BusJourney.getNoAdultTickets() * (BusJourney.getAdultBusPrice() + BusJourney.getAdultCastlePrice()) +
                 BusJourney.getNoChildTickets() * (BusJourney.getChildBusPrice() + BusJourney.getChildCastlePrice());
-        String totalPricePrintOut = "Total Price (inc. Bus & Castle Tickets) = " + (totalPrice);
-        ((TextView) findViewById(R.id.total)).setText(totalPricePrintOut);
+        String totalPricePrintOut = "Total Price £" + String.format(Locale.UK, "%.2f", totalPrice);
+        ((TextView) findViewById(R.id.totalOverallPrice)).setText(totalPricePrintOut);
+
 
         if(BusJourney.getDirectChange().equals("Direct")) {
-            ((TextView) findViewById(R.id.outboundArrivalStation1)).setText(BusJourney.getArrivalStationIn1());
-            ((TextView) findViewById(R.id.inboundStation1)).setText(BusJourney.getArrivalStationIn1());
+            ((TextView) findViewById(R.id.inboundStation1)).setText(BusJourney.getArrivalStationOut1());
+            ((TextView) findViewById(R.id.inboundArrivalStation1)).setText(BusJourney.getDepartureStationOut1());
             ((TextView) findViewById(R.id.busNumber)).setText(BusJourney.getBusNo1());
             ((TextView) findViewById(R.id.operator)).setText(BusJourney.getOperator1());
+            ((TextView) findViewById(R.id.inboundTime1)).setText(BusJourney.getInboundTime1());
+            ((TextView) findViewById(R.id.inboundArrivalTime1)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
         } else {
             ((TextView) findViewById(R.id.outboundArrivalStation1)).setText(BusJourney.getArrivalStationIn2());
             ((TextView) findViewById(R.id.inboundStation1)).setText(BusJourney.getArrivalStationIn2());
@@ -136,6 +147,8 @@ public class ConfirmationPage extends AppCompatActivity {
             ((TextView) findViewById(R.id.busNumber)).setText(buses);
             String operators = BusJourney.getOperator1() + " -> " + BusJourney.getOperator2();
             ((TextView) findViewById(R.id.operator)).setText(operators);
+            ((TextView) findViewById(R.id.inboundTime1)).setText(BusJourney.getInboundTime1());
+            ((TextView) findViewById(R.id.inboundArrivalTime1)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
         }
     }
 

@@ -7,7 +7,8 @@ Code implemented by Harry Smith
 public class HashMaps {
 
     private static HashMap<String, String> busNo, operators, returnJourney, station, directChange;
-    private static HashMap<String, Integer> journeyTimes, adultPrice, childPrice;
+    private static HashMap<String, Integer> journeyTimes;
+    private static HashMap<String, Double> adultPrice, childPrice;
 
     // constructor builds all required hashmaps when called
     public static void buildAllHashMaps() {
@@ -23,23 +24,19 @@ public class HashMaps {
     
     public static void buildChildPrice(){
         childPrice = new HashMap<>();
-        childPrice.put("NCALN", 5);
-        childPrice.put("NCBAM1", 5);
-        childPrice.put("NCBAM2", 5);
-        childPrice.put("NCAUK", 5);
-        childPrice.put("NCBAR1", 5);
-        childPrice.put("NCBAR2", 5);
+        childPrice.put("NCALN", 5.00);
+        childPrice.put("NCBAM1", 5.00);
+        childPrice.put("NCAUK", 4.50);
+        childPrice.put("NCBAR1", 6.10);
     }
 
     public static void buildAdultPrice() {
         adultPrice = new HashMap<>();
 
-        adultPrice.put("NCALN", 10);
-        adultPrice.put("NCBAM1", 10);
-        adultPrice.put("NCBAM2", 10);
-        adultPrice.put("NCAUK", 10);
-        adultPrice.put("NCBAR1", 10);
-        adultPrice.put("NCBAR2", 10);
+        adultPrice.put("NCALN", 8.60);
+        adultPrice.put("NCBAM1", 8.60);
+        adultPrice.put("NCAUK", 6.00);
+        adultPrice.put("NCBAR1", 9.20);
     }
 
     //maps journey to direct or one change needed
@@ -170,11 +167,11 @@ public class HashMaps {
         return directChange;
     }
 
-    public static HashMap<String, Integer> getAdultPrice() {
+    public static HashMap<String, Double> getAdultPrice() {
         return adultPrice;
     }
 
-    public static HashMap<String, Integer> getChildPrice() {
+    public static HashMap<String, Double> getChildPrice() {
         return childPrice;
     }
 }

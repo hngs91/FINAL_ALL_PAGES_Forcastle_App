@@ -37,7 +37,7 @@ public class TimeDateFormatters {
 
         if (hour > 0 && minute < 10) minuteString = "0" + minute;
 
-        String finalString = "";
+        String finalString;
 
         if (hour <= 0) {
             finalString = minuteString + "m";

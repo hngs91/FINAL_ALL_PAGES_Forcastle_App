@@ -75,7 +75,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <TextView
-                android:id="@+id/totalPrice"
+                android:id="@+id/totalOverallPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"

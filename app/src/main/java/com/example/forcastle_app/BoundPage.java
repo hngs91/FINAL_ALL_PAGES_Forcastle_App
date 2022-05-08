@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ExpandableListAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,8 +16,11 @@ import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.DataBaseHelper;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /*
 Code implemented by Zheng Yang & Harry Smith
@@ -63,7 +67,7 @@ public class BoundPage extends AppCompatActivity {
             ((TextView) findViewById(R.id.arrivalStation)).setText(BusJourney.getArrivalStationOut1());
 
             outboundTimeListJourneyCode1 = runDatabaseQueryOutboundTimeJourneyCode1();
-            populateTimeCards(outboundTimeListJourneyCode1, BusJourney.getJourneyCode2(), BusJourney.getJourneyDurationTotalMinutes1(), BusJourney.getJourneyDurationTotalMinutes2());
+            populateTimeCards(outboundTimeListJourneyCode1, BusJourney.getJourneyCode1(), BusJourney.getJourneyDurationTotalMinutes1(), BusJourney.getJourneyDurationTotalMinutes2());
         } else if ("2".equals(FilterPage.anchor)) {
             headline.setText(R.string.inbound);
             waitChangeTimes.clear();
@@ -243,10 +247,44 @@ public class BoundPage extends AppCompatActivity {
         timeCard4 = findViewById(R.id.timeCard4);
         timeCard5 = findViewById(R.id.timeCard5);
 
-        //sets departure, destination, & date based on data chosen by user
+        //sets departure, destination, date, & bus ticket prices based on data chosen by user
         ((TextView) findViewById(R.id.departureStation)).setText(BusJourney.getDepartureStationOut1());
         ((TextView) findViewById(R.id.arrivalStation)).setText(BusJourney.getArrivalStationOut1());
         ((TextView) findViewById(R.id.dayOfJourney)).setText(BusJourney.getTravelDate());
+
+        /**
+         * ASK ZHENG & GEENIE ANY BETTER WAY TO DO THE BELOW
+         */
+        ArrayList<TextView> busTicketAdultPrices = new ArrayList<TextView>() {
+            {
+                add(findViewById(R.id.busAdultPrice1));
+                add(findViewById(R.id.busAdultPrice2));
+                add(findViewById(R.id.busAdultPrice3));
+                add(findViewById(R.id.busAdultPrice4));
+                add(findViewById(R.id.busAdultPrice5));
+            }
+        };
+
+        for (TextView tv : busTicketAdultPrices) {
+            String adult = "£" + BusJourney.getAdultBusPrice() + "0 (Adult)";
+            tv.setText(adult);
+        }
+
+        ArrayList<TextView> busTicketChildPrices = new ArrayList<TextView>() {
+            {
+                add(findViewById(R.id.busChildPrice1));
+                add(findViewById(R.id.busChildPrice2));
+                add(findViewById(R.id.busChildPrice3));
+                add(findViewById(R.id.busChildPrice4));
+                add(findViewById(R.id.busChildPrice5));
+            }
+        };
+
+        for (TextView tv : busTicketChildPrices) {
+            String adult = "£" + BusJourney.getChildBusPrice() + "0 (Child)";
+            tv.setText(adult);
+        }
+
 
         buyButton1 = findViewById(R.id.buyButton1);
         buyButton2 = findViewById(R.id.buyButton2);
@@ -316,12 +354,12 @@ public class BoundPage extends AppCompatActivity {
     }
 
     public List<Integer> runDatabaseQueryOutboundTimeJourneyCode1() {
-        return DataBaseHelper.getInstance(getApplicationContext()).bus1LeaveTimes(BusJourney.getTotalTime(), BusJourney.getJourneyCode1());
+        return DataBaseHelper.getInstance(getApplicationContext()).bus1LeaveTimes(BusJourney.getTotalTime(), BusJourney.getJourneyCode1(), BusJourney.getPartOfWeek());
     }
 
     public List<Integer> runDatabaseQueryInboundTimeReturnCode1() {
         int queryTime = BusJourney.getArrivalTimeOut() + 120;
-        return DataBaseHelper.getInstance(getApplicationContext()).bus1LeaveTimes(queryTime, BusJourney.getReturnCode1());
+        return DataBaseHelper.getInstance(getApplicationContext()).bus1LeaveTimes(queryTime, BusJourney.getReturnCode1(), BusJourney.getPartOfWeek());
     }
 
     public void setTextViewsValues(TextView outbound, TextView arrival, TextView travelTime, TextView directChange, List<Integer> outboundTimeInt, String secondBusJourneyCode, int journey1duration, int journey2duration, int i) {
@@ -342,7 +380,7 @@ public class BoundPage extends AppCompatActivity {
             // displays duration of journey
             travelTime.setText(TimeDateFormatters.durationFormat(journey1duration));
         } else {
-            int bus2Leave = DataBaseHelper.getInstance(getApplicationContext()).bus2LeaveTime(bus1ArriveTime, secondBusJourneyCode);
+            int bus2Leave = DataBaseHelper.getInstance(getApplicationContext()).bus2LeaveTime(bus1ArriveTime, secondBusJourneyCode, BusJourney.getPartOfWeek());
 
             int bus2ArriveTime = bus2Leave + journey2duration;
 

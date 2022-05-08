@@ -35,6 +35,7 @@ public class FilterPage extends AppCompatActivity {
     int count1 = 1, count2 = 0, tHour, tMinute;
     DatePickerDialog datePickerDialog;
     Boolean timerClicked = false;
+    Boolean dateClicked = false;
     static String anchor = "1";
 
     @Override
@@ -98,7 +99,7 @@ public class FilterPage extends AppCompatActivity {
         bookTripButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (timerClicked) {
+                if (timerClicked && dateClicked) {
                     //check all fields are complete
                     BusJourney.setNoAdultTickets(count1);
                     BusJourney.setNoChildTickets(count2);
@@ -106,7 +107,7 @@ public class FilterPage extends AppCompatActivity {
                     intent1.putExtra("anchor", anchor);
                     startActivity(intent1);
                 } else {
-                    Toast.makeText(FilterPage.this, "Please pick a time", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FilterPage.this, "Please confirm a date & time", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -134,7 +135,7 @@ public class FilterPage extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1; // so January is equal to 01
-
+                dateClicked = true;
                 //assigns busJourney as weekDay or weekend, needed when query database as different timetables for weekdays vs weekend
                 BusJourney.setPartOfWeek(day + "/" + month + "/" + year);
                 BusJourney.setTravelDate(day, month, year);
