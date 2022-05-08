@@ -26,8 +26,8 @@
                     android:id="@+id/back_confirmation"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:padding="12dp"
-                    android:background="@drawable/back"/>
+                    android:background="@drawable/back"
+                    android:padding="12dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -111,7 +111,6 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Economy-300"
                             android:textColor="#3e4352"
                             android:textSize="14dp"
                             android:textStyle="bold" />
@@ -475,7 +474,7 @@
                                 android:text="Send email receipt"
                                 android:textColor="#333"
                                 android:textSize="18dp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -483,7 +482,7 @@
                                 android:layout_marginTop="10dp"
                                 android:text="User's email"
                                 android:textColor="#333"
-                                android:textSize="18dp"/>
+                                android:textSize="18dp" />
 
                             <!--<TextView
                                 android:layout_width="wrap_content"
@@ -648,13 +647,14 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <TextView
 
-                android:gravity="center"
-                android:text="- Travel further for less -"
-                android:background="#DFDFE7"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"/>
+                android:layout_height="150dp"
+                android:background="#DFDFE7"
+                android:gravity="center"
+                android:text="- Travel further for less -" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

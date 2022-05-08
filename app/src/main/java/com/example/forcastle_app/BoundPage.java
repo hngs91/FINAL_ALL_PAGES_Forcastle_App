@@ -4,23 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ExpandableListAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.DataBaseHelper;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
-
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 /*
 Code implemented by Zheng Yang & Harry Smith
@@ -67,7 +60,8 @@ public class BoundPage extends AppCompatActivity {
             ((TextView) findViewById(R.id.arrivalStation)).setText(BusJourney.getArrivalStationOut1());
 
             outboundTimeListJourneyCode1 = runDatabaseQueryOutboundTimeJourneyCode1();
-            populateTimeCards(outboundTimeListJourneyCode1, BusJourney.getJourneyCode1(), BusJourney.getJourneyDurationTotalMinutes1(), BusJourney.getJourneyDurationTotalMinutes2());
+            populateTimeCards(outboundTimeListJourneyCode1, BusJourney.getJourneyCode2(), BusJourney.getJourneyDurationTotalMinutes1(), BusJourney.getJourneyDurationTotalMinutes2());
+
         } else if ("2".equals(FilterPage.anchor)) {
             headline.setText(R.string.inbound);
             waitChangeTimes.clear();
@@ -233,8 +227,6 @@ public class BoundPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     public void setViews() {

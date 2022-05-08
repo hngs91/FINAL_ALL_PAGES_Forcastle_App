@@ -1,6 +1,7 @@
 package com.example.forcastle_app.DatabaseTeam;
 
 import java.util.HashMap;
+
 /*
 Code implemented by Harry Smith
  */
@@ -10,7 +11,11 @@ public class HashMaps {
     private static HashMap<String, Integer> journeyTimes;
     private static HashMap<String, Double> adultPrice, childPrice;
 
-    // constructor builds all required hashmaps when called
+    private HashMaps() {
+
+    }
+
+    // builds all required hashmaps when called
     public static void buildAllHashMaps() {
         buildBusNo();
         buildOperators();
@@ -21,8 +26,8 @@ public class HashMaps {
         buildAdultPrice();
         buildChildPrice();
     }
-    
-    public static void buildChildPrice(){
+
+    public static void buildChildPrice() {
         childPrice = new HashMap<>();
         childPrice.put("NCALN", 5.00);
         childPrice.put("NCBAM1", 5.00);

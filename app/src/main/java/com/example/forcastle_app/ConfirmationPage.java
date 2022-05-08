@@ -39,7 +39,7 @@ public class ConfirmationPage extends AppCompatActivity {
 
         try {
             setViews();
-        }catch (Exception e) {
+        } catch (Exception e) {
             Toast.makeText(this, "setViews() broken", Toast.LENGTH_SHORT).show();
         }
 
@@ -116,10 +116,10 @@ public class ConfirmationPage extends AppCompatActivity {
         sendReceipt = findViewById(R.id.sendReceipt);
         backConfirmation = findViewById(R.id.back_confirmation);
 
-        ((TextView)findViewById(R.id.outboundStation1)).setText(BusJourney.getDepartureStationOut1());
-        ((TextView)findViewById(R.id.outboundTime1)).setText(BusJourney.getOutboundTime1());
+        ((TextView) findViewById(R.id.outboundStation1)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView) findViewById(R.id.outboundTime1)).setText(BusJourney.getOutboundTime1());
         ((TextView) findViewById(R.id.outboundArrivalTime1)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeOut()));
-        ((TextView) findViewById(R.id.inboundArrivalStation1)).setText(BusJourney.getArrivalStationOut1());
+        ((TextView) findViewById(R.id.inboundArrivalStation1)).setText(BusJourney.getDepartureStationOut1());
         ((TextView) findViewById(R.id.dateOfTravel)).setText(BusJourney.getTravelDate());
 
         // setting number of tickets
@@ -131,25 +131,21 @@ public class ConfirmationPage extends AppCompatActivity {
                 BusJourney.getNoChildTickets() * (BusJourney.getChildBusPrice() + BusJourney.getChildCastlePrice());
         String totalPricePrintOut = "Total Price £" + String.format(Locale.UK, "%.2f", totalPrice);
         ((TextView) findViewById(R.id.totalOverallPrice)).setText(totalPricePrintOut);
+        ((TextView) findViewById(R.id.inboundTime1)).setText(BusJourney.getInboundTime1());
+        ((TextView) findViewById(R.id.inboundArrivalTime1)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
 
-
-        if(BusJourney.getDirectChange().equals("Direct")) {
+        if (BusJourney.getDirectChange().equals("Direct")) {
             ((TextView) findViewById(R.id.inboundStation1)).setText(BusJourney.getArrivalStationOut1());
             ((TextView) findViewById(R.id.inboundArrivalStation1)).setText(BusJourney.getDepartureStationOut1());
             ((TextView) findViewById(R.id.busNumber)).setText(BusJourney.getBusNo1());
             ((TextView) findViewById(R.id.operator)).setText(BusJourney.getOperator1());
-            ((TextView) findViewById(R.id.inboundTime1)).setText(BusJourney.getInboundTime1());
-            ((TextView) findViewById(R.id.inboundArrivalTime1)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
         } else {
-            ((TextView) findViewById(R.id.outboundArrivalStation1)).setText(BusJourney.getArrivalStationIn2());
-            ((TextView) findViewById(R.id.inboundStation1)).setText(BusJourney.getArrivalStationIn2());
+            ((TextView) findViewById(R.id.outboundArrivalStation1)).setText(BusJourney.getArrivalStationOut1());
+            ((TextView) findViewById(R.id.inboundStation1)).setText(BusJourney.getArrivalStationOut1());
             String buses = BusJourney.getBusNo1() + " -> " + BusJourney.getBusNo2();
             ((TextView) findViewById(R.id.busNumber)).setText(buses);
             String operators = BusJourney.getOperator1() + " -> " + BusJourney.getOperator2();
             ((TextView) findViewById(R.id.operator)).setText(operators);
-            ((TextView) findViewById(R.id.inboundTime1)).setText(BusJourney.getInboundTime1());
-            ((TextView) findViewById(R.id.inboundArrivalTime1)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
         }
     }
-
 }
