@@ -7,17 +7,17 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.DataBaseHelper;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
-
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Code implemented by Zheng Yang & Harry Smith
+ */
 public class BoundPage extends AppCompatActivity {
 
     Toolbar outbound_toolbar;
@@ -61,6 +61,7 @@ public class BoundPage extends AppCompatActivity {
 
             outboundTimeListJourneyCode1 = runDatabaseQueryOutboundTimeJourneyCode1();
             populateTimeCards(outboundTimeListJourneyCode1, BusJourney.getJourneyCode2(), BusJourney.getJourneyDurationTotalMinutes1(), BusJourney.getJourneyDurationTotalMinutes2());
+
         } else if ("2".equals(FilterPage.anchor)) {
             headline.setText(R.string.inbound);
             waitChangeTimes.clear();
@@ -100,7 +101,7 @@ public class BoundPage extends AppCompatActivity {
                 if (BusJourney.getDirectChange().equals("1 change")) {
                     BusJourney.setInboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(1)));
                     int changeWaitTime = waitChangeTimes.get(1) - waitChangeTimes.get(0);
-                    BusJourney.setChangeWaitIn(TimeDateFormatters.timeFormat(changeWaitTime));
+                    BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
                 }
                 Intent intent = new Intent(BoundPage.this, PaymentPage.class);
                 startActivity(intent);
@@ -130,14 +131,102 @@ public class BoundPage extends AppCompatActivity {
                 if (BusJourney.getDirectChange().equals("1 change")) {
                     BusJourney.setInboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(3)));
                     int changeWaitTime = waitChangeTimes.get(3) - waitChangeTimes.get(2);
-                    BusJourney.setChangeWaitIn(TimeDateFormatters.timeFormat(changeWaitTime));
+                    BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
                 }
                 Intent intent = new Intent(BoundPage.this, PaymentPage.class);
                 startActivity(intent);
             }
         });
 
+        buyButton3.setOnClickListener(v -> {
+            if ("1".equals(FilterPage.anchor)) {
+                BusJourney.setOutboundTime1(leaveTime3.getText().toString());
+                BusJourney.setArrivalTimeOut(TimeDateFormatters.reverseTimeFormat(arriveTime3.getText().toString()));
+                BusJourney.setTravelTime1(duration3.getText().toString());
 
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setOutboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(5)));
+                    int changeWaitTime = waitChangeTimes.get(5) - waitChangeTimes.get(4);
+                    BusJourney.setChangeWaitOut(TimeDateFormatters.timeFormat(changeWaitTime));
+                }
+                FilterPage.anchor = "2";
+                Intent intent = new Intent(BoundPage.this, BoundPage.class);
+                startActivity(intent);
+
+            } else if ("2".equals(FilterPage.anchor)) {
+                BusJourney.setInboundTime1(leaveTime3.getText().toString());
+                BusJourney.setArrivalTimeIn(TimeDateFormatters.reverseTimeFormat(arriveTime3.getText().toString()));
+                BusJourney.setTravelTime2(duration3.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setInboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(5)));
+                    int changeWaitTime = waitChangeTimes.get(5) - waitChangeTimes.get(4);
+                    BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
+                }
+                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                startActivity(intent);
+            }
+        });
+
+        buyButton4.setOnClickListener(v -> {
+            if ("1".equals(FilterPage.anchor)) {
+                BusJourney.setOutboundTime1(leaveTime4.getText().toString());
+                BusJourney.setArrivalTimeOut(TimeDateFormatters.reverseTimeFormat(arriveTime4.getText().toString()));
+                BusJourney.setTravelTime1(duration4.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setOutboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(7)));
+                    int changeWaitTime = waitChangeTimes.get(7) - waitChangeTimes.get(6);
+                    BusJourney.setChangeWaitOut(TimeDateFormatters.timeFormat(changeWaitTime));
+                }
+                FilterPage.anchor = "2";
+                Intent intent = new Intent(BoundPage.this, BoundPage.class);
+                startActivity(intent);
+
+            } else if ("2".equals(FilterPage.anchor)) {
+                BusJourney.setInboundTime1(leaveTime4.getText().toString());
+                BusJourney.setArrivalTimeIn(TimeDateFormatters.reverseTimeFormat(arriveTime4.getText().toString()));
+                BusJourney.setTravelTime2(duration4.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setInboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(7)));
+                    int changeWaitTime = waitChangeTimes.get(7) - waitChangeTimes.get(6);
+                    BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
+                }
+                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                startActivity(intent);
+            }
+        });
+
+        buyButton5.setOnClickListener(v -> {
+            if ("1".equals(FilterPage.anchor)) {
+                BusJourney.setOutboundTime1(leaveTime5.getText().toString());
+                BusJourney.setArrivalTimeOut(TimeDateFormatters.reverseTimeFormat(arriveTime5.getText().toString()));
+                BusJourney.setTravelTime1(duration5.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setOutboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(9)));
+                    int changeWaitTime = waitChangeTimes.get(9) - waitChangeTimes.get(8);
+                    BusJourney.setChangeWaitOut(TimeDateFormatters.timeFormat(changeWaitTime));
+                }
+                FilterPage.anchor = "2";
+                Intent intent = new Intent(BoundPage.this, BoundPage.class);
+                startActivity(intent);
+
+            } else if ("2".equals(FilterPage.anchor)) {
+                BusJourney.setInboundTime1(leaveTime5.getText().toString());
+                BusJourney.setArrivalTimeIn(TimeDateFormatters.reverseTimeFormat(arriveTime5.getText().toString()));
+                BusJourney.setTravelTime2(duration5.getText().toString());
+
+                if (BusJourney.getDirectChange().equals("1 change")) {
+                    BusJourney.setInboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(9)));
+                    int changeWaitTime = waitChangeTimes.get(9) - waitChangeTimes.get(8);
+                    BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
+                }
+                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void setViews() {
@@ -150,10 +239,44 @@ public class BoundPage extends AppCompatActivity {
         timeCard4 = findViewById(R.id.timeCard4);
         timeCard5 = findViewById(R.id.timeCard5);
 
-        //sets departure, destination, & date based on data chosen by user
+        //sets departure, destination, date, & bus ticket prices based on data chosen by user
         ((TextView) findViewById(R.id.departureStation)).setText(BusJourney.getDepartureStationOut1());
         ((TextView) findViewById(R.id.arrivalStation)).setText(BusJourney.getArrivalStationOut1());
         ((TextView) findViewById(R.id.dayOfJourney)).setText(BusJourney.getTravelDate());
+
+        /**
+         * ASK ZHENG & GEENIE ANY BETTER WAY TO DO THE BELOW
+         */
+        ArrayList<TextView> busTicketAdultPrices = new ArrayList<TextView>() {
+            {
+                add(findViewById(R.id.busAdultPrice1));
+                add(findViewById(R.id.busAdultPrice2));
+                add(findViewById(R.id.busAdultPrice3));
+                add(findViewById(R.id.busAdultPrice4));
+                add(findViewById(R.id.busAdultPrice5));
+            }
+        };
+
+        for (TextView tv : busTicketAdultPrices) {
+            String adult = "£" + BusJourney.getAdultBusPrice() + "0 (Adult)";
+            tv.setText(adult);
+        }
+
+        ArrayList<TextView> busTicketChildPrices = new ArrayList<TextView>() {
+            {
+                add(findViewById(R.id.busChildPrice1));
+                add(findViewById(R.id.busChildPrice2));
+                add(findViewById(R.id.busChildPrice3));
+                add(findViewById(R.id.busChildPrice4));
+                add(findViewById(R.id.busChildPrice5));
+            }
+        };
+
+        for (TextView tv : busTicketChildPrices) {
+            String adult = "£" + BusJourney.getChildBusPrice() + "0 (Child)";
+            tv.setText(adult);
+        }
+
 
         buyButton1 = findViewById(R.id.buyButton1);
         buyButton2 = findViewById(R.id.buyButton2);
@@ -223,12 +346,12 @@ public class BoundPage extends AppCompatActivity {
     }
 
     public List<Integer> runDatabaseQueryOutboundTimeJourneyCode1() {
-        return DataBaseHelper.getInstance(getApplicationContext()).bus1LeaveTimes(BusJourney.getTotalTime(), BusJourney.getJourneyCode1());
+        return DataBaseHelper.getInstance(getApplicationContext()).bus1LeaveTimes(BusJourney.getTotalTime(), BusJourney.getJourneyCode1(), BusJourney.getPartOfWeek());
     }
 
     public List<Integer> runDatabaseQueryInboundTimeReturnCode1() {
         int queryTime = BusJourney.getArrivalTimeOut() + 120;
-        return DataBaseHelper.getInstance(getApplicationContext()).bus1LeaveTimes(queryTime, BusJourney.getReturnCode1());
+        return DataBaseHelper.getInstance(getApplicationContext()).bus1LeaveTimes(queryTime, BusJourney.getReturnCode1(), BusJourney.getPartOfWeek());
     }
 
     public void setTextViewsValues(TextView outbound, TextView arrival, TextView travelTime, TextView directChange, List<Integer> outboundTimeInt, String secondBusJourneyCode, int journey1duration, int journey2duration, int i) {
@@ -249,7 +372,7 @@ public class BoundPage extends AppCompatActivity {
             // displays duration of journey
             travelTime.setText(TimeDateFormatters.durationFormat(journey1duration));
         } else {
-            int bus2Leave = DataBaseHelper.getInstance(getApplicationContext()).bus2LeaveTime(bus1ArriveTime, secondBusJourneyCode);
+            int bus2Leave = DataBaseHelper.getInstance(getApplicationContext()).bus2LeaveTime(bus1ArriveTime, secondBusJourneyCode, BusJourney.getPartOfWeek());
 
             int bus2ArriveTime = bus2Leave + journey2duration;
 

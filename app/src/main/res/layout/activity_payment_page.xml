@@ -496,7 +496,7 @@
             android:textColor="#3e4352"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/box3"
-            app:layout_constraintEnd_toStartOf="@+id/totalPrice"
+            app:layout_constraintEnd_toStartOf="@+id/totalOverallPrice"
             app:layout_constraintStart_toStartOf="@+id/box3"
             app:layout_constraintTop_toTopOf="@+id/box3" />
 
@@ -506,14 +506,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="34dp"
             android:layout_marginBottom="67dp"
-            android:text="Children Bus Ticket"
+            android:text="Children Bus and Castle Tickets"
             android:textColor="#3e4352"
             app:layout_constraintBottom_toBottomOf="@+id/box3"
             app:layout_constraintStart_toStartOf="@+id/box3"
             app:layout_constraintTop_toBottomOf="@+id/adultTicket" />
 
         <TextView
-            android:id="@+id/adultPrice"
+            android:id="@+id/totalAdultPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="303dp"
@@ -522,13 +522,13 @@
             android:text="£2.40"
             android:textColor="#3e4352"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/childPrice"
+            app:layout_constraintBottom_toTopOf="@+id/totalChildPrice"
             app:layout_constraintEnd_toEndOf="@+id/box3"
             app:layout_constraintStart_toStartOf="@+id/box3"
             app:layout_constraintTop_toTopOf="@+id/box3" />
 
         <TextView
-            android:id="@+id/childPrice"
+            android:id="@+id/totalChildPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="304dp"
@@ -542,10 +542,10 @@
             app:layout_constraintEnd_toEndOf="@+id/box3"
             app:layout_constraintStart_toEndOf="@+id/childTicket"
             app:layout_constraintStart_toStartOf="@+id/box3"
-            app:layout_constraintTop_toBottomOf="@+id/adultPrice" />
+            app:layout_constraintTop_toBottomOf="@+id/totalAdultPrice" />
 
         <TextView
-            android:id="@+id/totalPrice"
+            android:id="@+id/totalOverallPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="305dp"
@@ -566,7 +566,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="34dp"
             android:layout_marginBottom="10dp"
-            android:text="Adult Bus Ticket"
+            android:text="Adult Bus and Castle Tickets"
             android:textColor="#3e4352"
             app:layout_constraintBottom_toTopOf="@+id/childTicket"
             app:layout_constraintStart_toStartOf="@+id/box3"
