@@ -412,14 +412,6 @@
             android:textStyle="bold"
             android:layout_weight="1" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:adjustViewBounds="true"
-            app:srcCompat="@drawable/horsepay"
-            android:layout_weight="1" />
-
         <Button
             android:id="@+id/payButton"
             android:layout_width="wrap_content"
@@ -427,7 +419,7 @@
             android:backgroundTint="#24cd85"
             android:onClick="sendJSONObject"
             android:text="Pay"
-            android:layout_weight="1" />
+            android:layout_weight="2" />
 
     </LinearLayout>
 
