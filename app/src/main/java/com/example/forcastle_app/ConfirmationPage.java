@@ -80,12 +80,11 @@ public class ConfirmationPage extends AppCompatActivity {
     }
 
     private void sendEmail() {
-        Toast.makeText(ConfirmationPage.this, "it works", Toast.LENGTH_SHORT).show();
         String mEmail = email.getText().toString();
         String mSubject = "Forcastle Journey Receipt";
         String mMessage = "Thank you for using the Forcastle app! \n" +
                 "Booking reference: " + "829394 \n" +
-                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "Outbound: "+ "Newcastle " + "to " + "Alnwick\n" +
                 "Departs: " + "12:00" + "at" + "Eldon Square\n" +
                 "Bus service: " + "307\n" +
@@ -94,9 +93,12 @@ public class ConfirmationPage extends AppCompatActivity {
                 "Departs: " + "18:00" + "at" + "Alnwick\n" +
                 "Bus service: " + "307\n" ;
 
-        JavaMailAPI javaMailAPI = new JavaMailAPI(this, mEmail, mMessage, mSubject);
 
+        JavaMailAPI javaMailAPI = new JavaMailAPI(this, mEmail, mMessage, mSubject);
         javaMailAPI.execute();
+
+        Toast.makeText(ConfirmationPage.this, "Receipt sent! Congratulations, you're going to Bamburgh", Toast.LENGTH_SHORT).show();
+
     }
 
 

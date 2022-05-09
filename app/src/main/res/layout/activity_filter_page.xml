@@ -41,8 +41,8 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="411dp"
-        android:layout_height="654dp"
+        android:layout_width="417dp"
+        android:layout_height="659dp"
         android:layout_marginTop="21dp"
         android:background="@drawable/view_rectangle2"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +50,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/back_button"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <TextView
         android:id="@+id/textViewFrom"
@@ -125,7 +125,6 @@
         android:layout_marginEnd="298dp"
         android:text="From"
         android:textColor="#7d7d7d"
-        android:textStyle="bold"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/textViewFrom"
         app:layout_constraintStart_toStartOf="@+id/textViewFrom"
@@ -216,18 +215,19 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="169dp"
         android:layout_height="38dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="198dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="#e6e6e6"
+        android:hint="Select date"
         android:onClick="openDatePicker"
         android:shadowColor="#e6e6e6"
         android:text="Select date"
-        android:fontFamily="@font/tajawal_bold"
-        android:textSize="14sp"
         android:textAlignment="viewStart"
         android:textColor="#1c4698"
-        android:hint="Select date"
+        android:textFontWeight="900"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/departureDate"
         app:layout_constraintEnd_toEndOf="@+id/departureDate"
         app:layout_constraintHorizontal_bias="0.0"
@@ -250,11 +250,10 @@
         android:id="@+id/timer"
         android:layout_width="140dp"
         android:layout_height="38dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="212dp"
-        android:hint="Select time"
-        android:text="Select time"
+        android:text="SELECT TIME"
         android:textAlignment="viewStart"
         android:textColor="#1c4698"
         android:textSize="15sp"
@@ -314,9 +313,9 @@
 
     <Button
         android:id="@+id/bookTripButton"
-        android:layout_width="214dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="150dp"
+        android:layout_width="286dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="140dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/view_button_background"
         android:backgroundTint="#24cd85"
@@ -324,10 +323,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passengers"
-        app:layout_constraintVertical_bias="0.987" />
+        app:layout_constraintVertical_bias="0.818" />
 
     <TextView
         android:id="@+id/Adult"

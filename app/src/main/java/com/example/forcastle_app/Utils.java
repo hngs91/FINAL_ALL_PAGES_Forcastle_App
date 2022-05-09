@@ -1,8 +1,0 @@
-package com.example.forcastle_app;
-
-public class Utils {
-    // HERE PUT EMAIL AND PASSWORD , LIKE example@gmail.com
-
-    public static final  String EMAIL = "eugeniavuong7@gmail.com";
-    public static final String PASSWORD = "0n!on499";
-}

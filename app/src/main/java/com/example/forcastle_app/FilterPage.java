@@ -106,15 +106,14 @@ public class FilterPage extends AppCompatActivity {
             }
         });
 
-        /* NEED TO ALTER PAGE NAME
+        /*
         when user confirms the filter page details, the location, date, time and number of tickets should be
         presented on the confirmation page.
         */
         bookTripButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (dateClicked && timerClicked) {
-                    //check all fields are complete
+                if (dateClicked && timerClicked) {  //check all fields are complete
                     Intent intent1 = new Intent(FilterPage.this, BoundPage.class);
                     intent1.putExtra("anchor", anchor);
                     startActivity(intent1);
@@ -128,11 +127,12 @@ public class FilterPage extends AppCompatActivity {
     }
 
     /*
-    The methods below are a series of method to provide functionality to the date picker
+    The methods below are a series of methods to provide functionality to the date picker
      */
 
     //this sets the initial date that is shown on the page to the current date that is it being used
     private String getTodaysDate() {
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000); //sets the minimum date option as the current date
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
@@ -148,14 +148,12 @@ public class FilterPage extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 dateClicked = true;
                 month = month + 1; // so January is equal to 01
-
-
+                //set min date to current date
+                Calendar today = Calendar.getInstance();
                 //assigns busJourney as weekDay or weekend, needed when query database as different timetables for weekdays vs weekend
                 BusJourney.setPartOfWeek(day + "/" + month + "/" + year);
                 BusJourney.setTravelDate(day, month, year);
-
                 String date = makeDateString(day, month, year);
-                //datePicker.setMaxDate(System.currentTimeMillis() - 1000);
                 dateButton.setText(date);
             }
         };
@@ -166,6 +164,7 @@ public class FilterPage extends AppCompatActivity {
 
         int style = AlertDialog.THEME_HOLO_LIGHT;
         datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+
 
     }
 

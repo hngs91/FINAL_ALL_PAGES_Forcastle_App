@@ -31,7 +31,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="13dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="19dp"
                     android:background="@drawable/back"
                     android:padding="12dp" />
 
@@ -507,7 +507,7 @@
                             <Button
                                 android:id="@+id/sendReceipt"
                                 android:layout_width="190dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="45dp"
                                 android:background="@drawable/view_button_background"
                                 android:text="Send receipt"
                                 android:textColor="@color/white" />
