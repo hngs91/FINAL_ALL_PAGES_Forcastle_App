@@ -79,16 +79,15 @@ public class ConfirmationPage extends AppCompatActivity {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, getResources().getDisplayMetrics());
     }
 
+    /*email receipt message*/
     private void sendEmail() {
         String mEmail = email.getText().toString();
         String mSubject = "Forcastle Journey Receipt";
         String mMessage = "Thank you for using the Forcastle app! \n" +
-                "Booking reference: " + "829394 \n" +
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "Outbound: "+ "Newcastle " + "to " + "Alnwick\n" +
                 "Departs: " + "12:00" + "at" + "Eldon Square\n" +
-                "Bus service: " + "307\n" +
-                "------------------------------------\n" +
+                "Bus service: " + "307\n" + "----------------------------------------------\n" +
                 "Inbound: " + "Alnwick " + "to " + "Newcastle\n" +
                 "Departs: " + "18:00" + "at" + "Alnwick\n" +
                 "Bus service: " + "307\n" ;

@@ -22,7 +22,7 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(homeIntent);
                 finish();
             }
-        },splashPageTimeout);
+        },splashPageTimeout); //display splash page for 2 seconds
 
     }
 }
