@@ -105,12 +105,6 @@
                     android:layout_gravity="center_horizontal"/>
 
                 <!--                minimum bus ticket price-->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="From £24.15"
-                    android:textSize="10dp"
-                    android:textColor="#6c15e5"/>
 
             </LinearLayout>
 
@@ -143,23 +137,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true"
-                android:layout_marginBottom="5dp">
-
-                <!--                Passenger icon-->
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:src="@drawable/ic_passenger"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="3dp"/>
-
-                <!--                Passenger number-->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1 total single from"
-                    android:layout_alignParentRight="true"/>
-            </LinearLayout>
+                android:layout_marginBottom="5dp"/>
 
         </RelativeLayout>
 
@@ -269,8 +247,10 @@
                             android:orientation="vertical">
 
                             <!--                        adult price-->
+
+                            <!--                        child price-->
                             <TextView
-                                android:id="@+id/busPrice1"
+                                android:id="@+id/busAdultPrice1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
@@ -278,8 +258,8 @@
                                 android:textSize="15dp"
                                 android:textStyle="bold" />
 
-                            <!--                        child price-->
                             <TextView
+                                android:id="@+id/busChildPrice1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
@@ -433,7 +413,7 @@
 
                             <!--                        adult price-->
                             <TextView
-                                android:id="@+id/busPrice2"
+                                android:id="@+id/busAdultPrice2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
@@ -443,6 +423,7 @@
 
                             <!--                        child price-->
                             <TextView
+                                android:id="@+id/busChildPrice2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
@@ -598,6 +579,7 @@
 
                             <!--                        adult price-->
                             <TextView
+                                android:id="@+id/busAdultPrice3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
@@ -607,7 +589,7 @@
 
                             <!--                        child price-->
                             <TextView
-                                android:id="@+id/busPrice3"
+                                android:id="@+id/busChildPrice3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
@@ -761,6 +743,7 @@
 
                             <!--                        adult price-->
                             <TextView
+                                android:id="@+id/busAdultPrice4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
@@ -770,7 +753,7 @@
 
                             <!--                        child price-->
                             <TextView
-                                android:id="@+id/busPrice4"
+                                android:id="@+id/busChildPrice4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
@@ -923,6 +906,7 @@
 
                             <!--                        adult price-->
                             <TextView
+                                android:id="@+id/busAdultPrice5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
@@ -932,7 +916,7 @@
 
                             <!--                        child price-->
                             <TextView
-                                android:id="@+id/busPrice5"
+                                android:id="@+id/busChildPrice5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"

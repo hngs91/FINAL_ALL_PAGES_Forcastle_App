@@ -5,7 +5,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
+/*
+Code implemented by Harry Smith
+ */
 public class BusJourney {
 
     //variables are static so that only one BusJourney object needs to be made with all variables of the one object being accessible from all other classes
@@ -23,7 +25,11 @@ public class BusJourney {
             travelTime1, travelTime2,
             directChange,
             changeWaitOut, changeWaitIn;
-    private static int hour, minute, totalTime, arrivalTimeOut, arrivalTimeIn;
+    private static int hour, minute, totalTime,
+            arrivalTimeOut, arrivalTimeIn,
+            noAdultTickets, noChildTickets;
+    private static double adultBusPrice, childBusPrice,
+            adultCastlePrice, childCastlePrice;
     private static Integer journeyDurationTotalMinutes1, journeyDurationTotalMinutes2;
 
     //private empty constructor
@@ -31,6 +37,7 @@ public class BusJourney {
     }
 
     //method sets data dictated by the journey chosen by the user via HashMaps
+    @SuppressWarnings("ConstantConditions")
     public static void buildBusJourney(String journey1, String journey2) {
         BusJourney.journeyCode1 = journey1;
         BusJourney.journeyCode2 = journey2;
@@ -68,6 +75,9 @@ public class BusJourney {
 
         arrivalStationIn1 = HashMaps.getStation().get(journey1);
         arrivalStationIn2 = HashMaps.getStation().get(journey2);
+
+        adultBusPrice = HashMaps.getAdultPrice().get(journey1);
+        childBusPrice = HashMaps.getChildPrice().get(journey1);
     }
 
     /****************** GETTERS & SETTERS **************************/
@@ -119,9 +129,9 @@ public class BusJourney {
         DateFormat format2 = new SimpleDateFormat("EEEE", Locale.UK);
         String dayOfWeek = format2.format(dt1);
 
-        if (dayOfWeek.equals("Saturday")) partOfWeek = "Saturday";
+        if (dayOfWeek.equals("Saturday")) partOfWeek = "Sat";
 
-        else if (dayOfWeek.equals("Sunday")) partOfWeek = "Sunday";
+        else if (dayOfWeek.equals("Sunday")) partOfWeek = "Sun";
 
         else partOfWeek = "weekDay";
     }
@@ -303,4 +313,51 @@ public class BusJourney {
         BusJourney.travelDate = travelDate;
     }
 
+    public static int getNoAdultTickets() {
+        return noAdultTickets;
+    }
+
+    public static void setNoAdultTickets(int noAdultTickets) {
+        BusJourney.noAdultTickets = noAdultTickets;
+    }
+
+    public static int getNoChildTickets() {
+        return noChildTickets;
+    }
+
+    public static void setNoChildTickets(int noChildTickets) {
+        BusJourney.noChildTickets = noChildTickets;
+    }
+
+    public static double getAdultBusPrice() {
+        return adultBusPrice;
+    }
+
+    public static void setAdultBusPrice(double adultBusPrice) {
+        BusJourney.adultBusPrice = adultBusPrice;
+    }
+
+    public static double getChildBusPrice() {
+        return childBusPrice;
+    }
+
+    public static void setChildBusPrice(double childBusPrice) {
+        BusJourney.childBusPrice = childBusPrice;
+    }
+
+    public static double getAdultCastlePrice() {
+        return adultCastlePrice;
+    }
+
+    public static void setAdultCastlePrice(double adultCastlePrice) {
+        BusJourney.adultCastlePrice = adultCastlePrice;
+    }
+
+    public static double getChildCastlePrice() {
+        return childCastlePrice;
+    }
+
+    public static void setChildCastlePrice(double childCastlePrice) {
+        BusJourney.childCastlePrice = childCastlePrice;
+    }
 }
