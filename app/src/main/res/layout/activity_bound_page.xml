@@ -35,14 +35,13 @@
         android:layout_gravity="center"
         android:layout_marginBottom="10dp">
 
-        <!--        Origin-->
+<!--        Origin-->
         <TextView
-            android:id="@+id/departureStation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
             android:text="Eldon square"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:layout_width="15dp"
@@ -52,18 +51,17 @@
             android:paddingTop="3dp"
             android:layout_marginRight="5dp"/>
 
-        <!--        Destination-->
+<!--        Destination-->
         <TextView
-            android:id="@+id/arrivalStation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
             android:text="Alnwick Castle"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:layout_marginRight="5dp"/>
 
     </LinearLayout>
 
-    <!--    white round background part-->
+<!--    white round background part-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,14 +71,14 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp">
 
-        <!--        Transportation type and minimum ticket price-->
+<!--        Transportation type and minimum ticket price-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal">
 
-            <!--            bus icon-->
+<!--            bus icon-->
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
@@ -93,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!--                Transportation type-->
+<!--                Transportation type-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -102,35 +100,57 @@
                     android:textStyle="bold"
                     android:layout_gravity="center_horizontal"/>
 
-                <!--                minimum bus ticket price-->
+<!--                minimum bus ticket price-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="From £24.15"
+                    android:textSize="10dp"
+                    android:textColor="#6c15e5"/>
+
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <!--        Time and passenger number-->
+<!--        Time and passenger number-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
-            <!--            Time-->
+<!--            Time-->
             <TextView
-                android:id="@+id/dayOfJourney"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wed 6 Apr"
                 android:textColor="#000000"
                 android:textStyle="bold" />
 
-            <!--            Passenger icon and number-->
+<!--            Passenger icon and number-->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp">
+
+<!--                Passenger icon-->
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_passenger"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="3dp"/>
+
+<!--                Passenger number-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 total single from"
+                    android:layout_alignParentRight="true"/>
+            </LinearLayout>
 
         </RelativeLayout>
 
@@ -147,17 +167,17 @@
 
                 <!--            first listed bus option-->
                 <LinearLayout
-                    android:id="@+id/timeCard1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/view_box"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@drawable/view_box"
                     android:elevation="2dp"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    >
 
                     <!--                Departure time, arrival time, and ticket price-->
                     <LinearLayout
@@ -171,14 +191,13 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
+                            android:orientation="horizontal"
                             android:gravity="center"
-                            android:orientation="horizontal">
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1">
 
                             <!--                        Departure time-->
                             <TextView
-                                android:id="@+id/leaveTime1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -192,12 +211,11 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:layout_marginRight="10dp">
 
                                 <!--                            Total time-->
                                 <TextView
-                                    android:id="@+id/duration1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
@@ -210,17 +228,15 @@
 
                                 <!--                            transfer number-->
                                 <TextView
-                                    android:id="@+id/changeDirect1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
-                                    android:text="Direct" />
+                                    android:text="Direct"/>
 
                             </LinearLayout>
 
                             <!--                        arrival time-->
                             <TextView
-                                android:id="@+id/arriveTime1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -235,9 +251,9 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:layout_weight="1">
 
                             <!--                        adult price-->
 
@@ -268,9 +284,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
+                        android:background="#dcdcdc"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="#dcdcdc" />
+                        android:layout_marginBottom="5dp"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -289,13 +305,13 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="30dp"
-                            android:layout_toRightOf="@id/second_company"
-                            android:src="@drawable/temp_ic_bus_company" />
+                            android:src="@drawable/temp_ic_bus_company"
+                            android:layout_toRightOf="@id/second_company"/>
 
 
                         <!--                    buy ticket button-->
                         <Button
-                            android:id="@+id/buyButton1"
+                            android:id="@+id/outbound_button"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_alignParentRight="true"
@@ -310,17 +326,16 @@
 
                 <!--            second listed bus option-->
                 <LinearLayout
-                    android:id="@+id/timeCard2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/view_box"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@drawable/view_box"
-                    android:elevation="2dp"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:elevation="2dp">
 
                     <!--                Departure time, arrival time, and ticket price-->
                     <LinearLayout
@@ -334,14 +349,13 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
+                            android:orientation="horizontal"
                             android:gravity="center"
-                            android:orientation="horizontal">
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1">
 
                             <!--                        Departure time-->
                             <TextView
-                                android:id="@+id/leaveTime2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -355,12 +369,11 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:layout_marginRight="10dp">
 
                                 <!--                            Total time-->
                                 <TextView
-                                    android:id="@+id/duration2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
@@ -373,17 +386,15 @@
 
                                 <!--                            transfer number-->
                                 <TextView
-                                    android:id="@+id/changeDirect2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
-                                    android:text="Direct" />
+                                    android:text="Direct"/>
 
                             </LinearLayout>
 
                             <!--                        arrival time-->
                             <TextView
-                                android:id="@+id/arriveTime2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -398,9 +409,9 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:layout_weight="1">
 
                             <!--                        adult price-->
                             <TextView
@@ -430,9 +441,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
+                        android:background="#dcdcdc"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="#dcdcdc" />
+                        android:layout_marginBottom="5dp"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -451,13 +462,12 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="30dp"
-                            android:layout_toRightOf="@id/third_company"
-                            android:src="@drawable/temp_ic_bus_company" />
+                            android:src="@drawable/temp_ic_bus_company"
+                            android:layout_toRightOf="@id/third_company"/>
 
 
                         <!--                    buy ticket button-->
                         <Button
-                            android:id="@+id/buyButton2"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_alignParentRight="true"
@@ -472,17 +482,16 @@
 
                 <!--            third listed bus option-->
                 <LinearLayout
-                    android:id="@+id/timeCard3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/view_box"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@drawable/view_box"
-                    android:elevation="2dp"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:elevation="2dp">
 
                     <!--                Departure time, arrival time, and ticket price-->
                     <LinearLayout
@@ -496,14 +505,13 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
+                            android:orientation="horizontal"
                             android:gravity="center"
-                            android:orientation="horizontal">
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1">
 
                             <!--                        Departure time-->
                             <TextView
-                                android:id="@+id/leaveTime3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -517,12 +525,11 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:layout_marginRight="10dp">
 
                                 <!--                            Total time-->
                                 <TextView
-                                    android:id="@+id/duration3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
@@ -535,17 +542,15 @@
 
                                 <!--                            transfer number-->
                                 <TextView
-                                    android:id="@+id/changeDirect3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
-                                    android:text="Direct" />
+                                    android:text="Direct"/>
 
                             </LinearLayout>
 
                             <!--                        arrival time-->
                             <TextView
-                                android:id="@+id/arriveTime3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -560,9 +565,9 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:layout_weight="1">
 
                             <!--                        adult price-->
                             <TextView
@@ -592,9 +597,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
+                        android:background="#dcdcdc"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="#dcdcdc" />
+                        android:layout_marginBottom="5dp"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -613,13 +618,12 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="30dp"
-                            android:layout_toRightOf="@id/forth_company"
-                            android:src="@drawable/temp_ic_bus_company" />
+                            android:src="@drawable/temp_ic_bus_company"
+                            android:layout_toRightOf="@id/forth_company"/>
 
 
                         <!--                    buy ticket button-->
                         <Button
-                            android:id="@+id/buyButton3"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_alignParentRight="true"
@@ -634,17 +638,16 @@
 
                 <!--            forth listed bus option-->
                 <LinearLayout
-                    android:id="@+id/timeCard4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/view_box"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@drawable/view_box"
-                    android:elevation="2dp"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:elevation="2dp">
 
                     <!--                Departure time, arrival time, and ticket price-->
                     <LinearLayout
@@ -658,14 +661,13 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
+                            android:orientation="horizontal"
                             android:gravity="center"
-                            android:orientation="horizontal">
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1">
 
                             <!--                        Departure time-->
                             <TextView
-                                android:id="@+id/leaveTime4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -679,12 +681,11 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:layout_marginRight="10dp">
 
                                 <!--                            Total time-->
                                 <TextView
-                                    android:id="@+id/duration4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
@@ -697,17 +698,15 @@
 
                                 <!--                            transfer number-->
                                 <TextView
-                                    android:id="@+id/changeDirect4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
-                                    android:text="Direct" />
+                                    android:text="Direct"/>
 
                             </LinearLayout>
 
                             <!--                        arrival time-->
                             <TextView
-                                android:id="@+id/arriveTime4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -722,9 +721,9 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:layout_weight="1">
 
                             <!--                        adult price-->
                             <TextView
@@ -754,9 +753,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
+                        android:background="#dcdcdc"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="#dcdcdc" />
+                        android:layout_marginBottom="5dp"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -775,12 +774,11 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="30dp"
-                            android:layout_toRightOf="@id/fifth_company"
-                            android:src="@drawable/temp_ic_bus_company" />
+                            android:src="@drawable/temp_ic_bus_company"
+                            android:layout_toRightOf="@id/fifth_company"/>
 
                         <!--                    buy ticket button-->
                         <Button
-                            android:id="@+id/buyButton4"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_alignParentRight="true"
@@ -795,17 +793,16 @@
 
                 <!--            fifth listed bus option-->
                 <LinearLayout
-                    android:id="@+id/timeCard5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/view_box"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@drawable/view_box"
-                    android:elevation="2dp"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:elevation="2dp">
 
                     <!--                Departure time, arrival time, and ticket price-->
                     <LinearLayout
@@ -819,14 +816,13 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
+                            android:orientation="horizontal"
                             android:gravity="center"
-                            android:orientation="horizontal">
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1">
 
                             <!--                        Departure time-->
                             <TextView
-                                android:id="@+id/leaveTime5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -840,12 +836,11 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:layout_marginRight="10dp">
 
                                 <!--                            Total time-->
                                 <TextView
-                                    android:id="@+id/duration5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
@@ -858,17 +853,15 @@
 
                                 <!--                            transfer number-->
                                 <TextView
-                                    android:id="@+id/changeDirect5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
-                                    android:text="Direct" />
+                                    android:text="Direct"/>
 
                             </LinearLayout>
 
                             <!--                        arrival time-->
                             <TextView
-                                android:id="@+id/arriveTime5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -883,9 +876,9 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:orientation="vertical"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:layout_weight="1">
 
                             <!--                        adult price-->
                             <TextView
@@ -915,9 +908,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
+                        android:background="#dcdcdc"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="#dcdcdc" />
+                        android:layout_marginBottom="5dp"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -936,13 +929,12 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="30dp"
-                            android:layout_toRightOf="@id/first_company"
-                            android:src="@drawable/temp_ic_bus_company" />
+                            android:src="@drawable/temp_ic_bus_company"
+                            android:layout_toRightOf="@id/first_company"/>
 
 
                         <!--                    buy ticket button-->
                         <Button
-                            android:id="@+id/buyButton5"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_alignParentRight="true"

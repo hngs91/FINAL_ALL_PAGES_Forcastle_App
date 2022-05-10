@@ -16,9 +16,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.forcastle_app.DatabaseTeam.BusJourney;
-import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
+import androidx.appcompat.widget.Toolbar;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,11 +27,15 @@ Code implemented by Eugenia Vuong & Harry Smith
  */
 
 public class FilterPage extends AppCompatActivity {
-    Button back, dateButton, bookTripButton;
+    Toolbar back;
+    Button dateButton, bookTripButton;
     ImageView minus2, childMinus2, add1;
     TextView value1, value2, timer;
     int count1 = 1, count2 = 0, tHour, tMinute;
     DatePickerDialog datePickerDialog;
+    String confirmedDate;
+    String confirmedAdultTickets;
+    String confirmedChildTickets;
     Boolean timerClicked = false;
     Boolean dateClicked = false;
     static String anchor = "1";
@@ -59,11 +61,6 @@ public class FilterPage extends AppCompatActivity {
                                 //initialise hour and minutes
                                 tHour = hourOfDay;
                                 tMinute = minute;
-
-                                //setting the busJourney object hour & minute as selected by user
-                                BusJourney.setHour(tHour);
-                                BusJourney.setMinute(tMinute);
-
                                 String time = tHour + ":" + tMinute;
                                 SimpleDateFormat f24hours = new SimpleDateFormat(
                                         "HH:mm"
@@ -71,6 +68,9 @@ public class FilterPage extends AppCompatActivity {
                                 try {
                                     Date date = f24hours.parse(time);
                                     //initialise 12 hour time format
+              /*              SimpleDateFormat f24hours = new SimpleDateFormat(
+                                    "hh:mm"
+                            );*/
                                     timer.setText(f24hours.format(date));
                                 } catch (ParseException e) {
                                     e.printStackTrace();
@@ -100,10 +100,17 @@ public class FilterPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (timerClicked && dateClicked) {
+
                     //check all fields are complete
                     BusJourney.setNoAdultTickets(count1);
                     BusJourney.setNoChildTickets(count2);
                     Intent intent1 = new Intent(FilterPage.this, BoundPage.class);
+                    confirmedDate = timer.getText().toString();
+                    intent1.putExtra("confirmedDate", confirmedDate);
+                    confirmedAdultTickets = value1.getText().toString();
+                    intent1.putExtra("confirmedAdultTickets", confirmedAdultTickets);
+                    confirmedChildTickets = value2.getText().toString();
+                    intent1.putExtra("confirmedChildTickets", confirmedChildTickets);
                     intent1.putExtra("anchor", anchor);
                     startActivity(intent1);
                 } else {
@@ -139,9 +146,9 @@ public class FilterPage extends AppCompatActivity {
                 //assigns busJourney as weekDay or weekend, needed when query database as different timetables for weekdays vs weekend
                 BusJourney.setPartOfWeek(day + "/" + month + "/" + year);
                 BusJourney.setTravelDate(day, month, year);
-
                 String date = makeDateString(day, month, year);
                 dateButton.setText(date);
+                dateButtonClicked = true;
             }
         };
         Calendar cal = Calendar.getInstance();
@@ -155,19 +162,51 @@ public class FilterPage extends AppCompatActivity {
 
     //prints the date in the format of DAY MONTH YEAR
     private String makeDateString(int day, int month, int year) {
-        return day + " " + TimeDateFormatters.getMonthFormat(month) + " " + year;
+        return day + " " + getMonthFormat(month) + " " + year;
+    }
+
+    //changes the month format to the first three letters of the month instead of numbers
+    private String getMonthFormat(int month) {
+        if (month == 1)
+            return "JAN";
+        if (month == 2)
+            return "FEB";
+        if (month == 3)
+            return "MAR";
+        if (month == 4)
+            return "APR";
+        if (month == 5)
+            return "MAY";
+        if (month == 6)
+            return "JUN";
+        if (month == 7)
+            return "JUL";
+        if (month == 8)
+            return "AUG";
+        if (month == 9)
+            return "SEP";
+        if (month == 10)
+            return "OCT";
+        if (month == 11)
+            return "NOV";
+        if (month == 12)
+            return "DEC";
+
+        //DEFAULT
+        return "JAN";
     }
 
     public void openDatePicker(View v) {
         datePickerDialog.show();
     }
 
+
     /*
     method for the back button --> once the back button is clicked,
     this takes the user to the next page.
      */
     public void openActivity2() {
-        Intent intent = new Intent(this, HomePage.class);
+        Intent intent = new Intent(this, FacilitiesPage.class);
         startActivity(intent);
     }
 
@@ -176,8 +215,10 @@ public class FilterPage extends AppCompatActivity {
         if (count1 + count2 < 5) { //5 = capacity
             count1++;
             minus2.setImageResource(R.drawable.ic_minus_1);
+            value1.setText("" + count1);
+        } else {
+            value1.setText("" + count1);
         }
-        value1.setText("" + count1);
     }
 
     //decrements ticket number
@@ -194,8 +235,10 @@ public class FilterPage extends AppCompatActivity {
         if (count1 + count2 < 5) { //5 = capacity
             count2++;
             childMinus2.setImageResource(R.drawable.ic_minus_1);
+            value2.setText("" + count2);
+        } else {
+            value2.setText("" + count2);
         }
-        value2.setText("" + count2);
     }
 
     //decrements child ticket number

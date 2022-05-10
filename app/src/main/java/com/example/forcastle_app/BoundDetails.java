@@ -2,10 +2,10 @@ package com.example.forcastle_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
@@ -17,7 +17,7 @@ Code implemented by Zheng Yang & Harry Smith
  */
 public class BoundDetails extends AppCompatActivity {
 
-    TextView cross;
+    ImageView cross;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class BoundDetails extends AppCompatActivity {
         setContentView(R.layout.activity_bound_details);
 
         cross = findViewById(R.id.outCross);
+
 
         if ("1".equals(PaymentPage.anchor)) {
             populatingOutboundDetails();
