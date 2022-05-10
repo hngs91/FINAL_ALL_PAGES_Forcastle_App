@@ -4,13 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
-
 import java.util.Locale;
 
 /*
@@ -30,6 +27,7 @@ public class PaymentPage extends AppCompatActivity {
 
         setViews();
 
+        // shows correct journey duration based on if it is a direct journey or a 1-change journey
         if (BusJourney.getDirectChange().equals("Direct")) {
             ((TextView) findViewById(R.id.time1)).setText(TimeDateFormatters.durationFormat((BusJourney.getJourneyDurationTotalMinutes1())));
         } else {
@@ -43,7 +41,7 @@ public class PaymentPage extends AppCompatActivity {
         }
 
 
-        // add in if statement to send it to correct details page if journey is direct or 1 change
+        // the value of the anchor dictates if outbound journey details are shown or inbound journey details are shown
         details1.setOnClickListener(view -> {
             anchor = "1";
             Intent intent = new Intent(PaymentPage.this, BoundDetails.class);
@@ -56,11 +54,13 @@ public class PaymentPage extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // allows users to navigate back to the outbound bus times page
         backPayment.setOnClickListener(view -> {
             Intent intent = new Intent(PaymentPage.this, BoundPage.class);
             startActivity(intent);
         });
 
+        // allows users to continue to the Confirmation page
         payButton.setOnClickListener(view -> {
             Intent intent = new Intent(PaymentPage.this, ConfirmationPage.class);
             startActivity(intent);

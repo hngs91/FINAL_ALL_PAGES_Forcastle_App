@@ -12,11 +12,19 @@ import java.util.List;
 /*
 Code implemented by Harry Smith
  */
+
 //using SQLite database allows the app to be used offline
 public class DataBaseHelper extends SQLiteOpenHelper {
 
+    /*
+    This class has been designed to be a singleton class, i.e., only one DatabaseHelper object can exist.
+    This ensures the database is only created once per user experience.
+     */
+
+    // private constructor to enforce singelton class
     private static DataBaseHelper sInstance;
 
+    // method used to call an isntance of the class. If an instance doesn't exist it triggers the database being created
     public static synchronized DataBaseHelper getInstance(Context context) {
         if (sInstance == null) {
             sInstance = new DataBaseHelper(context.getApplicationContext());
@@ -42,7 +50,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
     }
 
-    //method queries database for the 5 times nearest to the user selected time and puts results into a List
+    //method queries database for the 5 times nearest to the user selected time and outputs the results as a  List
     public List<Integer> bus1LeaveTimes(int time, String journey, String partOfWeek) {
 
         List<Integer> integerList = new ArrayList<>();

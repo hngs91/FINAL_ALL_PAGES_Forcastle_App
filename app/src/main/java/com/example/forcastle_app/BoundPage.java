@@ -33,6 +33,8 @@ public class BoundPage extends AppCompatActivity {
     LinearLayout timeCard1, timeCard2, timeCard3, timeCard4, timeCard5;
 
     int i = 0; //counter for setTextViews method
+
+    // Initiates Lists needed to store query data from the database
     List<Integer> outboundTimeListJourneyCode1 = new ArrayList<>();
     List<Integer> inboundTimeListReturnCode1 = new ArrayList<>();
     List<Integer> waitChangeTimes = new ArrayList<>();
@@ -44,6 +46,8 @@ public class BoundPage extends AppCompatActivity {
 
         setViews();
 
+        // If outbound bus details are shown users can navigate back to the filter page
+        // If inbound bus details are shown users can navigate back to outbound bus details
         outbound_toolbar.setNavigationOnClickListener(v -> {
             if ("1".equals(FilterPage.anchor)) {
                 Intent intent = new Intent(BoundPage.this, FilterPage.class);
@@ -55,12 +59,16 @@ public class BoundPage extends AppCompatActivity {
             }
         });
 
+        // below logic either shows users outbound bus details or inbound bus details depending on the value of the FilterPage.anchor
         if ("1".equals(FilterPage.anchor)) {
             headline.setText(R.string.outbound);
             ((TextView) findViewById(R.id.departureStation)).setText(BusJourney.getDepartureStationOut1());
             ((TextView) findViewById(R.id.arrivalStation)).setText(BusJourney.getArrivalStationOut1());
 
+            // Populates the list with relevant outbound bus times
             outboundTimeListJourneyCode1 = runDatabaseQueryOutboundTimeJourneyCode1();
+
+            // Populates up to five possible outbound bus journeys depending on what time the user wanted to leave
             populateTimeCards(outboundTimeListJourneyCode1, BusJourney.getJourneyCode2(), BusJourney.getJourneyDurationTotalMinutes1(), BusJourney.getJourneyDurationTotalMinutes2());
 
         } else if ("2".equals(FilterPage.anchor)) {
@@ -69,8 +77,11 @@ public class BoundPage extends AppCompatActivity {
             ((TextView) findViewById(R.id.departureStation)).setText(BusJourney.getDepartureStationIn1());
             ((TextView) findViewById(R.id.arrivalStation)).setText(BusJourney.getArrivalStationIn1());
 
+            // Populates the list with relevant inbound bus times
             inboundTimeListReturnCode1 = runDatabaseQueryInboundTimeReturnCode1();
+
             int inboundFirstJourneyDuration;
+
             if (BusJourney.getDirectChange().equals("Direct")) {
                 inboundFirstJourneyDuration = BusJourney.getJourneyDurationTotalMinutes1();
             } else {
@@ -230,6 +241,7 @@ public class BoundPage extends AppCompatActivity {
         });
     }
 
+    // sets all variables to relevant views on the app page & sets correct display information
     public void setViews() {
         //sets departure, destination, date, & bus ticket prices based on data chosen by user
         ((TextView) findViewById(R.id.departureStation)).setText(BusJourney.getDepartureStationOut1());

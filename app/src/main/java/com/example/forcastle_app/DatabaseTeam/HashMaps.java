@@ -7,12 +7,16 @@ Code implemented by Harry Smith
  */
 public class HashMaps {
 
+     /*
+    This class has been designed to be a singleton class, i.e., only one HashMaps object can exist.
+    It stores relevant information to build a BusJourney object based on what castle is chosen as the destination
+     */
+
     private static HashMap<String, String> busNo, operators, returnJourney, station, directChange, castleName;
     private static HashMap<String, Integer> journeyTimes;
     private static HashMap<String, Double> adultPrice, childPrice;
 
     private HashMaps() {
-
     }
 
     // builds all required hashmaps when called

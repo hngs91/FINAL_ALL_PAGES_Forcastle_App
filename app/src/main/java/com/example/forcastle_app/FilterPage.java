@@ -9,22 +9,19 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
 /*
 Code implemented by Eugenia Vuong & Harry Smith
  */
@@ -38,16 +35,18 @@ public class FilterPage extends AppCompatActivity {
     DatePickerDialog datePickerDialog;
     Boolean timerClicked = false;
     Boolean dateClicked = false;
-    static String anchor = "1";
+    static String anchor = "1"; // used to dictate if the Bound page shows outbound or inbound bus times to the user
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter_page);
+
         initDatePicker();
 
         setViews();
 
+        // Dictates the behaviour of the time selection option on the page
         timer.setOnClickListener(view -> {
             timerClicked = true;
             TimePickerDialog timePickerDialog = new TimePickerDialog(
@@ -81,18 +80,16 @@ public class FilterPage extends AppCompatActivity {
         });
 
 
+        // allows the user to return to the facilities page
         back.setNavigationOnClickListener(v -> {
             Intent intent = new Intent(this, FacilitiesPage.class);
             startActivity(intent);
         });
 
-        /*
-        when user confirms the filter page details, the location, date, time and number of tickets should be
-        presented on the confirmation page.
-        */
+        // check if the user has selected a time and date before navigating them to the bus selection times pages
         bookTripButton.setOnClickListener(view -> {
             if (timerClicked && dateClicked) {
-                //check all necessary fields have been completed by the user & sets relevant BusJourney info
+                // if all necessary fields have been completed by the user, relevant info is stored in BusJourney object
                 BusJourney.setNoAdultTickets(count1);
                 BusJourney.setNoChildTickets(count2);
                 Intent intent1 = new Intent(FilterPage.this, BoundPage.class);
@@ -109,7 +106,7 @@ public class FilterPage extends AppCompatActivity {
     The methods below are a series of method to provide functionality to the date picker
      */
 
-    //this sets the initial date that is shown on the page to the current date that is it being used
+    // Sets the initial date that is shown on the page to the current date that is it being used
     private String getTodaysDate() {
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000); //sets the minimum date option as the current date
         Calendar cal = Calendar.getInstance();
@@ -120,21 +117,18 @@ public class FilterPage extends AppCompatActivity {
         return makeDateString(day, month, year);
     }
 
-    //this methods allows users to select the date and override the date to the new date that the user selects
+    // Allows users to select the date and override the date to the new date that the user selects
     private void initDatePicker() {
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                dateClicked = true;
-                month = month + 1; // so January is equal to 01
-                //set min date to current date
-                Calendar today = Calendar.getInstance();
-                //assigns busJourney as weekDay or weekend, needed when query database as different timetables for weekdays vs weekend
-                BusJourney.setPartOfWeek(day + "/" + month + "/" + year);
-                BusJourney.setTravelDate(day, month, year);
-                String date = makeDateString(day, month, year);
-                dateButton.setText(date);
-            }
+        DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
+            dateClicked = true;
+            month = month + 1; // so January is equal to 01
+            //set min date to current date
+            Calendar today = Calendar.getInstance();
+            //assigns busJourney as weekDay or weekend, needed when query database as different timetables for weekdays vs weekend
+            BusJourney.setPartOfWeek(day + "/" + month + "/" + year);
+            BusJourney.setTravelDate(day, month, year);
+            String date = makeDateString(day, month, year);
+            dateButton.setText(date);
         };
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -192,6 +186,7 @@ public class FilterPage extends AppCompatActivity {
         value2.setText("" + count2);
     }
 
+    // sets all variables to relevant views on the app page & sets correct display information
     public void setViews() {
         back = findViewById(R.id.toolbar);
         dateButton = findViewById(R.id.datePickerButton);

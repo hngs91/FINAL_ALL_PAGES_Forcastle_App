@@ -37,18 +37,23 @@ public class FacilitiesPage extends AppCompatActivity {
 
         setViews();
 
+        // allows users to go back to the home page to select another castle
         toolbar.setNavigationOnClickListener(v -> {
             Intent intent = new Intent(FacilitiesPage.this, HomePage.class);
             startActivity(intent);
         });
 
+        // allows users to continue to the Filter Page if they are happy with the castle they have chosen
         button.setOnClickListener(v -> {
-            Intent intent = new Intent(FacilitiesPage.this, FilterPage.class);
+            // Stores the price of castle tickets in the BusJourney object
             BusJourney.setAdultCastlePrice(TimeDateFormatters.getCastlePrice(adult_price.getText().toString()));
             BusJourney.setChildCastlePrice(TimeDateFormatters.getCastlePrice(children_price.getText().toString()));
+
+            Intent intent = new Intent(FacilitiesPage.this, FilterPage.class);
             startActivity(intent);
         });
 
+        // ensures the correct information is displayed to the user based on which castle they chose on the Home Page
         if ("1".equals(HomePage.selectedCastle)) {
             headline.setText(R.string.alnwick_castle);
             castle_pic.setImageResource(R.drawable.pic_alnwick);
@@ -230,6 +235,7 @@ public class FacilitiesPage extends AppCompatActivity {
 
     }
 
+    //  sets all variables to relevant views on the app page
     public void setViews() {
         toolbar = findViewById(R.id.toolbar);
         button = findViewById(R.id.button);

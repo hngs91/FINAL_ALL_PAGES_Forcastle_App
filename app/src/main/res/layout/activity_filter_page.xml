@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Find Journey to Castle"
+            android:text="@string/find_journey_to_castle"
             android:textColor="#ffffff"
             android:textSize="30sp" />
 
@@ -93,7 +93,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="From"
+                        android:text="@string/from"
                         android:textSize="12sp" />
 
                     <TextView
@@ -101,7 +101,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="[Insert bus stop]"
+                        android:text="@string/insert_bus_stop"
                         android:textStyle="bold" />
 
                     <TextView
@@ -113,7 +113,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="To"
+                        android:text="@string/to"
                         android:textSize="12sp" />
 
                     <TextView
@@ -121,7 +121,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="[Insert castle]"
+                        android:text="@string/insert_castle"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -139,7 +139,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Departure Date" />
+                    android:text="@string/departure_date" />
 
                 <Button
                     android:id="@+id/datePickerButton"
@@ -147,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="openDatePicker"
-                    android:text="Select date"
+                    android:text="@string/select_date"
                     android:textColor="#1c4698"
                     android:textStyle="bold" />
 
@@ -165,14 +165,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="Departure Time" />
+                    android:text="@string/departure_time" />
 
                 <TextView
                     android:id="@+id/timer"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SELECT TIME"
+                    android:text="@string/select_time"
                     android:textColor="#1c4698"
                     android:textStyle="bold" />
 
@@ -190,7 +190,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="Passengers" />
+                    android:text="@string/passengers" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -206,12 +206,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Adult" />
+                            android:text="@string/adult" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="16+ years"
+                            android:text="@string/_16_years"
                             android:textSize="11sp"
                             android:textStyle="italic" />
 
@@ -237,7 +237,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:text="1"
+                            android:text="@string/adult_counter_start_1"
                             android:textColor="#073590"
                             android:textSize="25sp"
                             android:textStyle="bold" />
@@ -266,12 +266,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Child" />
+                            android:text="@string/child_ticket_select" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2-15 years"
+                            android:text="@string/child_ages"
                             android:textSize="11sp"
                             android:textStyle="italic" />
 
@@ -297,7 +297,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:text="0"
+                            android:text="@string/child_ticket_start"
                             android:textColor="#073590"
                             android:textSize="25sp"
                             android:textStyle="bold" />
@@ -355,7 +355,7 @@
                 android:layout_marginTop="0dp"
                 android:background="@drawable/view_button_background"
                 android:backgroundTint="#24cd85"
-                android:text="book a trip"
+                android:text="@string/book_a_trip_button"
                 android:layout_gravity="center"
                 android:textColor="@color/white" />
 

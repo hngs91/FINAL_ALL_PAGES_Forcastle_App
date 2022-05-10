@@ -1,5 +1,6 @@
 package com.example.forcastle_app.DatabaseTeam;
 
+import static com.example.forcastle_app.DatabaseTeam.HashMaps.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,8 +12,11 @@ Code implemented by Harry Smith
  */
 public class BusJourney {
 
-    //variables are static so that only one BusJourney object needs to be made with all variables of the one object being accessible from all other classes
-    //removes the need to create a BusJourney object on every page of the app
+    /*
+    This class has been designed to be a singleton class, i.e., only one BusJourney object can exist.
+    As a user goes through the app, the object is built with relevant data being updated and retrieved as necessary throughout the app
+     */
+
     private static String journeyCode1, journeyCode2,
             returnCode1, returnCode2,
             partOfWeek,
@@ -27,58 +31,61 @@ public class BusJourney {
             directChange,
             changeWaitOut, changeWaitIn,
             castleName;
+
     private static int hour, minute, totalTime,
             arrivalTimeOut, arrivalTimeIn,
             noAdultTickets, noChildTickets;
+
     private static double adultBusPrice, childBusPrice,
             adultCastlePrice, childCastlePrice;
+
     private static Integer journeyDurationTotalMinutes1, journeyDurationTotalMinutes2;
 
-    //private empty constructor
+    // private empty constructor to ensure additional instances of the class cannot be created
     private BusJourney() {
     }
 
-    //method sets data dictated by the journey chosen by the user via HashMaps
-    @SuppressWarnings("ConstantConditions")
+
+    // method sets data dictated by the journey chosen by the user via HashMaps
     public static void buildBusJourney(String journey1, String journey2) {
         BusJourney.journeyCode1 = journey1;
         BusJourney.journeyCode2 = journey2;
 
-        HashMaps.buildAllHashMaps();
+        buildAllHashMaps();
 
-        returnCode1 = HashMaps.getReturnJourney().get(journey1);
-        returnCode2 = HashMaps.getReturnJourney().get(journey2);
+        returnCode1 = getReturnJourney().get(journey1);
+        returnCode2 = getReturnJourney().get(journey2);
 
-        operator1 = HashMaps.getOperators().get(journey1);
-        operator2 = HashMaps.getOperators().get(journey2);
+        operator1 = getOperators().get(journey1);
+        operator2 = getOperators().get(journey2);
 
-        busNo1 = HashMaps.getBusNo().get(journey1);
-        busNo2 = HashMaps.getBusNo().get(journey2);
+        busNo1 = getBusNo().get(journey1);
+        busNo2 = getBusNo().get(journey2);
 
-        journeyDurationTotalMinutes1 = HashMaps.getJourneyTimes().get(journey1);
+        journeyDurationTotalMinutes1 = getJourneyTimes().get(journey1);
 
-        if (HashMaps.getJourneyTimes().containsKey(journey2)) {
-            journeyDurationTotalMinutes2 = HashMaps.getJourneyTimes().get(journey2);
+        if (getJourneyTimes().containsKey(journey2)) {
+            journeyDurationTotalMinutes2 = getJourneyTimes().get(journey2);
         } else {
             journeyDurationTotalMinutes2 = 0;
         }
 
         directChange = HashMaps.getDirectChange().get(journey1);
 
-        departureStationOut1 = HashMaps.getStation().get(journey1);
-        departureStationOut2 = HashMaps.getStation().get(journey2);
+        departureStationOut1 = getStation().get(journey1);
+        departureStationOut2 = getStation().get(journey2);
 
-        arrivalStationOut1 = HashMaps.getStation().get(returnCode1);
-        arrivalStationOut2 = HashMaps.getStation().get(returnCode2);
+        arrivalStationOut1 = getStation().get(returnCode1);
+        arrivalStationOut2 = getStation().get(returnCode2);
 
-        departureStationIn1 = HashMaps.getStation().get(returnCode1);
-        departureStationIn2 = HashMaps.getStation().get(returnCode2);
+        departureStationIn1 = getStation().get(returnCode1);
+        departureStationIn2 = getStation().get(returnCode2);
 
-        arrivalStationIn1 = HashMaps.getStation().get(journey1);
-        arrivalStationIn2 = HashMaps.getStation().get(journey2);
+        arrivalStationIn1 = getStation().get(journey1);
+        arrivalStationIn2 = getStation().get(journey2);
 
-        adultBusPrice = HashMaps.getAdultPrice().get(journey1);
-        childBusPrice = HashMaps.getChildPrice().get(journey1);
+        adultBusPrice = getAdultPrice().get(journey1);
+        childBusPrice = getChildPrice().get(journey1);
 
         castleName = HashMaps.getCastleName().get(journey1);
     }
@@ -120,6 +127,7 @@ public class BusJourney {
         return partOfWeek;
     }
 
+    // reformats dd/mm/yyyy date and finds out if the date is a weekday, Saturday, or Sunday
     public static void setPartOfWeek(String date) {
 
         SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy", Locale.UK);
@@ -215,21 +223,17 @@ public class BusJourney {
         return journeyDurationTotalMinutes2;
     }
 
-    public static int getHour() {
-        return hour;
-    }
-
     public static void setHour(int hour) {
         BusJourney.hour = hour;
     }
 
-    public static int getMinute() {
-        return minute;
-    }
-
     public static void setMinute(int minute) {
         BusJourney.minute = minute;
-        totalTime = minute + hour * 60;
+        setTotalTime(minute + hour * 60);
+    }
+
+    public static void setTotalTime(int totalTime) {
+        BusJourney.totalTime = totalTime;
     }
 
     public static String getTravelDate() {
@@ -276,10 +280,6 @@ public class BusJourney {
         return totalTime;
     }
 
-    public static void setTotalTime(int totalTime) {
-        BusJourney.totalTime = totalTime;
-    }
-
     public static String getOutboundTime1() {
         return outboundTime1;
     }
@@ -310,10 +310,6 @@ public class BusJourney {
 
     public static void setInboundTime2(String inboundTime2) {
         BusJourney.inboundTime2 = inboundTime2;
-    }
-
-    public static void setTravelDate(String travelDate) {
-        BusJourney.travelDate = travelDate;
     }
 
     public static int getNoAdultTickets() {
@@ -358,5 +354,9 @@ public class BusJourney {
 
     public static String getCastleName() {
         return castleName;
+    }
+
+    public static int getMinute() {
+        return minute;
     }
 }

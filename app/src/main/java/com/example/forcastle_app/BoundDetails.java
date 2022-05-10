@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 
@@ -22,9 +24,9 @@ public class BoundDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bound_details);
 
-        cross = findViewById(R.id.outCross);
+        setViews();
 
-
+        // PaymentPage.anchor controls if details for the outbound journey or inbound journey will be shown to the user
         if ("1".equals(PaymentPage.anchor)) {
             populatingOutboundDetails();
         } else {
@@ -37,76 +39,72 @@ public class BoundDetails extends AppCompatActivity {
         });
     }
 
+    // pulls all outbound journey details from the BusJourney object and displays to the user
     public void populatingOutboundDetails() {
+        // To and from stations set
+        ((TextView) findViewById(R.id.departureStationDetails)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView) findViewById(R.id.arrivalStationDetails)).setText(BusJourney.getArrivalStationOut1());
+        ((TextView) findViewById(R.id.changeOrDirectDetails)).setText(BusJourney.getDirectChange());
+        ((TextView) findViewById(R.id.firstJourneyDepartureStation)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView) findViewById(R.id.firstJourneyDepartureTime)).setText(BusJourney.getOutboundTime1());
+        ((TextView) findViewById(R.id.overallJourneyTime)).setText(BusJourney.getTravelTime1());
+
         if (BusJourney.getDirectChange().equals("Direct")) {
+            ((TextView) findViewById(R.id.firstJourneyArrivalStation)).setText(BusJourney.getArrivalStationOut1());
+            ((TextView) findViewById(R.id.firstJourneyArrivalTime)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeOut()));
+            ((TextView) findViewById(R.id.firstJourneyDurationDetails)).setText(BusJourney.getTravelTime1());
+
             // makes second journey layout not visible for direct journeys
-            ((TextView) findViewById(R.id.outJourneyFromPop)).setText(BusJourney.getDepartureStationOut1());
-            ((TextView) findViewById(R.id.outJourneyTo1Pop)).setText(BusJourney.getArrivalStationOut1());
-            ((TextView) findViewById(R.id.journeyType1Pop)).setText(BusJourney.getDirectChange());
-            ((TextView) findViewById(R.id.outFirstJourneyTime1)).setText(BusJourney.getOutboundTime1());
-            ((TextView) findViewById(R.id.outFirstJourneyTime2)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeOut()));
-            ((TextView) findViewById(R.id.outFirstJourneyDur)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes1()));
-            ((TextView) findViewById(R.id.outFirstJourneyFromPop)).setText(BusJourney.getDepartureStationOut1());
-            ((TextView) findViewById(R.id.outFirstJourneyTo)).setText(BusJourney.getArrivalStationOut1());
-            ((TextView) findViewById(R.id.outTime1Pop)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes1()));
-
             ((LinearLayout) findViewById(R.id.secondJourneyLayout)).setVisibility(View.INVISIBLE);
-
         } else {
-            ((TextView) findViewById(R.id.outJourneyFromPop)).setText(BusJourney.getDepartureStationOut1());
-            ((TextView) findViewById(R.id.outJourneyTo1Pop)).setText(BusJourney.getArrivalStationOut1());
-            ((TextView) findViewById(R.id.journeyType1Pop)).setText(BusJourney.getDirectChange());
-            ((TextView) findViewById(R.id.outFirstJourneyTime1)).setText(BusJourney.getOutboundTime1());
+            ((TextView) findViewById(R.id.firstJourneyArrivalStation)).setText(BusJourney.getArrivalStationIn2());
             String firstJourneyArrivalTime = TimeDateFormatters.timeFormat((TimeDateFormatters.reverseTimeFormat(BusJourney.getOutboundTime1())) + BusJourney.getJourneyDurationTotalMinutes1());
-            ((TextView) findViewById(R.id.outFirstJourneyTime2)).setText(firstJourneyArrivalTime);
-            ((TextView) findViewById(R.id.outFirstJourneyDur)).setText(TimeDateFormatters.timeFormat(BusJourney.getJourneyDurationTotalMinutes1()));
-            ((TextView) findViewById(R.id.outFirstJourneyFromPop)).setText(BusJourney.getDepartureStationOut1());
-            ((TextView) findViewById(R.id.outFirstJourneyTo)).setText(BusJourney.getArrivalStationOut2());
-            ((TextView) findViewById(R.id.outTime1Pop)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes1()));
-
-            ((TextView) findViewById(R.id.outChangeDur)).setText(BusJourney.getChangeWaitOut());
-            ((TextView) findViewById(R.id.outSecondJourneyTime1)).setText(BusJourney.getOutboundTime2());
-            ((TextView) findViewById(R.id.outSecondJourneyTime2)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeOut()));
-            ((TextView) findViewById(R.id.outSecondJourneyFrom)).setText(BusJourney.getDepartureStationOut2());
-            ((TextView) findViewById(R.id.outSecondJourneyDur)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes2()));
-            ((TextView) findViewById(R.id.outSecondJourneyTo)).setText(BusJourney.getArrivalStationOut1());
+            ((TextView) findViewById(R.id.firstJourneyArrivalTime)).setText(firstJourneyArrivalTime);
+            ((TextView) findViewById(R.id.firstJourneyDurationDetails)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes1()));
+            String howLongWait = BusJourney.getChangeWaitOut() + " wait";
+            ((TextView) findViewById(R.id.waitingTimeBetweenLegs)).setText(howLongWait);
+            ((TextView) findViewById(R.id.secondJourneyDepartureStation)).setText(BusJourney.getDepartureStationIn2());
+            ((TextView) findViewById(R.id.secondJourneyArrivalStation)).setText(BusJourney.getDepartureStationIn1());
+            ((TextView) findViewById(R.id.secondJourneyDepartureTime)).setText(BusJourney.getOutboundTime2());
+            ((TextView) findViewById(R.id.secondJourneyArrivalTime)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeOut()));
+            ((TextView) findViewById(R.id.secondJourneyDurationDetails)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes2()));
         }
     }
 
+    // pulls all inbound journey details from the BusJourney object and displays to the user
     public void populatingInboundDetails() {
-        if (BusJourney.getDirectChange().equals("Direct")) {
-            // makes second journey layout not visible for direct journeys
-            ((TextView) findViewById(R.id.outJourneyFromPop)).setText(BusJourney.getDepartureStationIn1());
-            ((TextView) findViewById(R.id.outJourneyTo1Pop)).setText(BusJourney.getArrivalStationIn1());
-            ((TextView) findViewById(R.id.journeyType1Pop)).setText(BusJourney.getDirectChange());
-            ((TextView) findViewById(R.id.outFirstJourneyTime1)).setText(BusJourney.getInboundTime1());
-            ((TextView) findViewById(R.id.outFirstJourneyTime2)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
-            ((TextView) findViewById(R.id.outFirstJourneyDur)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes1()));
-            ((TextView) findViewById(R.id.outFirstJourneyFromPop)).setText(BusJourney.getDepartureStationIn1());
-            ((TextView) findViewById(R.id.outFirstJourneyTo)).setText(BusJourney.getArrivalStationIn1());
-            ((TextView) findViewById(R.id.outTime1Pop)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes1()));
+        ((TextView) findViewById(R.id.firstJourneyDepartureTime)).setText(BusJourney.getInboundTime1());
+        ((TextView) findViewById(R.id.departureStationDetails)).setText(BusJourney.getDepartureStationIn1());
+        ((TextView) findViewById(R.id.arrivalStationDetails)).setText(BusJourney.getArrivalStationIn1());
+        ((TextView) findViewById(R.id.changeOrDirectDetails)).setText(BusJourney.getDirectChange());
+        ((TextView) findViewById(R.id.overallJourneyTime)).setText((BusJourney.getTravelTime2()));
+        ((TextView) findViewById(R.id.firstJourneyDepartureStation)).setText(BusJourney.getDepartureStationIn1());
 
+        if (BusJourney.getDirectChange().equals("Direct")) {
+            ((TextView) findViewById(R.id.firstJourneyArrivalStation)).setText(BusJourney.getArrivalStationIn1());
+            ((TextView) findViewById(R.id.firstJourneyArrivalTime)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
+            ((TextView) findViewById(R.id.firstJourneyDurationDetails)).setText(BusJourney.getTravelTime1());
+
+            // makes second journey layout not visible for direct journeys
             ((LinearLayout) findViewById(R.id.secondJourneyLayout)).setVisibility(View.INVISIBLE);
 
         } else {
-            ((TextView) findViewById(R.id.outJourneyFromPop)).setText(BusJourney.getDepartureStationIn1());
-            ((TextView) findViewById(R.id.outJourneyTo1Pop)).setText(BusJourney.getArrivalStationIn1());
-            ((TextView) findViewById(R.id.journeyType1Pop)).setText(BusJourney.getDirectChange());
-            ((TextView) findViewById(R.id.outFirstJourneyTime1)).setText(BusJourney.getInboundTime1());
+            ((TextView) findViewById(R.id.firstJourneyArrivalStation)).setText(BusJourney.getDepartureStationIn2());
             String firstJourneyArrivalTime = TimeDateFormatters.timeFormat((TimeDateFormatters.reverseTimeFormat(BusJourney.getInboundTime1())) + BusJourney.getJourneyDurationTotalMinutes2());
-            ((TextView) findViewById(R.id.outFirstJourneyTime2)).setText(firstJourneyArrivalTime);
-            ((TextView) findViewById(R.id.outFirstJourneyDur)).setText(TimeDateFormatters.timeFormat(BusJourney.getJourneyDurationTotalMinutes2()));
-            ((TextView) findViewById(R.id.outFirstJourneyFromPop)).setText(BusJourney.getDepartureStationIn1());
-            ((TextView) findViewById(R.id.outFirstJourneyTo)).setText(BusJourney.getArrivalStationIn2());
-            ((TextView) findViewById(R.id.outTime1Pop)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes2()));
-
-            ((TextView) findViewById(R.id.outChangeDur)).setText(BusJourney.getChangeWaitIn());
-            ((TextView) findViewById(R.id.outSecondJourneyTime1)).setText(BusJourney.getInboundTime2());
-            ((TextView) findViewById(R.id.outSecondJourneyTime2)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
-            ((TextView) findViewById(R.id.outSecondJourneyFrom)).setText(BusJourney.getDepartureStationIn2());
-            ((TextView) findViewById(R.id.outSecondJourneyDur)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes1()));
-            ((TextView) findViewById(R.id.outSecondJourneyTo)).setText(BusJourney.getArrivalStationIn1());
+            ((TextView) findViewById(R.id.firstJourneyArrivalTime)).setText(firstJourneyArrivalTime);
+            ((TextView) findViewById(R.id.firstJourneyDurationDetails)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes2()));
+            String howLongWait = BusJourney.getChangeWaitIn() + " wait";
+            ((TextView) findViewById(R.id.waitingTimeBetweenLegs)).setText(howLongWait);
+            ((TextView) findViewById(R.id.secondJourneyDepartureStation)).setText(BusJourney.getArrivalStationIn2());
+            ((TextView) findViewById(R.id.secondJourneyArrivalStation)).setText(BusJourney.getArrivalStationIn1());
+            ((TextView) findViewById(R.id.secondJourneyDepartureTime)).setText(BusJourney.getInboundTime2());
+            ((TextView) findViewById(R.id.secondJourneyArrivalTime)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));
+            ((TextView) findViewById(R.id.secondJourneyDurationDetails)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes1()));
         }
+    }
+
+    public void setViews() {
+        cross = findViewById(R.id.outCross);
     }
 
 }

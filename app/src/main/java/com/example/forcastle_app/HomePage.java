@@ -26,7 +26,7 @@ public class HomePage extends AppCompatActivity {
 
         setViews();
 
-        /* The code below prevents multiple selections of the radio button */
+        //The code below prevents multiple selections of the radio button
         radioButton1.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 radioButton1.setChecked(true);
@@ -34,7 +34,7 @@ public class HomePage extends AppCompatActivity {
                 radioButton3.setChecked(false);
                 radioButton4.setChecked(false);
 
-                //creates busJourney object with relevant journey code(s)
+                //Creates busJourney object with relevant journey code(s)
                 BusJourney.buildBusJourney("NCALN", "");
             }
         });
@@ -46,7 +46,7 @@ public class HomePage extends AppCompatActivity {
                 radioButton3.setChecked(false);
                 radioButton4.setChecked(false);
 
-                //creates busJourney object with relevant journey code(s)
+                //Creates busJourney object with relevant journey code(s)
                 BusJourney.buildBusJourney("NCAUK", "");
             }
         });
@@ -58,7 +58,7 @@ public class HomePage extends AppCompatActivity {
                 radioButton3.setChecked(true);
                 radioButton4.setChecked(false);
 
-                //creates busJourney object with relevant journey code(s)
+                //Creates busJourney object with relevant journey code(s)
                 BusJourney.buildBusJourney("NCBAM1", "NCBAM2");
             }
         });
@@ -70,16 +70,17 @@ public class HomePage extends AppCompatActivity {
                 radioButton3.setChecked(false);
                 radioButton4.setChecked(true);
 
-                //creates busJourney object with relevant journey code(s)
+                // Creates busJourney object with relevant journey code(s)
                 BusJourney.buildBusJourney("NCBAR1", "NCBAR2");
             }
         });
 
-        /* This method confirms the users selection and directs them to the next page */
+        // This method confirms the users selection and directs them to the next page
         submit.setOnClickListener(v -> openActivity2());
 
     }
 
+    // Dictates what information is displayed on the facilities page based on which castle as been selected by the user
     public void openActivity2() {
         if (radioButton1.isChecked()) {
             selectedCastle = "1";
@@ -103,6 +104,7 @@ public class HomePage extends AppCompatActivity {
 
     }
 
+    // sets all variables to relevant views on the app page
     public void setViews() {
         radioButton1 = findViewById(R.id.radioButton1);
         radioButton2 = findViewById(R.id.radioButton2);

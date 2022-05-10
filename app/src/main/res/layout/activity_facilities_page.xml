@@ -58,7 +58,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Introduction"
+                    android:text="@string/introduction"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:paddingStart="20dp"
@@ -100,7 +100,7 @@
                         android:gravity="bottom"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
-                        android:text="General Admission" />
+                        android:text="@string/general_admission" />
 
                 </RelativeLayout>
 
@@ -118,7 +118,7 @@
                         android:id="@+id/price_text_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Adults: "
+                        android:text="@string/adults"
                         android:textStyle="bold" />
 
                     <!--                    '£19.50'-->
@@ -134,7 +134,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toEndOf="@id/price_text_2"
-                        android:text=" | Children: "
+                        android:text="@string/children"
                         android:textStyle="bold" />
 
                     <!--                    '£10.25'-->
@@ -169,7 +169,7 @@
                         android:layout_marginStart="25dp"
                         app:drawableStartCompat="@drawable/ic_telephone"
                         android:drawablePadding="10dp"
-                        android:text="Telephone number" />
+                        android:text="@string/telephone_number" />
 
                     <TextView
                         android:id="@+id/phone_num"
@@ -201,7 +201,7 @@
                         android:layout_marginStart="25dp"
                         app:drawableStartCompat="@drawable/ic_website"
                         android:drawablePadding="10dp"
-                        android:text="Website" />
+                        android:text="@string/website" />
 
                     <TextView
                         android:id="@+id/website"
@@ -227,7 +227,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Facilities Available"
+                    android:text="@string/facilities_available"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:paddingStart="10dp" />
@@ -575,7 +575,7 @@
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
                     android:layout_marginBottom="10dp"
-                    android:text="PROCEED"
+                    android:text="@string/proceed"
                     android:textColor="#ffffff"
                     android:background="@drawable/view_button_background"/>
             </LinearLayout>

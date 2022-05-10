@@ -94,5 +94,36 @@
     <string name="auckland">Auckland</string>
     <string name="bamburgh">Bamburgh</string>
     <string name="barnard">Barnard</string>
+    <string name="select_your_castle">Select your castle</string>
+    <string name="alnwick_ncastle">Alnwick\nCastle</string>
+    <string name="confirm">Confirm</string>
+    <string name="barnard_ncastle">Barnard\nCastle</string>
+    <string name="bamburgh_ncastle">Bamburgh\nCastle</string>
+    <string name="auckland_ncastle">Auckland\nCastle</string>
+    <string name="introduction">Introduction</string>
+    <string name="general_admission">General Admission</string>
+    <string name="adults">Adults:</string>
+    <string name="children">| Children:</string>
+    <string name="telephone_number">Telephone number</string>
+    <string name="website">Website</string>
+    <string name="facilities_available">Facilities Available</string>
+    <string name="proceed">PROCEED</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="insert_bus_stop">[Insert bus stop]</string>
+    <string name="insert_castle">[Insert castle]</string>
+    <string name="departure_date">Departure Date</string>
+    <string name="select_date">Select date</string>
+    <string name="departure_time">Departure Time</string>
+    <string name="select_time">SELECT TIME</string>
+    <string name="passengers">Passengers</string>
+    <string name="adult">Adult</string>
+    <string name="_16_years">16+ years</string>
+    <string name="adult_counter_start_1">1</string>
+    <string name="child_ticket_select">Child</string>
+    <string name="child_ages">2-15 years</string>
+    <string name="child_ticket_start">0</string>
+    <string name="book_a_trip_button">book a trip</string>
+    <string name="select_outbound">Select outbound</string>
 
 </resources>

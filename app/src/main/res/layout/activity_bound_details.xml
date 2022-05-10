@@ -35,7 +35,7 @@
             android:layout_marginBottom="10dp">
 
             <TextView
-                android:id="@+id/outJourneyFromPop"
+                android:id="@+id/departureStationDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="[Eldon Square]"
@@ -50,7 +50,7 @@
                 android:layout_marginRight="20dp"/>
 
             <TextView
-                android:id="@+id/outJourneyTo1Pop"
+                android:id="@+id/arrivalStationDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="[Alnwick Castle]"
@@ -77,17 +77,18 @@
                 android:layout_marginEnd="10dp"/>
 
             <TextView
-                android:id="@+id/outTime1Pop"
+                android:id="@+id/overallJourneyTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3hr 29m"
                 android:textColor="#848484" />
 
             <TextView
-                android:id="@+id/journeyType1Pop"
+                android:id="@+id/changeOrDirectDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=", 1 change required"
+                android:layout_marginLeft="5dp"
                 android:textColor="#848484" />
 
         </LinearLayout>
@@ -106,7 +107,7 @@
                 android:gravity="right">
 
                 <TextView
-                    android:id="@+id/outFirstJourneyTime1"
+                    android:id="@+id/firstJourneyDepartureTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="7:39"
@@ -120,7 +121,7 @@
                     android:layout_marginBottom="22dp"/>
 
                 <TextView
-                    android:id="@+id/outSecondJourneyTime1"
+                    android:id="@+id/firstJourneyArrivalTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10:38"
@@ -142,14 +143,14 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/outFirstJourneyFromPop"
+                    android:id="@+id/firstJourneyDepartureStation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" Haymarket Bus Station"
                     android:textColor="#848484"/>
 
                 <TextView
-                    android:id="@+id/outFirstJourneyDur"
+                    android:id="@+id/firstJourneyDurationDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2hr 29m - Bus"
@@ -158,7 +159,7 @@
                     android:layout_marginBottom="20dp"/>
 
                 <TextView
-                    android:id="@+id/outSecondJourneyFrom"
+                    android:id="@+id/firstJourneyArrivalStation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cramlington Bus Station"
@@ -184,7 +185,7 @@
                 android:paddingTop="50dp">
 
                 <TextView
-                    android:id="@+id/outFirstJourneyTime2"
+                    android:id="@+id/secondJourneyDepartureTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10:08"
@@ -199,7 +200,7 @@
                     android:background="@drawable/bus" />
 
                 <TextView
-                    android:id="@+id/outSecondJourneyTime2"
+                    android:id="@+id/secondJourneyArrivalTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="11:38"
@@ -246,7 +247,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/outChangeDur"
+                    android:id="@+id/waitingTimeBetweenLegs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -254,7 +255,7 @@
                     android:textColor="#848484" />
 
                 <TextView
-                    android:id="@+id/outFirstJourneyTo"
+                    android:id="@+id/secondJourneyDepartureStation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cramlington Bus Station"
@@ -262,7 +263,7 @@
 
 
                 <TextView
-                    android:id="@+id/outSecondJourneyDur"
+                    android:id="@+id/secondJourneyDurationDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -271,7 +272,7 @@
                     android:textColor="#848484" />
 
                 <TextView
-                    android:id="@+id/outSecondJourneyTo"
+                    android:id="@+id/secondJourneyArrivalStation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bamburgh Castle"

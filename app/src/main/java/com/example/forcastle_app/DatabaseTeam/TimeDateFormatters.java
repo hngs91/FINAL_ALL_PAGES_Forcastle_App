@@ -5,6 +5,11 @@ Code implemented by Harry Smith
  */
 public class TimeDateFormatters {
 
+    /*
+    This class is a collection of formatting methods used to convert integers to time formats (e.g. HH:MM, HHh MMm) and vice versa
+     */
+
+    // takes a total number of minutes and converts it into a string of format hh:mm
     public static String timeFormat(int totalTime) {
         int minute = totalTime % 60;
 
@@ -17,6 +22,7 @@ public class TimeDateFormatters {
         return hour + ":" + minuteString;
     }
 
+    // takes a String of format hh:mm and converts it into a total number of minutes as an int
     public static int reverseTimeFormat(String timeFormat) {
 
         String[] parts = timeFormat.split(":");
@@ -27,7 +33,7 @@ public class TimeDateFormatters {
         return hour * 60 + minute;
     }
 
-    //used to format the duration of the journey to 00h 00m
+    // takes a total number of minutes and formats it to the duration of the journey (00h 00m)
     public static String durationFormat(int totalTime) {
         int minute = totalTime % 60;
 
@@ -48,6 +54,7 @@ public class TimeDateFormatters {
         return finalString;
     }
 
+    // converts number of month to text of month
     public static String getMonthFormat(int month) {
         if (month == 1)
             return "Jan";
@@ -78,6 +85,7 @@ public class TimeDateFormatters {
         return "Jan";
     }
 
+    // converts a castle price stored as a string into a double. Used as the facilities pages stores castle entry prices as strings
     public static double getCastlePrice(String castlePrice) {
         String[] parts = castlePrice.split("£");
 
