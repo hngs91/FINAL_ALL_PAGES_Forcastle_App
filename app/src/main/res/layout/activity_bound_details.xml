@@ -169,17 +169,18 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/secondJourneyLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginEnd="10dp"
                 android:gravity="right"
+                android:orientation="vertical"
                 android:paddingTop="50dp">
 
                 <TextView
@@ -193,9 +194,9 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bus"
                     android:layout_marginTop="22dp"
-                    android:layout_marginBottom="22dp"/>
+                    android:layout_marginBottom="22dp"
+                    android:background="@drawable/bus" />
 
                 <TextView
                     android:id="@+id/outSecondJourneyTime2"
@@ -209,8 +210,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="10dp"
@@ -220,15 +221,15 @@
                 <TextView
                     android:layout_width="10dp"
                     android:layout_height="10dp"
-                    android:background="@drawable/dot"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/dot" />
 
                 <TextView
                     android:layout_width="10dp"
                     android:layout_height="10dp"
-                    android:background="@drawable/dot"
-                    android:layout_marginBottom="20dp"/>
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/dot" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -248,9 +249,9 @@
                     android:id="@+id/outChangeDur"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
                     android:text="30m change"
-                    android:textColor="#848484"
-                    android:layout_margin="16dp"/>
+                    android:textColor="#848484" />
 
                 <TextView
                     android:id="@+id/outFirstJourneyTo"
@@ -264,10 +265,10 @@
                     android:id="@+id/outSecondJourneyDur"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1hr 00m - Bus"
-                    android:textColor="#848484"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"/>
+                    android:layout_marginBottom="20dp"
+                    android:text="1hr 00m - Bus"
+                    android:textColor="#848484" />
 
                 <TextView
                     android:id="@+id/outSecondJourneyTo"

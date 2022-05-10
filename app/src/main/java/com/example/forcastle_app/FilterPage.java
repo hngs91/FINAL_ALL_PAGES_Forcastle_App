@@ -18,6 +18,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.forcastle_app.DatabaseTeam.BusJourney;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,8 +29,7 @@ Code implemented by Eugenia Vuong & Harry Smith
  */
 
 public class FilterPage extends AppCompatActivity {
-    Toolbar back;
-    Button dateButton, bookTripButton;
+    Button back, dateButton, bookTripButton;
     ImageView minus2, childMinus2, add1;
     TextView value1, value2, timer;
     int count1 = 1, count2 = 0, tHour, tMinute;
@@ -148,7 +149,7 @@ public class FilterPage extends AppCompatActivity {
                 BusJourney.setTravelDate(day, month, year);
                 String date = makeDateString(day, month, year);
                 dateButton.setText(date);
-                dateButtonClicked = true;
+                dateClicked = true;
             }
         };
         Calendar cal = Calendar.getInstance();

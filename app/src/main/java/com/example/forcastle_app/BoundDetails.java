@@ -2,7 +2,10 @@ package com.example.forcastle_app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -52,19 +55,8 @@ public class BoundDetails extends AppCompatActivity {
             ((TextView) findViewById(R.id.outFirstJourneyTo)).setText(BusJourney.getArrivalStationOut1());
             ((TextView) findViewById(R.id.outTime1Pop)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes1()));
 
-            ((TextView) findViewById(R.id.outChangeDur)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outChange)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyTime1)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyTime2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyFrom)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyDur)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyTo)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outBusIcon2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outRoute2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyBus)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outDot1)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outDot2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outDot3)).setVisibility(View.INVISIBLE);
+            ((LinearLayout) findViewById(R.id.secondJourneyLayout)).setVisibility(View.INVISIBLE);
+
         } else {
             ((TextView) findViewById(R.id.outJourneyFromPop)).setText(BusJourney.getDepartureStationOut1());
             ((TextView) findViewById(R.id.outJourneyTo1Pop)).setText(BusJourney.getArrivalStationOut1());
@@ -99,19 +91,8 @@ public class BoundDetails extends AppCompatActivity {
             ((TextView) findViewById(R.id.outFirstJourneyTo)).setText(BusJourney.getArrivalStationIn1());
             ((TextView) findViewById(R.id.outTime1Pop)).setText(TimeDateFormatters.durationFormat(BusJourney.getJourneyDurationTotalMinutes1()));
 
-            ((TextView) findViewById(R.id.outChangeDur)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outChange)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyTime1)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyTime2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyFrom)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyDur)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyTo)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outBusIcon2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outRoute2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outSecondJourneyBus)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outDot1)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outDot2)).setVisibility(View.INVISIBLE);
-            ((TextView) findViewById(R.id.outDot3)).setVisibility(View.INVISIBLE);
+            ((LinearLayout) findViewById(R.id.secondJourneyLayout)).setVisibility(View.INVISIBLE);
+
         } else {
             ((TextView) findViewById(R.id.outJourneyFromPop)).setText(BusJourney.getDepartureStationIn1());
             ((TextView) findViewById(R.id.outJourneyTo1Pop)).setText(BusJourney.getArrivalStationIn1());
