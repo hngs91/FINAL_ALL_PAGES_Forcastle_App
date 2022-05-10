@@ -1,10 +1,7 @@
 package com.example.forcastle_app;
 
 import android.os.AsyncTask;
-import android.widget.Toast;
-
 import java.util.Properties;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;

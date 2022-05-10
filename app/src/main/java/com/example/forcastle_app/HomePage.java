@@ -28,18 +28,15 @@ public class HomePage extends AppCompatActivity {
         setViews();
 
         /* The code below prevents multiple selections of the radio button */
-        radioButton1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    radioButton1.setChecked(true);
-                    radioButton2.setChecked(false);
-                    radioButton3.setChecked(false);
-                    radioButton4.setChecked(false);
+        radioButton1.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                radioButton1.setChecked(true);
+                radioButton2.setChecked(false);
+                radioButton3.setChecked(false);
+                radioButton4.setChecked(false);
 
-                    //creates busJourney object with relevant journey code(s)
-                    BusJourney.buildBusJourney("NCALN", "");
-                }
+                //creates busJourney object with relevant journey code(s)
+                BusJourney.buildBusJourney("NCALN", "");
             }
         });
 

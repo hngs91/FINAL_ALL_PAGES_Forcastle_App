@@ -87,4 +87,5 @@
     <!--    bound page-->
     <string name="outbound">Select outbound</string>
     <string name="inbound">Select inbound</string>
+    <string name="find_journey_to_castle">Find Journey to Castle</string>
 </resources>

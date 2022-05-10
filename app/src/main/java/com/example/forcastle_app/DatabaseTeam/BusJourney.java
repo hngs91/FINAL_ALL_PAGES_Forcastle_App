@@ -293,6 +293,7 @@ public class BusJourney {
         BusJourney.outboundTime2 = outboundTime2;
     }
 
+
     public static String getInboundTime1() {
         return inboundTime1;
     }
