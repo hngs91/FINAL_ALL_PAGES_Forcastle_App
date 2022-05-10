@@ -29,7 +29,7 @@ Code implemented by Eugenia Vuong
 public class ConfirmationPage extends AppCompatActivity {
 
     ImageView iv_map;
-    EditText email, subject;
+    EditText email;
     Button sendReceipt, backConfirmation;
 
     @Override
