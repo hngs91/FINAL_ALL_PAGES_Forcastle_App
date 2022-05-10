@@ -11,7 +11,9 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
+/*
+Code implemented by Eugenia Vuong
+ */
 public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
 
     private android.content.Context Context;

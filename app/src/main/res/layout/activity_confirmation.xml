@@ -26,8 +26,8 @@
                     android:id="@+id/back_confirmation"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:padding="12dp"
-                    android:background="@drawable/back"/>
+                    android:background="@drawable/back"
+                    android:padding="12dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -75,6 +75,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <TextView
+                android:id="@+id/totalOverallPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -110,7 +111,6 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Economy-300"
                             android:textColor="#3e4352"
                             android:textSize="14dp"
                             android:textStyle="bold" />
@@ -141,6 +141,7 @@
                                 android:text="From" />
 
                             <TextView
+                                android:id="@+id/outboundStation1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Eldon Square Bus Station"
@@ -155,6 +156,7 @@
                                 android:text="To" />
 
                             <TextView
+                                android:id="@+id/outboundArrivalStation1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Alnwick Castle"
@@ -202,6 +204,7 @@
                                 android:text="Onboarding" />
 
                             <TextView
+                                android:id="@+id/outboundTime1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="07:39 AM"
@@ -216,6 +219,7 @@
                                 android:text="Arrival" />
 
                             <TextView
+                                android:id="@+id/outboundArrivalTime1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="11:08 AM"
@@ -257,6 +261,7 @@
                                 android:text="From" />
 
                             <TextView
+                                android:id="@+id/inboundStation1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Alnwick Castle"
@@ -271,6 +276,7 @@
                                 android:text="To" />
 
                             <TextView
+                                android:id="@+id/inboundArrivalStation1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Eldon Square Bus Station"
@@ -319,6 +325,7 @@
                                 android:text="Onboarding" />
 
                             <TextView
+                                android:id="@+id/inboundTime1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="07:39 AM"
@@ -333,6 +340,7 @@
                                 android:text="Arrival" />
 
                             <TextView
+                                android:id="@+id/inboundArrivalTime1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="11:08 AM"
@@ -373,6 +381,7 @@
                                 android:text="Bus number" />
 
                             <TextView
+                                android:id="@+id/busNumber"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="LNER- X66"
@@ -387,6 +396,7 @@
                                 android:text="Date" />
 
                             <TextView
+                                android:id="@+id/dateOfTravel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="14 April,2022"
@@ -405,9 +415,10 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="passanger details" />
+                                android:text="Operator" />
 
                             <TextView
+                                android:id="@+id/operator"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="XXXX XXXXXX"
@@ -422,6 +433,7 @@
                                 android:text="No of Tickets" />
 
                             <TextView
+                                android:id="@+id/numberOfTickets"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1 adult"
@@ -462,7 +474,7 @@
                                 android:text="Send email receipt"
                                 android:textColor="#333"
                                 android:textSize="18dp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -470,7 +482,7 @@
                                 android:layout_marginTop="10dp"
                                 android:text="User's email"
                                 android:textColor="#333"
-                                android:textSize="18dp"/>
+                                android:textSize="18dp" />
 
                             <!--<TextView
                                 android:layout_width="wrap_content"
@@ -636,13 +648,14 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <TextView
 
-                android:gravity="center"
-                android:text="- Travel further for less -"
-                android:background="#DFDFE7"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"/>
+                android:layout_height="150dp"
+                android:background="#DFDFE7"
+                android:gravity="center"
+                android:text="- Travel further for less -" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -108,6 +108,7 @@
                     android:textSize="10dp"
                     android:textColor="#6c15e5"/>
 
+
             </LinearLayout>
 
         </LinearLayout>
@@ -255,7 +256,10 @@
                             android:layout_weight="1">
 
                             <!--                        adult price-->
+
+                            <!--                        child price-->
                             <TextView
+                                android:id="@+id/busAdultPrice1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
@@ -263,8 +267,8 @@
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
-                            <!--                        child price-->
                             <TextView
+                                android:id="@+id/busChildPrice1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
@@ -411,6 +415,7 @@
 
                             <!--                        adult price-->
                             <TextView
+                                android:id="@+id/busAdultPrice2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
@@ -420,6 +425,7 @@
 
                             <!--                        child price-->
                             <TextView
+                                android:id="@+id/busChildPrice2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
@@ -565,6 +571,7 @@
 
                             <!--                        adult price-->
                             <TextView
+                                android:id="@+id/busAdultPrice3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
@@ -574,6 +581,7 @@
 
                             <!--                        child price-->
                             <TextView
+                                android:id="@+id/busChildPrice3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
@@ -719,6 +727,7 @@
 
                             <!--                        adult price-->
                             <TextView
+                                android:id="@+id/busAdultPrice4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
@@ -728,6 +737,7 @@
 
                             <!--                        child price-->
                             <TextView
+                                android:id="@+id/busChildPrice4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
@@ -872,6 +882,7 @@
 
                             <!--                        adult price-->
                             <TextView
+                                android:id="@+id/busAdultPrice5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£8.00(Adult)"
@@ -881,6 +892,7 @@
 
                             <!--                        child price-->
                             <TextView
+                                android:id="@+id/busChildPrice5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="£4.00(Child)"
