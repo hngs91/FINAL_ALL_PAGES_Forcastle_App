@@ -37,7 +37,7 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
 
         session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                PasswordAuthentication passwordAuthentication = new PasswordAuthentication(Utils.EMAIL, Utils.PASSWORD);
+                PasswordAuthentication passwordAuthentication = new PasswordAuthentication("forcastle@gmail.com", "Forcastle22");
                 return passwordAuthentication;
             }
         });
@@ -46,7 +46,7 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
 
         MimeMessage mimeMessage = new MimeMessage(session);
         try {
-            mimeMessage.setFrom(new InternetAddress(Utils.EMAIL));
+            mimeMessage.setFrom(new InternetAddress("forcastle@gmail.com"));
             mimeMessage.addRecipients(Message.RecipientType.TO, String.valueOf(new InternetAddress(email)));
             mimeMessage.setSubject(subject);
             mimeMessage.setText(message);

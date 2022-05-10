@@ -87,4 +87,10 @@
     <!--    bound page-->
     <string name="outbound">Select outbound</string>
     <string name="inbound">Select inbound</string>
+
+    <!--    confirmationPage-->
+    <string name="alnwcik">Alnwick</string>
+    <string name="auckland">Auckland</string>
+    <string name="bamburgh">Bamburgh</string>
+    <string name="barnard">Barnard</string>
 </resources>

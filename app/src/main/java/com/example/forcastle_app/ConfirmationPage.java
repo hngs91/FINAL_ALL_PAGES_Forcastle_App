@@ -13,12 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ConfirmationPage extends AppCompatActivity {
 
     ImageView iv_map;
+    TextView castle;
     EditText email, subject;
     Button sendReceipt, backConfirmation;
 
@@ -28,18 +30,50 @@ public class ConfirmationPage extends AppCompatActivity {
         setContentView(R.layout.activity_confirmation);
         RelativeLayout rlMap = findViewById(R.id.rl_map);
         iv_map = findViewById(R.id.iv_map);
+        castle = findViewById(R.id.castle);
         email = findViewById(R.id.email);
         sendReceipt = findViewById(R.id.sendReceipt);
         backConfirmation = findViewById(R.id.back_confirmation);
 
-        iv_map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                gotoUrl("https://www.google.co.uk/maps/dir/Alnwick+Bus+station,+Alnwick/Alnwick+Castle,+Alnwick+NE66+1NQ/@55.4141255,-1.7103555,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487e00de03bf75c1:0xe85d13952387d595!2m2!1d-1.7092082!2d55.4129015!1m5!1m1!1s0x487e00e0ed23bc0d:0x8783a98b290f641!2m2!1d-1.7059204!2d55.4155828!3e2 ");
-            }
-        });
+        if ("1".equals(HomePage.selectedCastle)) {
+            iv_map.setImageResource(R.drawable.map_alnwick);
+            castle.setText(R.string.alnwcik);
+            iv_map.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    gotoUrl("https://www.google.co.uk/maps/dir/Alnwick+Bus+station,+Alnwick/Alnwick+Castle,+Alnwick+NE66+1NQ/@55.4141255,-1.7103555,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487e00de03bf75c1:0xe85d13952387d595!2m2!1d-1.7092082!2d55.4129015!1m5!1m1!1s0x487e00e0ed23bc0d:0x8783a98b290f641!2m2!1d-1.7059204!2d55.4155828!3e2 ");
+                }
+            });
+        } else if ("2".equals(HomePage.selectedCastle)) {
+            iv_map.setImageResource(R.drawable.map_auckland);
+            castle.setText(R.string.auckland);
+            iv_map.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    gotoUrl("https://www.google.co.uk/maps/dir/Alnwick+Bus+station,+Alnwick/Alnwick+Castle,+Alnwick+NE66+1NQ/@55.4141255,-1.7103555,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487e00de03bf75c1:0xe85d13952387d595!2m2!1d-1.7092082!2d55.4129015!1m5!1m1!1s0x487e00e0ed23bc0d:0x8783a98b290f641!2m2!1d-1.7059204!2d55.4155828!3e2 ");
+                }
+            });
+        } else if ("3".equals(HomePage.selectedCastle)) {
+            iv_map.setImageResource(R.drawable.map_auckland);
+            castle.setText(R.string.bamburgh);
+            iv_map.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    gotoUrl("https://www.google.co.uk/maps/dir/Alnwick+Bus+station,+Alnwick/Alnwick+Castle,+Alnwick+NE66+1NQ/@55.4141255,-1.7103555,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487e00de03bf75c1:0xe85d13952387d595!2m2!1d-1.7092082!2d55.4129015!1m5!1m1!1s0x487e00e0ed23bc0d:0x8783a98b290f641!2m2!1d-1.7059204!2d55.4155828!3e2 ");
+                }
+            });
+        } else if ("4".equals(HomePage.selectedCastle)) {
+            iv_map.setImageResource(R.drawable.map_auckland);
+            castle.setText(R.string.barnard);
+            iv_map.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    gotoUrl("https://www.google.co.uk/maps/dir/Alnwick+Bus+station,+Alnwick/Alnwick+Castle,+Alnwick+NE66+1NQ/@55.4141255,-1.7103555,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487e00de03bf75c1:0xe85d13952387d595!2m2!1d-1.7092082!2d55.4129015!1m5!1m1!1s0x487e00e0ed23bc0d:0x8783a98b290f641!2m2!1d-1.7059204!2d55.4155828!3e2 ");
+                }
+            });
+        }
 
-        backConfirmation.setOnClickListener(new View.OnClickListener(){
+        backConfirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ConfirmationPage.this, PaymentPage.class);
@@ -54,10 +88,10 @@ public class ConfirmationPage extends AppCompatActivity {
             }
         });
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.map);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.map_alnwick);
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        int screenWidth = getResources().getDisplayMetrics().widthPixels-dp2px(20);
+        int screenWidth = getResources().getDisplayMetrics().widthPixels - dp2px(20);
         float ivMapHeight = height * (1f * screenWidth / width);
         Log.d("TAG", "height: " + height);
         Log.d("TAG", "width: " + width);
@@ -71,7 +105,7 @@ public class ConfirmationPage extends AppCompatActivity {
 
     private void gotoUrl(String s) {
         Uri uri = Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 
     private int dp2px(int value) {
@@ -84,13 +118,13 @@ public class ConfirmationPage extends AppCompatActivity {
         String mMessage = "Thank you for using the Forcastle app! \n" +
                 "Booking reference: " + "829394 \n" +
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                "Outbound: "+ "Newcastle " + "to " + "Alnwick\n" +
+                "Outbound: " + "Newcastle " + "to " + "Alnwick\n" +
                 "Departs: " + "12:00" + "at" + "Eldon Square\n" +
                 "Bus service: " + "307\n" +
                 "------------------------------------\n" +
                 "Inbound: " + "Alnwick " + "to " + "Newcastle\n" +
                 "Departs: " + "18:00" + "at" + "Alnwick\n" +
-                "Bus service: " + "307\n" ;
+                "Bus service: " + "307\n";
 
         JavaMailAPI javaMailAPI = new JavaMailAPI(this, mEmail, mSubject, mMessage);
 
