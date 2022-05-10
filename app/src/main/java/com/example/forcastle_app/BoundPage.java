@@ -2,10 +2,9 @@ package com.example.forcastle_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,26 +21,16 @@ public class BoundPage extends AppCompatActivity {
 
     Toolbar outbound_toolbar;
     TextView headline;
-    Button buyButton1, buyButton2, buyButton3, buyButton4, buyButton5;
-
-    TextView changeDirect1, changeDirect2, changeDirect3, changeDirect4, changeDirect5,
-            leaveTime1, leaveTime2, leaveTime3, leaveTime4, leaveTime5,
-            arriveTime1, arriveTime2, arriveTime3, arriveTime4, arriveTime5,
-            duration1, duration2, duration3, duration4, duration5;
-
-    LinearLayout timeCard1, timeCard2, timeCard3, timeCard4, timeCard5;
-
-    int i = 0; //counter for setTextViews method
-    List<Integer> outboundTimeListJourneyCode1 = new ArrayList<>();
-    List<Integer> inboundTimeListReturnCode1 = new ArrayList<>();
-    List<Integer> waitChangeTimes = new ArrayList<>();
+    Button outbound_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bound_page);
 
-        setViews();
+        outbound_toolbar = findViewById(R.id.outbound_toolbar);
+        headline = findViewById(R.id.headline);
+        outbound_button = findViewById(R.id.outbound_button);
 
         outbound_toolbar.setNavigationOnClickListener(v -> {
             if ("1".equals(FilterPage.anchor)) {
@@ -80,20 +69,11 @@ public class BoundPage extends AppCompatActivity {
 
         buyButton1.setOnClickListener(v -> {
             if ("1".equals(FilterPage.anchor)) {
-                BusJourney.setOutboundTime1(leaveTime1.getText().toString());
-                BusJourney.setArrivalTimeOut(TimeDateFormatters.reverseTimeFormat(arriveTime1.getText().toString()));
-                BusJourney.setTravelTime1(duration1.getText().toString());
-
-                if (BusJourney.getDirectChange().equals("1 change")) {
-                    BusJourney.setOutboundTime2(TimeDateFormatters.timeFormat(waitChangeTimes.get(1)));
-                    int changeWaitTime = waitChangeTimes.get(1) - waitChangeTimes.get(0);
-                    BusJourney.setChangeWaitOut(TimeDateFormatters.durationFormat(changeWaitTime));
-                }
                 FilterPage.anchor = "2";
                 Intent intent = new Intent(BoundPage.this, BoundPage.class);
                 startActivity(intent);
-
             } else if ("2".equals(FilterPage.anchor)) {
+
                 BusJourney.setInboundTime1(leaveTime1.getText().toString());
                 BusJourney.setArrivalTimeIn(TimeDateFormatters.reverseTimeFormat(arriveTime1.getText().toString()));
                 BusJourney.setTravelTime2(duration1.getText().toString());
@@ -103,6 +83,7 @@ public class BoundPage extends AppCompatActivity {
                     int changeWaitTime = waitChangeTimes.get(1) - waitChangeTimes.get(0);
                     BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
                 }
+
                 Intent intent = new Intent(BoundPage.this, PaymentPage.class);
                 startActivity(intent);
             }

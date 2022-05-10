@@ -1,465 +1,369 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_3">
+    android:background="@drawable/background_3"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <!--    Toolbar-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="636dp"
-        android:text="Find Journey to Castle "
-        android:textColor="@color/white"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625" />
+        android:padding="10dp"
+        app:navigationIcon="@drawable/ic_back_arrow">
 
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="630dp"
-        android:background="@drawable/ic_back_arrow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.375"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.363" />
+        <!--        The headline of this page, and set it up in center-->
+        <TextView
+            android:id="@+id/headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Find Journey to Castle"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/textViewFrom"
-        android:layout_width="372dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginBottom="499dp"
-        android:background="@drawable/view_rectangle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0" />
+    </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/line1"
-        android:layout_width="1dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/view_line"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewFrom"
-        app:layout_constraintStart_toStartOf="@+id/textViewFrom"
-        app:layout_constraintTop_toTopOf="@+id/textViewFrom" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
 
-    <TextView
-        android:id="@+id/line2"
-        android:layout_width="320dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/view_line"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewFrom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textViewFrom"
-        app:layout_constraintTop_toTopOf="@+id/textViewFrom"
-        app:layout_constraintVertical_bias="0.0" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/bus"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="7dp"
-        android:src="@drawable/ic_bus_1"
-        app:layout_constraintEnd_toStartOf="@+id/line1"
-        app:layout_constraintStart_toStartOf="@+id/textViewFrom"
-        app:layout_constraintTop_toTopOf="@+id/textViewFrom" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/view_rectangle"
+                android:orientation="horizontal"
+                android:padding="10dp">
 
-    <ImageView
-        android:id="@+id/location"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginBottom="18dp"
-        android:src="@drawable/ic_location"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewFrom"
-        app:layout_constraintStart_toStartOf="@+id/textViewFrom" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textFrom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="298dp"
-        android:text="From"
-        android:textStyle="bold"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewFrom"
-        app:layout_constraintStart_toStartOf="@+id/textViewFrom"
-        app:layout_constraintTop_toTopOf="@+id/textViewFrom" />
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_bus_1" />
 
-    <TextView
-        android:id="@+id/textTo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="313dp"
-        android:text="To"
-        android:textStyle="bold"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewFrom"
-        app:layout_constraintStart_toStartOf="@+id/textViewFrom"
-        app:layout_constraintTop_toTopOf="@+id/textViewFrom" />
+                    <TextView
+                        android:layout_width="2dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/line_dotted" />
 
-    <TextView
-        android:id="@+id/insertBusStop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="17dp"
-        android:text="[Insert bus stop]"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/line2"
-        app:layout_constraintEnd_toEndOf="@+id/textViewFrom"
-        app:layout_constraintStart_toStartOf="@+id/textViewFrom"
-        app:layout_constraintTop_toBottomOf="@+id/textFrom" />
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_location" />
 
-    <TextView
-        android:id="@+id/insertCastle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="14dp"
-        android:text="[Insert castle]"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewFrom"
-        app:layout_constraintEnd_toEndOf="@+id/textViewFrom"
-        app:layout_constraintStart_toStartOf="@+id/textViewFrom"
-        app:layout_constraintTop_toBottomOf="@+id/textTo" />
+                </LinearLayout>
 
-    <TextView
-        android:id="@+id/departureDate"
-        android:layout_width="367dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/view_rectangle"
-        app:layout_constraintBottom_toTopOf="@+id/passengers"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFrom"
-        app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/view_line" />
 
-    <TextView
-        android:id="@+id/dateSelection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="260dp"
-        android:text="Departure Date"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/datePickerButton"
-        app:layout_constraintEnd_toEndOf="@+id/departureDate"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="@+id/departureDate"
-        app:layout_constraintTop_toTopOf="@+id/departureDate"
-        app:layout_constraintVertical_bias="1.0" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="99"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/datePickerButton"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="169dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="198dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="#e6e6e6"
-        android:onClick="openDatePicker"
-        android:shadowColor="#e6e6e6"
-        android:text="Select date"
-        android:textSize="14sp"
-        android:textAlignment="viewStart"
-        android:textColor="#1c4698"
-        android:hint="Select date"
-        app:layout_constraintBottom_toBottomOf="@+id/departureDate"
-        app:layout_constraintEnd_toEndOf="@+id/departureDate"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/departureDate"
-        app:layout_constraintTop_toTopOf="@+id/departureDate"
-        app:layout_constraintVertical_bias="1.0" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="From"
+                        android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/timeSection"
-        android:layout_width="367dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/view_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/departureDate" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="[Insert bus stop]"
+                        android:textStyle="bold" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/view_line" />
 
-    <TextView
-        android:id="@+id/timer"
-        android:layout_width="140dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="212dp"
-        android:hint="Select time"
-        android:text="Select time"
-        android:textAlignment="viewStart"
-        android:textColor="#1c4698"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/timeSection"
-        app:layout_constraintStart_toStartOf="@+id/timeSection"
-        app:layout_constraintTop_toBottomOf="@+id/departureTime" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="To"
+                        android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/departureTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="252dp"
-        android:layout_marginBottom="48dp"
-        android:text="Departure Time"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/timeSection"
-        app:layout_constraintEnd_toEndOf="@+id/timeSection"
-        app:layout_constraintStart_toStartOf="@+id/timeSection"
-        app:layout_constraintTop_toTopOf="@+id/timeSection"
-        app:layout_constraintVertical_bias="0.0" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="[Insert castle]"
+                        android:textStyle="bold" />
 
+                </LinearLayout>
 
-    <TextView
-        android:id="@+id/passengers"
-        android:layout_width="365dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="17dp"
-        android:background="@drawable/view_rectangle"
-        app:layout_constraintBottom_toTopOf="@+id/forcastle2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeSection" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/ticketSelection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="276dp"
-        android:text="Passengers"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Adult"
-        app:layout_constraintEnd_toEndOf="@+id/passengers"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/passengers"
-        app:layout_constraintTop_toTopOf="@+id/passengers"
-        app:layout_constraintVertical_bias="0.0" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/view_rectangle"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Departure Date" />
+
+                <Button
+                    android:id="@+id/datePickerButton"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="openDatePicker"
+                    android:text="Select date"
+                    android:textColor="#1c4698" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/view_rectangle"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Departure Time" />
+
+                <TextView
+                    android:id="@+id/timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SELECT TIME"
+                    android:textColor="#1c4698"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/view_rectangle"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Passengers" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Adult" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="16+ years"
+                            android:textSize="11sp"
+                            android:textStyle="italic" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/minus2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:onClick="decrement1"
+                            android:src="@drawable/ic_minus_2" />
+
+                        <TextView
+                            android:id="@+id/adultTickets"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="1"
+                            android:textColor="#073590"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/add1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:onClick="increment1"
+                            android:src="@drawable/ic_add_1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Child" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2-15 years"
+                            android:textSize="11sp"
+                            android:textStyle="italic" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/childMinus2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:onClick="decrement2"
+                            android:src="@drawable/ic_minus_2" />
+
+                        <TextView
+                            android:id="@+id/childTickets"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="0"
+                            android:textColor="#073590"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/childAdd1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:onClick="increment2"
+                            android:src="@drawable/ic_add_1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="By clicking Let's go I agree to " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="App Terms of Use"
+                    android:textColor="#1245aa"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/logo_blue" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/forcastle"
+                    android:backgroundTint="#1245aa" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <Button
         android:id="@+id/bookTripButton"
-        android:layout_width="190dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="#24cd85"
-        android:text="Book a trip"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passengers"
-        app:layout_constraintVertical_bias="1.0" />
+        android:text="book a trip" />
 
-    <TextView
-        android:id="@+id/Adult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="314dp"
-        android:text="Adult"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/passengers"
-        app:layout_constraintStart_toStartOf="@+id/passengers"
-        app:layout_constraintTop_toTopOf="@+id/passengers" />
-
-    <TextView
-        android:id="@+id/adultDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginBottom="13dp"
-        android:text="16+ years"
-        android:textSize="10sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/Child"
-        app:layout_constraintStart_toStartOf="@+id/passengers"
-        app:layout_constraintTop_toTopOf="@+id/passengers" />
-
-
-    <TextView
-        android:id="@+id/Child"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="316dp"
-        android:text=" Child"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/passengers"
-        app:layout_constraintStart_toStartOf="@+id/passengers"
-        app:layout_constraintTop_toTopOf="@+id/passengers" />
-
-    <TextView
-        android:id="@+id/childDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginBottom="18dp"
-        android:text="2-15 years"
-        android:textSize="10sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/passengers"
-        app:layout_constraintStart_toStartOf="@+id/passengers"
-        app:layout_constraintTop_toTopOf="@+id/passengers"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="46dp"
-        android:layout_height="74dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/logo_blue"
-        app:layout_constraintBottom_toTopOf="@+id/bookTripButton"
-        app:layout_constraintEnd_toStartOf="@+id/forcastle2" />
-
-    <ImageView
-        android:id="@+id/forcastle2"
-        android:layout_width="141dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginBottom="33dp"
-        android:background="@drawable/forcastle"
-        android:backgroundTint="#1245aa"
-        app:layout_constraintBottom_toTopOf="@+id/bookTripButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passengers" />
-
-    <ImageView
-        android:id="@+id/add1"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="28dp"
-        android:onClick="increment1"
-        android:src="@drawable/ic_add_1"
-        app:layout_constraintEnd_toEndOf="@+id/passengers"
-        app:layout_constraintTop_toTopOf="@+id/passengers" />
-
-    <TextView
-        android:id="@+id/adultTickets"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="14dp"
-        android:text="1"
-        android:textColor="#073590"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/add1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/minus2"
-        app:layout_constraintTop_toTopOf="@+id/passengers" />
-
-    <ImageView
-        android:id="@+id/minus2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="28dp"
-        android:onClick="decrement1"
-        android:src="@drawable/ic_minus_2"
-        app:layout_constraintStart_toEndOf="@+id/Adult"
-        app:layout_constraintTop_toTopOf="@+id/passengers" />
-
-    <ImageView
-        android:id="@+id/childAdd1"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="17dp"
-        android:onClick="increment2"
-        android:src="@drawable/ic_add_1"
-        app:layout_constraintBottom_toBottomOf="@+id/passengers"
-        app:layout_constraintEnd_toEndOf="@+id/passengers" />
-
-    <TextView
-        android:id="@+id/childTickets"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="16dp"
-        android:text="0"
-        android:textColor="#073590"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/passengers"
-        app:layout_constraintEnd_toStartOf="@+id/childAdd1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/childMinus2" />
-
-    <ImageView
-        android:id="@+id/childMinus2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginBottom="16dp"
-        android:onClick="decrement2"
-        android:src="@drawable/ic_minus_2"
-        app:layout_constraintBottom_toBottomOf="@+id/passengers"
-        app:layout_constraintStart_toEndOf="@+id/Child" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
