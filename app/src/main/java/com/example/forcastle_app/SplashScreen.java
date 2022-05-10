@@ -6,6 +6,9 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/*
+Code implemented by Eugenia Vuong
+ */
 public class SplashScreen extends AppCompatActivity {
     private static final int splashPageTimeout = 2000;
 
