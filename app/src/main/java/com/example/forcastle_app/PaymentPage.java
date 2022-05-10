@@ -2,11 +2,11 @@ package com.example.forcastle_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
@@ -19,7 +19,8 @@ Code implemented by Eugenia Vuong, Zheng Yang, & Harry Smith
 public class PaymentPage extends AppCompatActivity {
 
     TextView details1, details2;
-    Button backPayment, payButton;
+    Button payButton;
+    Toolbar backPayment;
     static String anchor;
 
     @Override
@@ -43,50 +44,35 @@ public class PaymentPage extends AppCompatActivity {
 
 
         // add in if statement to send it to correct details page if journey is direct or 1 change
-        details1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                anchor = "1";
-                Intent intent = new Intent(PaymentPage.this, BoundDetails.class);
-                startActivity(intent);
-            }
+        details1.setOnClickListener(view -> {
+            anchor = "1";
+            Intent intent = new Intent(PaymentPage.this, BoundDetails.class);
+            startActivity(intent);
         });
 
-        details2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                anchor = "2";
-                Intent intent = new Intent(PaymentPage.this, BoundDetails.class);
-                startActivity(intent);
-            }
+        details2.setOnClickListener(view -> {
+            anchor = "2";
+            Intent intent = new Intent(PaymentPage.this, BoundDetails.class);
+            startActivity(intent);
         });
 
-        /*
-        The method below should be uncommented once this code has been integrated with all the pages.
-        the ClickListener will allow the backToTimeSelection() method to run (commented method below)
-         */
-        backPayment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PaymentPage.this, BoundPage.class);
-                startActivity(intent);
-            }
+        backPayment.setOnClickListener(view -> {
+            Intent intent = new Intent(PaymentPage.this, BoundPage.class);
+            startActivity(intent);
         });
 
-        payButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PaymentPage.this, ConfirmationPage.class);
-                startActivity(intent);
-            }
+        payButton.setOnClickListener(view -> {
+            Intent intent = new Intent(PaymentPage.this, ConfirmationPage.class);
+            startActivity(intent);
         });
     }
 
     public void setViews() {
         details1 = findViewById(R.id.details1);
         details2 = findViewById(R.id.details2);
-        backPayment = findViewById(R.id.back_payment);
+        backPayment = findViewById(R.id.toolbar);
         payButton = findViewById(R.id.payButton);
+
 
         //setting TextViews to user chosen journey data
         ((TextView) findViewById(R.id.JourneyFrom1)).setText(BusJourney.getDepartureStationOut1());
@@ -107,10 +93,9 @@ public class PaymentPage extends AppCompatActivity {
         String adultPrice = "£" + String.format(Locale.UK, "%.2f", totalAdultPrice);
         String childPrice = "£" + String.format(Locale.UK, "%.2f", totalChildPrice);
         String totalPrice = "£" + String.format(Locale.UK, "%.2f", overallPrice);
-        ((TextView) findViewById(R.id.totalAdultPrice)).setText(adultPrice);
-        ((TextView) findViewById(R.id.totalChildPrice)).setText(childPrice);
-        ((TextView) findViewById(R.id.totalOverallPrice)).setText(totalPrice);
+        ((TextView) findViewById(R.id.adultPrice)).setText(adultPrice);
+        ((TextView) findViewById(R.id.childPrice)).setText(childPrice);
+        ((TextView) findViewById(R.id.totalPrice)).setText(totalPrice);
         ((TextView) findViewById(R.id.priceFinal)).setText(totalPrice);
-
     }
 }

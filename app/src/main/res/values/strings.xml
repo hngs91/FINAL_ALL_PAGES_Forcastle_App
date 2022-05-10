@@ -88,4 +88,11 @@
     <string name="outbound">Select outbound</string>
     <string name="inbound">Select inbound</string>
     <string name="find_journey_to_castle">Find Journey to Castle</string>
+
+    <!--    confirmationPage-->
+    <string name="alnwick">Alnwick</string>
+    <string name="auckland">Auckland</string>
+    <string name="bamburgh">Bamburgh</string>
+    <string name="barnard">Barnard</string>
+
 </resources>

@@ -80,7 +80,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/alnwick" />
+                                android:src="@drawable/home_alnwick" />
 
                             <RadioButton
                                 android:id="@+id/radioButton1"
@@ -91,6 +91,7 @@
                                 android:layoutDirection="rtl"
                                 android:text="Alnwick\nCastle"
                                 android:textColor="#6f15e7"
+                                android:buttonTint="#2d1056"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -114,7 +115,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/auckland" />
+                                android:src="@drawable/home_auckland" />
 
                             <RadioButton
                                 android:id="@+id/radioButton2"
@@ -125,6 +126,7 @@
                                 android:layoutDirection="rtl"
                                 android:text="Auckland\nCastle"
                                 android:textColor="#6f15e7"
+                                android:buttonTint="#2d1056"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -157,7 +159,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/bamburgh" />
+                                android:src="@drawable/home_bamburgh" />
 
                             <RadioButton
                                 android:id="@+id/radioButton3"
@@ -168,6 +170,7 @@
                                 android:layoutDirection="rtl"
                                 android:text="Bamburgh\nCastle"
                                 android:textColor="#6f15e7"
+                                android:buttonTint="#2d1056"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -190,7 +193,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:adjustViewBounds="true"
-                                android:src="@drawable/barnard" />
+                                android:src="@drawable/home_barnard" />
 
                             <RadioButton
                                 android:id="@+id/radioButton4"
@@ -201,6 +204,7 @@
                                 android:layoutDirection="rtl"
                                 android:text="Barnard\nCastle"
                                 android:textColor="#6f15e7"
+                                android:buttonTint="#2d1056"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 

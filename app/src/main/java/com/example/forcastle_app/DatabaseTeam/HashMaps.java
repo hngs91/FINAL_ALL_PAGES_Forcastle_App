@@ -7,7 +7,7 @@ Code implemented by Harry Smith
  */
 public class HashMaps {
 
-    private static HashMap<String, String> busNo, operators, returnJourney, station, directChange;
+    private static HashMap<String, String> busNo, operators, returnJourney, station, directChange, castleName;
     private static HashMap<String, Integer> journeyTimes;
     private static HashMap<String, Double> adultPrice, childPrice;
 
@@ -25,6 +25,16 @@ public class HashMaps {
         buildDirectChange();
         buildAdultPrice();
         buildChildPrice();
+        buildCastleName();
+    }
+
+    public static void buildCastleName() {
+        castleName = new HashMap<>();
+
+        castleName.put("NCALN", "Alnwick Castle");
+        castleName.put("NCBAM1", "Bamburgh Castle");
+        castleName.put("NCBAR1", "Barnard Castle");
+        castleName.put("NCAUK", "Aukland Castle");
     }
 
     public static void buildChildPrice() {
@@ -178,5 +188,9 @@ public class HashMaps {
 
     public static HashMap<String, Double> getChildPrice() {
         return childPrice;
+    }
+
+    public static HashMap<String, String> getCastleName() {
+        return castleName;
     }
 }

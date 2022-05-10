@@ -2,15 +2,14 @@ package com.example.forcastle_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
+
 /*
 Code implemented by Eugenia Vuong, Zheng Yang, & Harry Smith
  */
@@ -40,58 +39,44 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        radioButton2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    radioButton1.setChecked(false);
-                    radioButton2.setChecked(true);
-                    radioButton3.setChecked(false);
-                    radioButton4.setChecked(false);
+        radioButton2.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                radioButton1.setChecked(false);
+                radioButton2.setChecked(true);
+                radioButton3.setChecked(false);
+                radioButton4.setChecked(false);
 
-                    //creates busJourney object with relevant journey code(s)
-                    BusJourney.buildBusJourney("NCAUK", "");
-                }
+                //creates busJourney object with relevant journey code(s)
+                BusJourney.buildBusJourney("NCAUK", "");
             }
         });
 
-        radioButton3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    radioButton1.setChecked(false);
-                    radioButton2.setChecked(false);
-                    radioButton3.setChecked(true);
-                    radioButton4.setChecked(false);
+        radioButton3.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                radioButton1.setChecked(false);
+                radioButton2.setChecked(false);
+                radioButton3.setChecked(true);
+                radioButton4.setChecked(false);
 
-                    //creates busJourney object with relevant journey code(s)
-                    BusJourney.buildBusJourney("NCBAM1", "NCBAM2");
-                }
+                //creates busJourney object with relevant journey code(s)
+                BusJourney.buildBusJourney("NCBAM1", "NCBAM2");
             }
         });
 
-        radioButton4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    radioButton1.setChecked(false);
-                    radioButton2.setChecked(false);
-                    radioButton3.setChecked(false);
-                    radioButton4.setChecked(true);
+        radioButton4.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                radioButton1.setChecked(false);
+                radioButton2.setChecked(false);
+                radioButton3.setChecked(false);
+                radioButton4.setChecked(true);
 
-                    //creates busJourney object with relevant journey code(s)
-                    BusJourney.buildBusJourney("NCBAR1", "NCBAR2");
-                }
+                //creates busJourney object with relevant journey code(s)
+                BusJourney.buildBusJourney("NCBAR1", "NCBAR2");
             }
         });
 
         /* This method confirms the users selection and directs them to the next page */
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity2();
-            }
-        });
+        submit.setOnClickListener(v -> openActivity2());
 
     }
 

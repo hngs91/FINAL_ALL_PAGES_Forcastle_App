@@ -14,6 +14,7 @@ import com.example.forcastle_app.DatabaseTeam.DataBaseHelper;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /*
 Code implemented by Zheng Yang & Harry Smith
@@ -230,6 +231,25 @@ public class BoundPage extends AppCompatActivity {
     }
 
     public void setViews() {
+        //sets departure, destination, date, & bus ticket prices based on data chosen by user
+        ((TextView) findViewById(R.id.departureStation)).setText(BusJourney.getDepartureStationOut1());
+        ((TextView) findViewById(R.id.arrivalStation)).setText(BusJourney.getArrivalStationOut1());
+        ((TextView) findViewById(R.id.dayOfJourney)).setText(BusJourney.getTravelDate());
+
+        String adultPriceText = "£" + String.format(Locale.UK, "%.2f", BusJourney.getAdultBusPrice()) + " Adult";
+        ((TextView) findViewById(R.id.busAdultPrice1)).setText(adultPriceText);
+        ((TextView) findViewById(R.id.busAdultPrice2)).setText(adultPriceText);
+        ((TextView) findViewById(R.id.busAdultPrice3)).setText(adultPriceText);
+        ((TextView) findViewById(R.id.busAdultPrice4)).setText(adultPriceText);
+        ((TextView) findViewById(R.id.busAdultPrice5)).setText(adultPriceText);
+
+        String childPriceText = "£" + String.format(Locale.UK, "%.2f", BusJourney.getChildBusPrice()) + " Child";
+        ((TextView) findViewById(R.id.busChildPrice1)).setText(childPriceText);
+        ((TextView) findViewById(R.id.busChildPrice2)).setText(childPriceText);
+        ((TextView) findViewById(R.id.busChildPrice3)).setText(childPriceText);
+        ((TextView) findViewById(R.id.busChildPrice4)).setText(childPriceText);
+        ((TextView) findViewById(R.id.busChildPrice5)).setText(childPriceText);
+
         outbound_toolbar = findViewById(R.id.outbound_toolbar);
         headline = findViewById(R.id.headline);
 
@@ -238,45 +258,6 @@ public class BoundPage extends AppCompatActivity {
         timeCard3 = findViewById(R.id.timeCard3);
         timeCard4 = findViewById(R.id.timeCard4);
         timeCard5 = findViewById(R.id.timeCard5);
-
-        //sets departure, destination, date, & bus ticket prices based on data chosen by user
-        ((TextView) findViewById(R.id.departureStation)).setText(BusJourney.getDepartureStationOut1());
-        ((TextView) findViewById(R.id.arrivalStation)).setText(BusJourney.getArrivalStationOut1());
-        ((TextView) findViewById(R.id.dayOfJourney)).setText(BusJourney.getTravelDate());
-
-        /**
-         * ASK ZHENG & GEENIE ANY BETTER WAY TO DO THE BELOW
-         */
-        ArrayList<TextView> busTicketAdultPrices = new ArrayList<TextView>() {
-            {
-                add(findViewById(R.id.busAdultPrice1));
-                add(findViewById(R.id.busAdultPrice2));
-                add(findViewById(R.id.busAdultPrice3));
-                add(findViewById(R.id.busAdultPrice4));
-                add(findViewById(R.id.busAdultPrice5));
-            }
-        };
-
-        for (TextView tv : busTicketAdultPrices) {
-            String adult = "£" + BusJourney.getAdultBusPrice() + "0 (Adult)";
-            tv.setText(adult);
-        }
-
-        ArrayList<TextView> busTicketChildPrices = new ArrayList<TextView>() {
-            {
-                add(findViewById(R.id.busChildPrice1));
-                add(findViewById(R.id.busChildPrice2));
-                add(findViewById(R.id.busChildPrice3));
-                add(findViewById(R.id.busChildPrice4));
-                add(findViewById(R.id.busChildPrice5));
-            }
-        };
-
-        for (TextView tv : busTicketChildPrices) {
-            String adult = "£" + BusJourney.getChildBusPrice() + "0 (Child)";
-            tv.setText(adult);
-        }
-
 
         buyButton1 = findViewById(R.id.buyButton1);
         buyButton2 = findViewById(R.id.buyButton2);

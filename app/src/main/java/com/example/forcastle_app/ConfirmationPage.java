@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,13 +23,17 @@ import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
 import java.util.Locale;
 
 /*
-Code implemented by Eugenia Vuong
+Code implemented by Eugenia Vuong, Zheng Yang & Harry Smith
  */
 public class ConfirmationPage extends AppCompatActivity {
 
     ImageView iv_map;
+    TextView castle;
     EditText email;
     Button sendReceipt, backConfirmation;
+    double totalPrice = BusJourney.getNoAdultTickets() * (BusJourney.getAdultBusPrice() + BusJourney.getAdultCastlePrice()) +
+            BusJourney.getNoChildTickets() * (BusJourney.getChildBusPrice() + BusJourney.getChildCastlePrice());
+    String totalPricePrintOut = "Total Price £" + String.format(Locale.UK, "%.2f", totalPrice);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,34 +44,30 @@ public class ConfirmationPage extends AppCompatActivity {
 
         RelativeLayout rlMap = findViewById(R.id.rl_map);
 
-        iv_map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (BusJourney.getJourneyCode1().equals("NCALN"))
-                    gotoUrl("https://www.google.co.uk/maps/dir/Alnwick+Bus+station,+Alnwick/Alnwick+Castle,+Alnwick+NE66+1NQ/@55.4141255,-1.7103555,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487e00de03bf75c1:0xe85d13952387d595!2m2!1d-1.7092082!2d55.4129015!1m5!1m1!1s0x487e00e0ed23bc0d:0x8783a98b290f641!2m2!1d-1.7059204!2d55.4155828!3e2 ");
-                if (BusJourney.getJourneyCode1().equals("NCAUK"))
-                    gotoUrl("https://www.google.co.uk/maps/dir/Bus+Station,+Bishop+Auckland/Auckland+Castle,+Market+Place,+Bishop+Auckland/@54.6654783,-1.6768747,17z/data=!4m14!4m13!1m5!1m1!1s0x487e823f6558141d:0xeacebd659320be06!2m2!1d-1.678785!2d54.664406!1m5!1m1!1s0x487e82382c8ee3d3:0xe85f1ebcc3cbec00!2m2!1d-1.670153!2d54.666712!3e2");
-                if (BusJourney.getJourneyCode1().equals("NCBAM1"))
-                    gotoUrl("https://www.google.co.uk/maps/dir/The+Grove,+Bamburgh/Bamburgh+Castle,+Bamburgh/@55.6085361,-1.7149435,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x4880acff36c2244f:0x572764b0cc4ef936!2m2!1d-1.717214!2d55.607479!1m5!1m1!1s0x4880aea65a02c42f:0xfc42605b9141c368!2m2!1d-1.7099001!2d55.6089596!3e2");
-                if (BusJourney.getJourneyCode1().equals("NCBAR1"))
-                    gotoUrl("https://www.google.co.uk/maps/dir/Galgate+-+Stand+A,+Barnard+Castle+DL12+8EQ/Barnard+Castle,+Flatts+Rd,+Scar+Top,+Barnard+Castle+DL12+8PR/@54.5441297,-1.9274279,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487c3b2c0acc98ad:0x655beee2e8d95f71!2m2!1d-1.924357!2d54.544777!1m5!1m1!1s0x487c3b2b9aeef005:0x8b39ac97907547bc!2m2!1d-1.9261214!2d54.5434564!3e2");
-            }
+        if ("1".equals(HomePage.selectedCastle)) {
+            iv_map.setImageResource(R.drawable.map_alnwick);
+            castle.setText(R.string.alnwick);
+            iv_map.setOnClickListener(view -> gotoUrl("https://www.google.co.uk/maps/dir/Alnwick+Bus+station,+Alnwick/Alnwick+Castle,+Alnwick+NE66+1NQ/@55.4141255,-1.7103555,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487e00de03bf75c1:0xe85d13952387d595!2m2!1d-1.7092082!2d55.4129015!1m5!1m1!1s0x487e00e0ed23bc0d:0x8783a98b290f641!2m2!1d-1.7059204!2d55.4155828!3e2 "));
+        } else if ("2".equals(HomePage.selectedCastle)) {
+            iv_map.setImageResource(R.drawable.map_auckland);
+            castle.setText(R.string.auckland);
+            iv_map.setOnClickListener(view -> gotoUrl("https://www.google.co.uk/maps/dir/Alnwick+Bus+station,+Alnwick/Alnwick+Castle,+Alnwick+NE66+1NQ/@55.4141255,-1.7103555,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487e00de03bf75c1:0xe85d13952387d595!2m2!1d-1.7092082!2d55.4129015!1m5!1m1!1s0x487e00e0ed23bc0d:0x8783a98b290f641!2m2!1d-1.7059204!2d55.4155828!3e2 "));
+        } else if ("3".equals(HomePage.selectedCastle)) {
+            iv_map.setImageResource(R.drawable.map_auckland);
+            castle.setText(R.string.bamburgh);
+            iv_map.setOnClickListener(view -> gotoUrl("https://www.google.co.uk/maps/dir/Alnwick+Bus+station,+Alnwick/Alnwick+Castle,+Alnwick+NE66+1NQ/@55.4141255,-1.7103555,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487e00de03bf75c1:0xe85d13952387d595!2m2!1d-1.7092082!2d55.4129015!1m5!1m1!1s0x487e00e0ed23bc0d:0x8783a98b290f641!2m2!1d-1.7059204!2d55.4155828!3e2 "));
+        } else if ("4".equals(HomePage.selectedCastle)) {
+            iv_map.setImageResource(R.drawable.map_auckland);
+            castle.setText(R.string.barnard);
+            iv_map.setOnClickListener(view -> gotoUrl("https://www.google.co.uk/maps/dir/Alnwick+Bus+station,+Alnwick/Alnwick+Castle,+Alnwick+NE66+1NQ/@55.4141255,-1.7103555,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487e00de03bf75c1:0xe85d13952387d595!2m2!1d-1.7092082!2d55.4129015!1m5!1m1!1s0x487e00e0ed23bc0d:0x8783a98b290f641!2m2!1d-1.7059204!2d55.4155828!3e2 "));
+        }
+
+        backConfirmation.setOnClickListener(view -> {
+            Intent intent = new Intent(ConfirmationPage.this, PaymentPage.class);
+            startActivity(intent);
         });
 
-        backConfirmation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ConfirmationPage.this, PaymentPage.class);
-                startActivity(intent);
-            }
-        });
-
-        sendReceipt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendEmail();
-            }
-        });
+        sendReceipt.setOnClickListener(view -> sendEmail());
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.map);
 
@@ -98,27 +97,52 @@ public class ConfirmationPage extends AppCompatActivity {
     private void sendEmail() {
         String mEmail = email.getText().toString();
         String mSubject = "Forcastle Journey Receipt";
-        String mMessage = "Thank you for using the Forcastle app! \n" +
-                "Booking reference: " + "829394 \n" +
+        String mMessageDirect = "Thank you for using the Forcastle app! \n" +
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                "Outbound: " + "Newcastle " + "to " + "Alnwick\n" +
-                "Departs: " + "12:00" + "at" + "Eldon Square\n" +
-                "Bus service: " + "307\n" +
-                "------------------------------------\n" +
-                "Inbound: " + "Alnwick " + "to " + "Newcastle\n" +
-                "Departs: " + "18:00" + "at" + "Alnwick\n" +
-                "Bus service: " + "307\n";
+                "Outbound: " + "Newcastle" + " to " + BusJourney.getCastleName() + "\n" +
+                "Departs: " + BusJourney.getOutboundTime1() + " from " + BusJourney.getDepartureStationOut1() + "\n" +
+                "Bus service: " + BusJourney.getBusNo1() + "\n"+
+                "-------------------------------------\n" +
+                "Inbound: " + BusJourney.getCastleName() + " to " + "Newcastle\n" +
+                "Departs: " + BusJourney.getInboundTime1() + " at " + BusJourney.getDepartureStationIn1() + "\n" +
+                "Bus service: " + BusJourney.getBusNo1() + "\n" +
+                "-------------------------------------\n" +
+                "Total PriceL " + totalPricePrintOut;
 
-        JavaMailAPI javaMailAPI = new JavaMailAPI(this, mEmail, mSubject, mMessage);
+        String mMessageChange = "Thank you for using the Forcastle app! \n" +
+                "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                "Outbound: " + "Newcastle" + " to " + BusJourney.getCastleName() + "\n" +
+                "Departs: " + BusJourney.getOutboundTime1() + " from " + BusJourney.getDepartureStationOut1() + "\n" +
+                "Bus service: " + BusJourney.getBusNo1() + " and " + BusJourney.getBusNo2() + "\n"+
+                "-------------------------------------\n" +
+                "Inbound: " + BusJourney.getCastleName() + " to " + "Newcastle\n" +
+                "Departs: " + BusJourney.getInboundTime1() + "at" + BusJourney.getDepartureStationIn1() + "\n" +
+                "Bus service: " + BusJourney.getBusNo2() + " and " + BusJourney.getBusNo1() + "\n" +
+                "-------------------------------------\n" +
+                "Total Price " + totalPricePrintOut;
+
+
+        String emailSent;
+        if(BusJourney.getDirectChange().equals("Direct")) {
+            emailSent = mMessageDirect;
+        } else {
+            emailSent = mMessageChange;
+        }
+
+        JavaMailAPI javaMailAPI = new JavaMailAPI(this, mEmail, mSubject, emailSent);
 
         javaMailAPI.execute();
+
+        Toast.makeText(this, "Please check your inbox for your itinerary", Toast.LENGTH_LONG).show();
     }
 
     public void setViews() {
         iv_map = findViewById(R.id.iv_map);
+        castle = findViewById(R.id.castle);
         email = findViewById(R.id.email);
         sendReceipt = findViewById(R.id.sendReceipt);
         backConfirmation = findViewById(R.id.back_confirmation);
+
 
         ((TextView) findViewById(R.id.outboundStation1)).setText(BusJourney.getDepartureStationOut1());
         ((TextView) findViewById(R.id.outboundTime1)).setText(BusJourney.getOutboundTime1());
@@ -131,9 +155,6 @@ public class ConfirmationPage extends AppCompatActivity {
         ((TextView) findViewById(R.id.numberOfTickets)).setText((totalTicketsString));
 
         // calculating & setting total price
-        double totalPrice = BusJourney.getNoAdultTickets() * (BusJourney.getAdultBusPrice() + BusJourney.getAdultCastlePrice()) +
-                BusJourney.getNoChildTickets() * (BusJourney.getChildBusPrice() + BusJourney.getChildCastlePrice());
-        String totalPricePrintOut = "Total Price £" + String.format(Locale.UK, "%.2f", totalPrice);
         ((TextView) findViewById(R.id.totalOverallPrice)).setText(totalPricePrintOut);
         ((TextView) findViewById(R.id.inboundTime1)).setText(BusJourney.getInboundTime1());
         ((TextView) findViewById(R.id.inboundArrivalTime1)).setText(TimeDateFormatters.timeFormat(BusJourney.getArrivalTimeIn()));

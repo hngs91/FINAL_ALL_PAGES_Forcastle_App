@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
 /*
 Code implemented by Harry Smith
  */
@@ -24,7 +25,8 @@ public class BusJourney {
             travelDate,
             travelTime1, travelTime2,
             directChange,
-            changeWaitOut, changeWaitIn;
+            changeWaitOut, changeWaitIn,
+            castleName;
     private static int hour, minute, totalTime,
             arrivalTimeOut, arrivalTimeIn,
             noAdultTickets, noChildTickets;
@@ -60,7 +62,6 @@ public class BusJourney {
         } else {
             journeyDurationTotalMinutes2 = 0;
         }
-        //TimeDateFormatters.durationFormat(journeyDurationTotalMinutes1);
 
         directChange = HashMaps.getDirectChange().get(journey1);
 
@@ -78,6 +79,8 @@ public class BusJourney {
 
         adultBusPrice = HashMaps.getAdultPrice().get(journey1);
         childBusPrice = HashMaps.getChildPrice().get(journey1);
+
+        castleName = HashMaps.getCastleName().get(journey1);
     }
 
     /****************** GETTERS & SETTERS **************************/
@@ -293,7 +296,6 @@ public class BusJourney {
         BusJourney.outboundTime2 = outboundTime2;
     }
 
-
     public static String getInboundTime1() {
         return inboundTime1;
     }
@@ -334,16 +336,8 @@ public class BusJourney {
         return adultBusPrice;
     }
 
-    public static void setAdultBusPrice(double adultBusPrice) {
-        BusJourney.adultBusPrice = adultBusPrice;
-    }
-
     public static double getChildBusPrice() {
         return childBusPrice;
-    }
-
-    public static void setChildBusPrice(double childBusPrice) {
-        BusJourney.childBusPrice = childBusPrice;
     }
 
     public static double getAdultCastlePrice() {
@@ -360,5 +354,9 @@ public class BusJourney {
 
     public static void setChildCastlePrice(double childCastlePrice) {
         BusJourney.childCastlePrice = childCastlePrice;
+    }
+
+    public static String getCastleName() {
+        return castleName;
     }
 }
