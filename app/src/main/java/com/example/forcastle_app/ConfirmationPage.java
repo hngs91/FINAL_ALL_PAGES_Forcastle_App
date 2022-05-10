@@ -145,9 +145,9 @@ public class ConfirmationPage extends AppCompatActivity {
         } else {
             ((TextView) findViewById(R.id.outboundArrivalStation1)).setText(BusJourney.getArrivalStationOut1());
             ((TextView) findViewById(R.id.inboundStation1)).setText(BusJourney.getArrivalStationOut1());
-            String buses = BusJourney.getBusNo1() + " -> " + BusJourney.getBusNo2();
+            String buses = BusJourney.getBusNo1() + "\n" + BusJourney.getBusNo2();
             ((TextView) findViewById(R.id.busNumber)).setText(buses);
-            String operators = BusJourney.getOperator1() + " -> " + BusJourney.getOperator2();
+            String operators = BusJourney.getOperator1() + "\n " + BusJourney.getOperator2();
             ((TextView) findViewById(R.id.operator)).setText(operators);
         }
     }
