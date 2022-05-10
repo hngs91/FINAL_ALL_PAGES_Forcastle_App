@@ -36,8 +36,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/view_rectangle2">
+            android:background="@drawable/view_rectangle"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -165,14 +165,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="Departure Time"
-                    />
+                    android:text="Departure Time" />
 
                 <TextView
                     android:id="@+id/timer"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="?android:attr/borderlessButtonStyle"
                     android:text="SELECT TIME"
                     android:textColor="#1c4698"
                     android:textStyle="bold" />
@@ -320,43 +319,50 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="0dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="46dp"
-                    android:layout_height="46dp"
+                    android:layout_height="74dp"
                     android:layout_marginEnd="4dp"
+
                     android:adjustViewBounds="true"
-                    android:backgroundTint="@color/white"
-                    android:background="@drawable/logo_blue" />
+                    android:src="@drawable/logo_blue" />
 
                 <ImageView
                     android:layout_width="141dp"
                     android:layout_height="26dp"
                     android:adjustViewBounds="true"
-                    android:background="@drawable/forcastle" />
+                    android:background="@drawable/forcastle"
+                    android:backgroundTint="#1245aa" />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/bookTripButton"
+                android:layout_width="286dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/view_button_background"
+                android:backgroundTint="#24cd85"
+                android:text="book a trip"
+                android:layout_gravity="center"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/bookTripButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="#24cd85"
-        android:text="book a trip" />
+
 
 </LinearLayout>
