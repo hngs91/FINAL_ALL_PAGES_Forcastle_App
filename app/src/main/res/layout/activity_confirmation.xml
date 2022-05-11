@@ -20,22 +20,24 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="16dp">
 
                 <Button
                     android:id="@+id/back_confirmation"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/back"
+                    android:background="@drawable/cross"
+                    android:backgroundTint="@color/white"
                     android:padding="12dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:fontFamily="@font/tajawal"
                     android:text="Confirmation"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
+                    android:textSize="26dp"
                     android:textStyle="bold" />
             </RelativeLayout>
 
