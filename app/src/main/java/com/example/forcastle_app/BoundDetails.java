@@ -27,14 +27,14 @@ public class BoundDetails extends AppCompatActivity {
         setViews();
 
         // PaymentPage.anchor controls if details for the outbound journey or inbound journey will be shown to the user
-        if ("1".equals(PaymentPage.anchor)) {
+        if ("1".equals(OrderDetails.anchor)) {
             populatingOutboundDetails();
         } else {
             populatingInboundDetails();
         }
 
         cross.setOnClickListener(view -> {
-            Intent i = new Intent(BoundDetails.this, PaymentPage.class);
+            Intent i = new Intent(BoundDetails.this, OrderDetails.class);
             startActivity(i);
         });
     }
