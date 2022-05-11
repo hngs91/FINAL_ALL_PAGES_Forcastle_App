@@ -58,11 +58,11 @@ public class ConfirmationPage extends AppCompatActivity {
             castle.setText(R.string.auckland);
             iv_map.setOnClickListener(view -> gotoUrl("https://www.google.co.uk/maps/dir/Bus+Station,+Bishop+Auckland/Auckland+Castle,+Market+Place,+Bishop+Auckland/@54.6654783,-1.6768747,17z/data=!4m14!4m13!1m5!1m1!1s0x487e823f6558141d:0xeacebd659320be06!2m2!1d-1.678785!2d54.664406!1m5!1m1!1s0x487e82382c8ee3d3:0xe85f1ebcc3cbec00!2m2!1d-1.670153!2d54.666712!3e2"));
         } else if ("3".equals(HomePage.selectedCastle)) {
-            iv_map.setImageResource(R.drawable.map_auckland);
+            iv_map.setImageResource(R.drawable.map_bamburgh);
             castle.setText(R.string.bamburgh);
             iv_map.setOnClickListener(view -> gotoUrl("https://www.google.co.uk/maps/dir/The+Grove,+Bamburgh/Bamburgh+Castle,+Bamburgh/@55.6085361,-1.7149435,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x4880acff36c2244f:0x572764b0cc4ef936!2m2!1d-1.717214!2d55.607479!1m5!1m1!1s0x4880aea65a02c42f:0xfc42605b9141c368!2m2!1d-1.7099001!2d55.6089596!3e2"));
         } else if ("4".equals(HomePage.selectedCastle)) {
-            iv_map.setImageResource(R.drawable.map_auckland);
+            iv_map.setImageResource(R.drawable.map_barnard);
             castle.setText(R.string.barnard);
             iv_map.setOnClickListener(view -> gotoUrl("https://www.google.co.uk/maps/dir/Galgate+-+Stand+A,+Barnard+Castle+DL12+8EQ/Barnard+Castle,+Flatts+Rd,+Scar+Top,+Barnard+Castle+DL12+8PR/@54.5441297,-1.9274279,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x487c3b2c0acc98ad:0x655beee2e8d95f71!2m2!1d-1.924357!2d54.544777!1m5!1m1!1s0x487c3b2b9aeef005:0x8b39ac97907547bc!2m2!1d-1.9261214!2d54.5434564!3e2"));
         }
