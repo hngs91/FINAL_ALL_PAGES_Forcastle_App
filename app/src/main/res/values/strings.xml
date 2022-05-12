@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Forcastle_App</string>
+    <string name="app_name">Forcastle</string>
     <!--alnwick castle part-->
     <string name="alnwick_castle">Alnwick Castle</string>
     <string name="alnwick_intro">Alnwick Castle,in Northumberland, UK, has been home to the Percy family for over 700 years as a film location for Harry Potter and Downton Abbey.</string>

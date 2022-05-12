@@ -12,15 +12,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import com.example.forcastle_app.DatabaseTeam.BusJourney;
 import com.example.forcastle_app.DatabaseTeam.TimeDateFormatters;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 /*
 Code implemented by Eugenia Vuong & Harry Smith
@@ -36,28 +40,54 @@ public class FilterPage extends AppCompatActivity {
     Boolean timerClicked = false;
     Boolean dateClicked = false;
     static String anchor; // used to dictate if the Bound page shows outbound or inbound bus times to the user
+    String todaysDate, dateSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter_page);
         anchor = "1";
+
+        //finds today's date in the format necessary to be compared in the method which allows users to interact with the time select
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        month = month + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        todaysDate = day + "/" + month + "/" + year;
+        dateSelected = todaysDate; // default selected date is today's date
+
         initDatePicker();
 
         setViews();
 
         // Dictates the behaviour of the time selection option on the page
         timer.setOnClickListener(view -> {
-            timerClicked = true;
-
-            // current time sort here and pass into constructor below
-
-            // stop the user going in back in time, but only on todays date
 
             TimePickerDialog timePickerDialog = new TimePickerDialog(
                     FilterPage.this,
                     android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                     (timePicker, hourOfDay, minute) -> {
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.UK);
+
+                        try {
+                            //checks if the date selected is after the current date
+                            if (!Objects.equals(sdf.parse(dateSelected), sdf.parse(todaysDate))) {
+                                timerClicked = true;
+                            } else {
+                                //if date selected is the current date then checks if time selected is before current time.
+                                //if time selected before current time prompts user to pick another time
+                                if (hourOfDay <= cal.get(Calendar.HOUR_OF_DAY) && minute < cal.get(Calendar.MINUTE)) {
+                                    Toast.makeText(this, "Past selected time, please pick another time", Toast.LENGTH_SHORT).show();
+                                    timerClicked = false;
+                                } else {
+                                    timerClicked = true;
+                                }
+                            }
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
                         //initialise hour and minutes
                         tHour = hourOfDay;
                         tMinute = minute;
@@ -133,6 +163,7 @@ public class FilterPage extends AppCompatActivity {
             BusJourney.setPartOfWeek(day + "/" + month + "/" + year);
             BusJourney.setTravelDate(day, month, year);
             String date = makeDateString(day, month, year);
+            dateSelected = day + "/" + month + "/" + year;
             dateButton.setText(date);
         };
         Calendar cal = Calendar.getInstance();
@@ -142,8 +173,6 @@ public class FilterPage extends AppCompatActivity {
 
         int style = AlertDialog.THEME_HOLO_LIGHT;
         datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
-
-
     }
 
     //prints the date in the format of DAY MONTH YEAR
@@ -156,8 +185,8 @@ public class FilterPage extends AppCompatActivity {
     }
 
     //Tells the user when they have reached their maximum of five total tickets
-    public void totalTicketCheck(){
-        if(count1 + count2 >= 5) {
+    public void totalTicketCheck() {
+        if (count1 + count2 >= 5) {
             Toast.makeText(this, "Maximum of five tickets only", Toast.LENGTH_SHORT).show();
         }
     }
