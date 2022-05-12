@@ -35,13 +35,13 @@ public class FilterPage extends AppCompatActivity {
     DatePickerDialog datePickerDialog;
     Boolean timerClicked = false;
     Boolean dateClicked = false;
-    static String anchor = "1"; // used to dictate if the Bound page shows outbound or inbound bus times to the user
+    static String anchor; // used to dictate if the Bound page shows outbound or inbound bus times to the user
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter_page);
-
+        anchor = "1";
         initDatePicker();
 
         setViews();
@@ -49,6 +49,11 @@ public class FilterPage extends AppCompatActivity {
         // Dictates the behaviour of the time selection option on the page
         timer.setOnClickListener(view -> {
             timerClicked = true;
+
+            // current time sort here and pass into constructor below
+
+            // stop the user going in back in time, but only on todays date
+
             TimePickerDialog timePickerDialog = new TimePickerDialog(
                     FilterPage.this,
                     android.R.style.Theme_Holo_Light_Dialog_MinWidth,
