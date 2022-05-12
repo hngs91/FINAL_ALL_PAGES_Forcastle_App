@@ -13,7 +13,7 @@ import java.util.Locale;
 /*
 Code implemented by Eugenia Vuong, Zheng Yang, & Harry Smith
  */
-public class PaymentPage extends AppCompatActivity {
+public class OrderDetails extends AppCompatActivity {
 
     TextView details1, details2;
     Button payButton;
@@ -23,7 +23,7 @@ public class PaymentPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment_page);
+        setContentView(R.layout.activity_order_details);
 
         setViews();
 
@@ -44,25 +44,25 @@ public class PaymentPage extends AppCompatActivity {
         // the value of the anchor dictates if outbound journey details are shown or inbound journey details are shown
         details1.setOnClickListener(view -> {
             anchor = "1";
-            Intent intent = new Intent(PaymentPage.this, BoundDetails.class);
+            Intent intent = new Intent(OrderDetails.this, BoundDetails.class);
             startActivity(intent);
         });
 
         details2.setOnClickListener(view -> {
             anchor = "2";
-            Intent intent = new Intent(PaymentPage.this, BoundDetails.class);
+            Intent intent = new Intent(OrderDetails.this, BoundDetails.class);
             startActivity(intent);
         });
 
         // allows users to navigate back to the outbound bus times page
         backPayment.setOnClickListener(view -> {
-            Intent intent = new Intent(PaymentPage.this, BoundPage.class);
+            Intent intent = new Intent(OrderDetails.this, BoundPage.class);
             startActivity(intent);
         });
 
         // allows users to continue to the Confirmation page
         payButton.setOnClickListener(view -> {
-            Intent intent = new Intent(PaymentPage.this, ConfirmationPage.class);
+            Intent intent = new Intent(OrderDetails.this, ConfirmationPage.class);
             startActivity(intent);
         });
     }

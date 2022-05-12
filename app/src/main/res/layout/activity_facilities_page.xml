@@ -90,7 +90,6 @@
                     <!--                    the sequence of this and last textview couldn't change-->
                     <!--                    otherwise the divide line will cover on this text view-->
                     <TextView
-                        android:id="@+id/ticket_headline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"

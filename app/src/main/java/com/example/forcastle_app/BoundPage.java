@@ -115,7 +115,7 @@ public class BoundPage extends AppCompatActivity {
                     int changeWaitTime = waitChangeTimes.get(1) - waitChangeTimes.get(0);
                     BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
                 }
-                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                Intent intent = new Intent(BoundPage.this, OrderDetails.class);
                 startActivity(intent);
             }
         });
@@ -145,7 +145,7 @@ public class BoundPage extends AppCompatActivity {
                     int changeWaitTime = waitChangeTimes.get(3) - waitChangeTimes.get(2);
                     BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
                 }
-                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                Intent intent = new Intent(BoundPage.this, OrderDetails.class);
                 startActivity(intent);
             }
         });
@@ -175,7 +175,7 @@ public class BoundPage extends AppCompatActivity {
                     int changeWaitTime = waitChangeTimes.get(5) - waitChangeTimes.get(4);
                     BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
                 }
-                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                Intent intent = new Intent(BoundPage.this, OrderDetails.class);
                 startActivity(intent);
             }
         });
@@ -205,7 +205,7 @@ public class BoundPage extends AppCompatActivity {
                     int changeWaitTime = waitChangeTimes.get(7) - waitChangeTimes.get(6);
                     BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
                 }
-                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                Intent intent = new Intent(BoundPage.this, OrderDetails.class);
                 startActivity(intent);
             }
         });
@@ -235,7 +235,7 @@ public class BoundPage extends AppCompatActivity {
                     int changeWaitTime = waitChangeTimes.get(9) - waitChangeTimes.get(8);
                     BusJourney.setChangeWaitIn(TimeDateFormatters.durationFormat(changeWaitTime));
                 }
-                Intent intent = new Intent(BoundPage.this, PaymentPage.class);
+                Intent intent = new Intent(BoundPage.this, OrderDetails.class);
                 startActivity(intent);
             }
         });
