@@ -150,6 +150,13 @@ public class FilterPage extends AppCompatActivity {
         datePickerDialog.show();
     }
 
+    //Tells the user when they have reached their maximum of five total tickets
+    public void totalTicketCheck(){
+        if(count1 + count2 >= 5) {
+            Toast.makeText(this, "Maximum of five tickets only", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     //Increments adult ticket number
     public void increment1(View v) {
         if (count1 + count2 < 5) { //5 = capacity
@@ -157,6 +164,7 @@ public class FilterPage extends AppCompatActivity {
             minus2.setImageResource(R.drawable.ic_minus_1);
         }
         value1.setText("" + count1);
+        totalTicketCheck();
     }
 
     //decrements ticket number
@@ -175,6 +183,7 @@ public class FilterPage extends AppCompatActivity {
             childMinus2.setImageResource(R.drawable.ic_minus_1);
         }
         value2.setText("" + count2);
+        totalTicketCheck();
     }
 
     //decrements child ticket number
